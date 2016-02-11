@@ -1,0 +1,13 @@
+{
+  "name": "angular-movies",
+  "description": "A starter project for AngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adrianhdezm/angular-movies",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "html5-boilerplate": "~5.2.0"
+  }
+}
