@@ -1,0 +1,71 @@
+{
+  "id": "771029672",
+  "title": "Pride and Prejudice and Zombies",
+  "year": 2016,
+  "mpaa_rating": "PG-13",
+  "runtime": 100,
+  "critics_consensus": "",
+  "release_dates": {
+    "theater": "2016-02-05"
+  },
+  "ratings": {
+    "critics_rating": "Rotten",
+    "critics_score": 45,
+    "audience_rating": "Upright",
+    "audience_score": 60
+  },
+  "synopsis": "A zombie outbreak has fallen upon the land in Jane Austen's classic tale of the tangled relationships between lovers from different social classes in 19th century England. Feisty heroine Elizabeth Bennet (Lily James) is a master of martial arts and weaponry and the handsome Mr. Darcy (Sam Reilly) is a fierce zombie killer, yet the epitome of upper class prejudice. As the zombie outbreak intensifies, they must swallow their pride and join forces on the blood-soaked battlefield.",
+  "posters": {
+    "thumbnail": "http://resizing.flixster.com/vxQrAFC56HDrkHMGqa5jpz-uqxc=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/45/25/11452529_ori.jpg",
+    "profile": "http://resizing.flixster.com/vxQrAFC56HDrkHMGqa5jpz-uqxc=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/45/25/11452529_ori.jpg",
+    "detailed": "http://resizing.flixster.com/vxQrAFC56HDrkHMGqa5jpz-uqxc=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/45/25/11452529_ori.jpg",
+    "original": "http://resizing.flixster.com/vxQrAFC56HDrkHMGqa5jpz-uqxc=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/45/25/11452529_ori.jpg"
+  },
+  "abridged_cast": [
+    {
+      "name": "Lily James",
+      "id": "771402472",
+      "characters": [
+        "Elizabeth Bennet"
+      ]
+    },
+    {
+      "name": "Lena Headey",
+      "id": "162653508",
+      "characters": [
+        "Lady Catherine de Bourgh"
+      ]
+    },
+    {
+      "name": "Jack Huston",
+      "id": "770679146",
+      "characters": [
+        "Mr. Wickham"
+      ]
+    },
+    {
+      "name": "Douglas Booth",
+      "id": "771375144",
+      "characters": [
+        "Mr. Bingley"
+      ]
+    },
+    {
+      "name": "Matt Smith (XI)",
+      "id": "770773984",
+      "characters": [
+        "Mr. Collins"
+      ]
+    }
+  ],
+  "alternate_ids": {
+    "imdb": "1374989"
+  },
+  "links": {
+    "self": "//api.rottentomatoes.com/api/public/v1.0/movies/771029672.json",
+    "alternate": "//www.rottentomatoes.com/m/pride_and_prejudice_and_zombies/",
+    "cast": "//api.rottentomatoes.com/api/public/v1.0/movies/771029672/cast.json",
+    "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771029672/reviews.json",
+    "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771029672/similar.json"
+  }
+}

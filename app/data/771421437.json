@@ -1,0 +1,68 @@
+{
+  "id": "771421437",
+  "title": "13 Hours: The Secret Soldiers Of Benghazi",
+  "year": 2016,
+  "mpaa_rating": "R",
+  "runtime": 144,
+  "critics_consensus": "",
+  "release_dates": {
+    "theater": "2016-01-15"
+  },
+  "ratings": {
+    "critics_rating": "Rotten",
+    "critics_score": 54,
+    "audience_rating": "Upright",
+    "audience_score": 87
+  },
+  "synopsis": "Based on the book 13 Hours: The Inside Account of What Really Happened in Benghazi.",
+  "posters": {
+    "thumbnail": "http://resizing.flixster.com/uKqObrUM5lxw7CA9pxud294cDbQ=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420915_ori.jpg",
+    "profile": "http://resizing.flixster.com/uKqObrUM5lxw7CA9pxud294cDbQ=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420915_ori.jpg",
+    "detailed": "http://resizing.flixster.com/uKqObrUM5lxw7CA9pxud294cDbQ=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420915_ori.jpg",
+    "original": "http://resizing.flixster.com/uKqObrUM5lxw7CA9pxud294cDbQ=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420915_ori.jpg"
+  },
+  "abridged_cast": [
+    {
+      "name": "John Krasinski",
+      "id": "625475404",
+      "characters": [
+        "Jack"
+      ]
+    },
+    {
+      "name": "James Badge Dale",
+      "id": "359854267",
+      "characters": [
+        "Rone"
+      ]
+    },
+    {
+      "name": "Pablo Schreiber",
+      "id": "162654181",
+      "characters": [
+        "Tanto"
+      ]
+    },
+    {
+      "name": "Max Martini",
+      "id": "770679954",
+      "characters": [
+        "Oz"
+      ]
+    },
+    {
+      "name": "Toby Stephens",
+      "id": "326396405",
+      "characters": [
+        "Glen 'Bub' Doherty"
+      ]
+    }
+  ],
+  "links": {
+    "self": "//api.rottentomatoes.com/api/public/v1.0/movies/771421437.json",
+    "alternate": "//www.rottentomatoes.com/m/13_hours_the_secret_soldiers_of_benghazi/",
+    "cast": "//api.rottentomatoes.com/api/public/v1.0/movies/771421437/cast.json",
+    "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771421437/reviews.json",
+    "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771421437/similar.json"
+  }
+}

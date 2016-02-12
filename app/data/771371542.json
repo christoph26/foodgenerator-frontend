@@ -1,0 +1,71 @@
+{
+  "id": "771371542",
+  "title": "Daddy's Home",
+  "year": 2015,
+  "mpaa_rating": "PG-13",
+  "runtime": 96,
+  "critics_consensus": "",
+  "release_dates": {
+    "theater": "2015-12-25"
+  },
+  "ratings": {
+    "critics_rating": "Rotten",
+    "critics_score": 31,
+    "audience_rating": "Spilled",
+    "audience_score": 58
+  },
+  "synopsis": "An affable radio executive finds himself competing for the affections of his step-children following the unexpected reappearance of his wife's ex-husband in this Paramount Pictures comedy. ~ Jason Buchanan, Rovi",
+  "posters": {
+    "thumbnail": "http://resizing.flixster.com/iitHdC6r9E9HNfs4sldZBrL_j7o=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/34/44/11344427_ori.jpg",
+    "profile": "http://resizing.flixster.com/iitHdC6r9E9HNfs4sldZBrL_j7o=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/34/44/11344427_ori.jpg",
+    "detailed": "http://resizing.flixster.com/iitHdC6r9E9HNfs4sldZBrL_j7o=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/34/44/11344427_ori.jpg",
+    "original": "http://resizing.flixster.com/iitHdC6r9E9HNfs4sldZBrL_j7o=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/34/44/11344427_ori.jpg"
+  },
+  "abridged_cast": [
+    {
+      "name": "Will Ferrell",
+      "id": "162652185",
+      "characters": [
+        "Brad"
+      ]
+    },
+    {
+      "name": "Mark Wahlberg",
+      "id": "162653181",
+      "characters": [
+        "Dusty"
+      ]
+    },
+    {
+      "name": "Linda Cardellini",
+      "id": "162667559",
+      "characters": [
+        "Sarah"
+      ]
+    },
+    {
+      "name": "Thomas Haden Church",
+      "id": "162683650",
+      "characters": [
+        "Leo"
+      ]
+    },
+    {
+      "name": "Hannibal Buress",
+      "id": "771078420",
+      "characters": [
+        "Griff"
+      ]
+    }
+  ],
+  "alternate_ids": {
+    "imdb": "1528854"
+  },
+  "links": {
+    "self": "//api.rottentomatoes.com/api/public/v1.0/movies/771371542.json",
+    "alternate": "//www.rottentomatoes.com/m/daddys_home_2014/",
+    "cast": "//api.rottentomatoes.com/api/public/v1.0/movies/771371542/cast.json",
+    "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771371542/reviews.json",
+    "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771371542/similar.json"
+  }
+}

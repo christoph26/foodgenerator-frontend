@@ -1,0 +1,67 @@
+{
+  "id": "771414396",
+  "title": "The Boy",
+  "year": 2016,
+  "mpaa_rating": "PG-13",
+  "runtime": 97,
+  "release_dates": {
+    "theater": "2016-01-22"
+  },
+  "ratings": {
+    "critics_rating": "Rotten",
+    "critics_score": 29,
+    "audience_rating": "Spilled",
+    "audience_score": 46
+  },
+  "synopsis": "The Boy is a frightening thrill ride directed by William Brent Bell (The Devil Inside) starring Lauren Cohan (\"The Walking Dead\"). Greta (Cohan) is a young American woman who takes a job as a nanny in a remote English village, only to discover that the family's 8-year-old is a life-sized doll that the parents care for just like a real boy, as a way to cope with the death of their actual son 20 years prior. After violating a list of strict rules, a series of disturbing and inexplicable events bring Greta's worst nightmare to life, leading her to believe that the doll is actually alive.",
+  "posters": {
+    "thumbnail": "http://resizing.flixster.com/Kh_QIoCKWORpM2s9cnfaT1JnO8Y=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420910_ori.jpg",
+    "profile": "http://resizing.flixster.com/Kh_QIoCKWORpM2s9cnfaT1JnO8Y=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420910_ori.jpg",
+    "detailed": "http://resizing.flixster.com/Kh_QIoCKWORpM2s9cnfaT1JnO8Y=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420910_ori.jpg",
+    "original": "http://resizing.flixster.com/Kh_QIoCKWORpM2s9cnfaT1JnO8Y=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/42/09/11420910_ori.jpg"
+  },
+  "abridged_cast": [
+    {
+      "name": "Lauren Cohan",
+      "id": "723599362",
+      "characters": [
+        "Greta"
+      ]
+    },
+    {
+      "name": "Rupert Evans",
+      "id": "770721594",
+      "characters": [
+        "Malcolm"
+      ]
+    },
+    {
+      "name": "Jim Norton",
+      "id": "364618732",
+      "characters": [
+        "Mr. Heelshire"
+      ]
+    },
+    {
+      "name": "Diana Hardcastle",
+      "id": "364643881",
+      "characters": [
+        "Mrs. Heelshire"
+      ]
+    },
+    {
+      "name": "Ben Robson",
+      "id": "771746369",
+      "characters": [
+        "Cole"
+      ]
+    }
+  ],
+  "links": {
+    "self": "//api.rottentomatoes.com/api/public/v1.0/movies/771414396.json",
+    "alternate": "//www.rottentomatoes.com/m/the_boy/",
+    "cast": "//api.rottentomatoes.com/api/public/v1.0/movies/771414396/cast.json",
+    "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771414396/reviews.json",
+    "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771414396/similar.json"
+  }
+}

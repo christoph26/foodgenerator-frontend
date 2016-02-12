@@ -1,0 +1,71 @@
+{
+  "id": "771377488",
+  "title": "The Big Short",
+  "year": 2015,
+  "mpaa_rating": "R",
+  "runtime": 130,
+  "critics_consensus": "",
+  "release_dates": {
+    "theater": "2015-12-23"
+  },
+  "ratings": {
+    "critics_rating": "Certified Fresh",
+    "critics_score": 88,
+    "audience_rating": "Upright",
+    "audience_score": 89
+  },
+  "synopsis": "Writer/director Adam McKay joins forces with Paramount Pictures and Plan B Entertainment to adapt Michael Lewis' best-seller The Big Short: Inside the Doomsday Machine, which centers on the housing a credit bubble of the 2000s. ~ Jason Buchanan, Rovi",
+  "posters": {
+    "thumbnail": "http://resizing.flixster.com/UQnw5x1s6G1JaNZi0lcjh58WLxY=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/70/11207068_ori.jpg",
+    "profile": "http://resizing.flixster.com/UQnw5x1s6G1JaNZi0lcjh58WLxY=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/70/11207068_ori.jpg",
+    "detailed": "http://resizing.flixster.com/UQnw5x1s6G1JaNZi0lcjh58WLxY=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/70/11207068_ori.jpg",
+    "original": "http://resizing.flixster.com/UQnw5x1s6G1JaNZi0lcjh58WLxY=/52x81/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/70/11207068_ori.jpg"
+  },
+  "abridged_cast": [
+    {
+      "name": "Christian Bale",
+      "id": "162652645",
+      "characters": [
+        "Michael Burry"
+      ]
+    },
+    {
+      "name": "Steve Carell",
+      "id": "162652665",
+      "characters": [
+        "Mark Baum"
+      ]
+    },
+    {
+      "name": "Ryan Gosling",
+      "id": "162654751",
+      "characters": [
+        "Jared Vennett"
+      ]
+    },
+    {
+      "name": "Brad Pitt",
+      "id": "162652627",
+      "characters": [
+        "Ben Rickert"
+      ]
+    },
+    {
+      "name": "Karen Gillan",
+      "id": "770875036",
+      "characters": [
+        "Evie"
+      ]
+    }
+  ],
+  "alternate_ids": {
+    "imdb": "3622082"
+  },
+  "links": {
+    "self": "//api.rottentomatoes.com/api/public/v1.0/movies/771377488.json",
+    "alternate": "//www.rottentomatoes.com/m/the_big_short/",
+    "cast": "//api.rottentomatoes.com/api/public/v1.0/movies/771377488/cast.json",
+    "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771377488/reviews.json",
+    "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771377488/similar.json"
+  }
+}

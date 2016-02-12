@@ -1,0 +1,71 @@
+{
+  "id": "771321699",
+  "title": "Star Wars: Episode VII - The Force Awakens",
+  "year": 2015,
+  "mpaa_rating": "PG-13",
+  "runtime": 136,
+  "critics_consensus": "",
+  "release_dates": {
+    "theater": "2015-12-18"
+  },
+  "ratings": {
+    "critics_rating": "Certified Fresh",
+    "critics_score": 92,
+    "audience_rating": "Upright",
+    "audience_score": 90
+  },
+  "synopsis": "The Star Wars saga continues with this seventh entry -- the first under the Walt Disney Co. umbrella. The film will act as the start of a new trilogy set after the events of Return of the Jedi. J.J. Abrams directs from a script by Michael Arndt. ~ Jeremy Wheeler, Rovi",
+  "posters": {
+    "thumbnail": "http://resizing.flixster.com/6xF9PyshnlqT6g4OU9xVQFLnr9g=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/33/11203306_ori.jpg",
+    "profile": "http://resizing.flixster.com/6xF9PyshnlqT6g4OU9xVQFLnr9g=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/33/11203306_ori.jpg",
+    "detailed": "http://resizing.flixster.com/6xF9PyshnlqT6g4OU9xVQFLnr9g=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/33/11203306_ori.jpg",
+    "original": "http://resizing.flixster.com/6xF9PyshnlqT6g4OU9xVQFLnr9g=/54x80/dkpu1ddg7pbsk.cloudfront.net/movie/11/20/33/11203306_ori.jpg"
+  },
+  "abridged_cast": [
+    {
+      "name": "Harrison Ford",
+      "id": "162661579",
+      "characters": [
+        "Han Solo"
+      ]
+    },
+    {
+      "name": "Mark Hamill",
+      "id": "162665747",
+      "characters": [
+        "Luke Skywalker"
+      ]
+    },
+    {
+      "name": "Carrie Fisher",
+      "id": "162663355",
+      "characters": [
+        "Princess Leia"
+      ]
+    },
+    {
+      "name": "Peter Mayhew",
+      "id": "425838884",
+      "characters": [
+        "Chewbacca"
+      ]
+    },
+    {
+      "name": "Kenny Baker",
+      "id": "418638213",
+      "characters": [
+        "R2-D2"
+      ]
+    }
+  ],
+  "alternate_ids": {
+    "imdb": "2488496"
+  },
+  "links": {
+    "self": "//api.rottentomatoes.com/api/public/v1.0/movies/771321699.json",
+    "alternate": "//www.rottentomatoes.com/m/star_wars_episode_vii_the_force_awakens/",
+    "cast": "//api.rottentomatoes.com/api/public/v1.0/movies/771321699/cast.json",
+    "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771321699/reviews.json",
+    "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771321699/similar.json"
+  }
+}
