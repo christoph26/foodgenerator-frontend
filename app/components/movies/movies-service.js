@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.movies.movies-service', ['ngResource'])
+angular.module('myApp.moviesService', ['ngResource'])
 
     .factory('movieService', ['$resource', function($resource) {
 
