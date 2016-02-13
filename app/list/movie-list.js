@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.movieList', ['ngRoute','myApp.movies'])
+angular.module('myApp.movieList', ['ngRoute','myApp.movies','myApp.movieCard'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/movies', {

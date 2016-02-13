@@ -1,6 +1,6 @@
 
-<ul>
-    <li ng-repeat="movie in movies">
-        <a href="#/movies/{{movie.id}}">{{movie.title}}</a>
-    </li>
-</ul>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--3-col" ng-repeat="movie in movies">
+        <movie-card movie="movie"></movie-card>
+    </div>
+</div>
