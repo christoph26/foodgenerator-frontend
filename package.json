@@ -10,11 +10,11 @@
     "http-server": "^0.6.1"
   },
   "scripts": {
-
     "postinstall": "bower install",
-
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1"
-
-   }
+  },
+  "dependencies": {
+    "dialog-polyfill": "^0.4.3"
+  }
 }

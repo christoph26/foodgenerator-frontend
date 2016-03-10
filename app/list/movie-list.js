@@ -3,6 +3,7 @@
 angular.module('myApp.movieList', ['ngRoute','myApp.movieCard','myApp.movies','myApp.breadcrumbs'])
 
     .config(['$routeProvider', function($routeProvider) {
+
         $routeProvider.when('/movies', {
             templateUrl: 'list/movie-list.html',
             controller: 'MovieListCtrl',
@@ -10,7 +11,6 @@ angular.module('myApp.movieList', ['ngRoute','myApp.movieCard','myApp.movies','m
                 movies: function(movieService,currentMovie){
 
                     currentMovie.set(null);
-
                     return movieService.query();
                 }
             }

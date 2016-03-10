@@ -2,10 +2,10 @@
 
 angular.module('myApp.moviesService', ['ngResource'])
 
-    .factory('movieService', ['$resource', function($resource) {
+    .factory('movieService', ['$http', '$resource', function($http, $resource) {
+        return $resource('http://localhost:3000/api/movies/:movieId', {}, {
 
-        return $resource('data/:movieId.json', {}, {
-            query: {method:'GET', params:{movieId:'movies'}, isArray:true}
         });
+
 
     }]);

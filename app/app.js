@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', ['ngRoute', 'myApp.movieDetail', 'myApp.movieList', 'myApp.breadcrumbs'])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider) {
 
         $routeProvider.otherwise({redirectTo: '/movies'});
 
