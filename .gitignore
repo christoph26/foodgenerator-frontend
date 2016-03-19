@@ -7,9 +7,11 @@ npm-debug.log*
 
 # generated files
 
+/app/sass/libs/
 /public/js/app.js
 /public/js/templates.js
 /public/libs/
+/public/css/
 
 # MacOS X temp files
 *~
