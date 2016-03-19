@@ -5,7 +5,7 @@ angular.module('myApp.movieList', ['ngRoute','myApp.movieCard','myApp.movies','m
     .config(['$routeProvider', function($routeProvider) {
 
         $routeProvider.when('/movies', {
-            templateUrl: 'list/movie-list.html',
+            templateUrl: 'views/list/movie-list.html',
             controller: 'MovieListCtrl',
             resolve: {
                 movies: function(movieService,currentMovie){

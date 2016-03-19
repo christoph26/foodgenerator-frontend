@@ -1,20 +1,15 @@
-# Logs
-logs/*
-*.log
 npm-debug.log*
-
-# Runtime data
-pids
-*.pid
-*.seed
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
 
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules/
-bower_components/
+/node_modules/
+/bower_components/
+
+# generated files
+
+/public/js/app.js
+/public/js/templates.js
+/public/libs/
 
 # MacOS X temp files
 *~
@@ -25,4 +20,3 @@ bower_components/
 
 # Others
 !.gitkeep
-tmp

@@ -4,7 +4,7 @@ angular.module('myApp.movieDetail', ['ngRoute','myApp.movies','myApp.breadcrumbs
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/movies/:movieId', {
-            templateUrl: 'detail/movie-detail.html',
+            templateUrl: 'views/detail/movie-detail.html',
             controller: 'MovieDetailCtrl',
             resolve: {
                 movie: function($route, movieService,currentMovie){
