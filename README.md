@@ -29,9 +29,12 @@ Movies example application based on AngularJS. Backend can be found [here](https
 and important files
 
 ```javascript
-app/                // your angular app (js-files and html-templates)
--- components/      // your components (services, directives etc.)
--- views/           // your views. each view has it's own url
+app/                //your app
+-- ng/              // your angular app (js-files and html-templates)
+---- components/    // your components (services, directives etc.)
+---- views/         // your views. each view has it's own url
+-- sass/            //all scss files and libraries
+---- screen.scss    // your main scss file. this sould be the only non-partial file
 bower_components/   // bower components
 node_modules/       // npm modules
 public/             // this is the root of your (public) website. Do not put stuff there that is not intended for the client
@@ -39,7 +42,7 @@ public/             // this is the root of your (public) website. Do not put stu
 -- js/              // your js files
 ---- app.js         // your (minified and sourcemapped) angular app. Created from the files in your app/ firectory by gulp
 ---- templates.js   // your angular templates. Created by gulp
--- cs/              // css files
+-- cs/              // css files. created from your sass sources
 -- img/             // images
 -- libs             // third party libs
 gulpfile.js         // gulp task specifications
