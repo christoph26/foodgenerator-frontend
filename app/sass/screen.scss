@@ -1,7 +1,6 @@
-
-
-@import 'colors';
-@import 'layout';
+@import "custom_normalize.scss";
+@import 'vars/colors';
+@import 'inc/inc';
 
 //normalize
 @import 'libs/normalize-libsass/normalize.scss';

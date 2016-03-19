@@ -12,7 +12,13 @@ var clean = require('gulp-clean');
 
 
 gulp.task('sass', ['sass-libs-copy'], function () {
-    return gulp.src(['app/sass/**/*.scss', '!app/sass/libs/**/*'])
+    return gulp.src([
+        //usually only screen.scss
+        'app/sass/**/*.scss',
+        // no partials
+        "!app/sass/**/_*.scss",
+        //no libs
+        '!app/sass/libs/**/*'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.css'))
         .pipe(sass({
