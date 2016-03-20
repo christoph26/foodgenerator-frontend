@@ -1,36 +1,39 @@
 <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--3-col" ng-repeat="movie in movies">
-        <movie-card movie="movie"></movie-card>
-    </div>
+        <movie-card movie="movie" class="
+            movie-card
+            mdl-card
+            mdl-shadow--4dp
+            mdl-cell
+            mdl-cell--4-col" ng-repeat="movie in movies"></movie-card>
     <div class="mdl-cell mdl-cell--10-col">
     </div>
     <div class="mdl-cell mdl-cell--1-col">
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored show-modal">
             <i class="material-icons">add</i>
         </button>
-        <dialog class="mdl-dialog">
-            <div class="mdl-dialog__content">
-                <p>
-                    Allow this site to collect usage data to improve your experience?
-                </p>
-            </div>
-            <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-                <button type="button" class="mdl-button">Agree</button>
-                <button type="button" class="mdl-button close">Disagree</button>
-            </div>
-        </dialog>
-        <script>
-            var dialog = document.querySelector('dialog');
-            var showModalButton = document.querySelector('.show-modal');
-            if (! dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
-            }
-            showModalButton.addEventListener('click', function() {
-                dialog.showModal();
-            });
-            dialog.querySelector('.close').addEventListener('click', function() {
-                dialog.close();
-            });
-        </script>
+        <!--<dialog class="mdl-dialog">-->
+            <!--<div class="mdl-dialog__content">-->
+                <!--<p>-->
+                    <!--Allow this site to collect usage data to improve your experience?-->
+                <!--</p>-->
+            <!--</div>-->
+            <!--<div class="mdl-dialog__actions mdl-dialog__actions&#45;&#45;full-width">-->
+                <!--<button type="button" class="mdl-button">Agree</button>-->
+                <!--<button type="button" class="mdl-button close">Disagree</button>-->
+            <!--</div>-->
+        <!--</dialog>-->
+        <!--<script>-->
+            <!--var dialog = document.querySelector('dialog');-->
+            <!--var showModalButton = document.querySelector('.show-modal');-->
+            <!--if (! dialog.showModal) {-->
+                <!--dialogPolyfill.registerDialog(dialog);-->
+            <!--}-->
+            <!--showModalButton.addEventListener('click', function() {-->
+                <!--dialog.showModal();-->
+            <!--});-->
+            <!--dialog.querySelector('.close').addEventListener('click', function() {-->
+                <!--dialog.close();-->
+            <!--});-->
+        <!--</script>-->
     </div>
 </div>
