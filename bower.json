@@ -11,13 +11,12 @@
     "material-design-lite": "^1.1.1",
     "dialog-polyfill": "^0.4.3",
     "normalize-libsass": "^1.0.3",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "angular-utils-ui-breadcrumbs": "^0.2.2"
   },
   "overrides": {
-    "material-design-lite": {
-      "main": [
-        "material.min.js"
-      ]
+    "angular-utils-ui-breadcrumbs": {
+      "main": "uiBreadcrumbs.js"
     }
   }
 }

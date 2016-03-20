@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify')
 var ngAnnotate = require('gulp-ng-annotate')
 var sass = require('gulp-sass');
 var clean = require('gulp-clean');
+var filter = require('gulp-filter');
 
 
 
@@ -29,18 +30,17 @@ gulp.task('sass', ['sass-libs-copy'], function () {
 
 gulp.task('sass-libs-copy', function() {
     return gulp.src(["bower_components/**/*.scss",
-        "bower_components/**/*.css",
-        "bower_components/**/*.woff"])
+        "bower_components/**/*.css"])
         .pipe(gulp.dest('app/sass/libs'))
 });
 
 gulp.task('frontend-libs-copy', function() {
     var bower_files_dev =  mainBowerFiles();
     return gulp.src(bower_files_dev, { base: 'bower_components' })
+        //css and scss should be includes using sass
+        .pipe(filter(['**', '!**/*.css', '!**/*.scss']))
         .pipe(gulp.dest('./public/libs'))
 });
-
-
 
 gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning

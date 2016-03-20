@@ -29,6 +29,9 @@ angular.module('myApp.movies', ['ngResource', 'ui.router'])
             //            return contacts.all();
             //        }]
             //},
+            data: {
+                breadcrumbProxy: movieListState.name
+            }
 
         })
 

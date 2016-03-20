@@ -23,6 +23,9 @@ angular.module('myApp.movies')
                 allMovies: function (Movie) {
                     return Movie.query();
                 }
+            },
+            data: {
+                breadcrumbName: 'Movies'
             }
         }
 

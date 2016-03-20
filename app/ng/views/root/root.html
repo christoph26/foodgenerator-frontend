@@ -9,7 +9,12 @@
     <header class="movie-header mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <breadcrumbs></breadcrumbs>
+            <ui-breadcrumbs
+                    displayname-property="data.breadcrumbName"
+                    template-url="components/breadcrumbs/breadcrumbs.html"
+                    abstract-proxy-property="data.breadcrumbProxy"
+                    class="ui-breadcrumbs">
+            </ui-breadcrumbs>
         </div>
     </header>
 

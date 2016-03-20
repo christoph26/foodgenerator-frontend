@@ -14,6 +14,9 @@ angular.module('myApp.movies')
                         return movie;
                     }).$promise;
                 }
+            },
+            data: {
+                breadcrumbName: '{{movie.title}}'
             }
         }
     })

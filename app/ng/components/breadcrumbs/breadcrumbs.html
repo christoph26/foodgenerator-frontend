@@ -1,4 +1,9 @@
-<div class="breadcrumbs mdl-layout-title">
-    <a href="#/movies" class="breadcrumb">Movies</a><span ng-if="currentMovie"> > {{currentMovie.title}}</span>
-</div>
-
+<ol class="breadcrumbs  mdl-layout-title">
+    <li ng-repeat="crumb in breadcrumbs"
+        class="crumb">
+        <a ui-sref="{{ crumb.route }}" ng-if="!$last">
+            {{ crumb.displayName }}&nbsp;
+        </a>
+        <span ng-show="$last">{{ crumb.displayName }}</span>
+    </li>
+</ol>

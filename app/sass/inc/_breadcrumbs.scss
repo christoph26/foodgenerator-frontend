@@ -1,5 +1,18 @@
 .breadcrumbs {
-  .breadcrumb {
-    color: white;
-  }
+
+  list-style: none;
+
+  .crumb {
+
+      display: inline-block;
+
+      + :before {
+        content: ">";
+        padding: 0 5px;
+      }
+
+    }
 }
+
+
+
