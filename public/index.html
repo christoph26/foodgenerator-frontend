@@ -15,52 +15,18 @@
     <!-- for material-design-lite, font is not provieded in bower_components... -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--all styles-->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/screen.css">
 
 </head>
 <body>
 
-
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
-
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="movie-header mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <breadcrumbs></breadcrumbs>
-        </div>
-    </header>
-
-    <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here -->
-            <div ng-view></div>
-            <!--<dialog>-->
-                <!--I'm a dialog!-->
-                <!--<form method="dialog">-->
-                    <!--<input type="submit" value="Close" />-->
-                <!--</form>-->
-            <!--</dialog>-->
-            <!--<script>-->
-                <!--var dialog = document.querySelector('dialog');-->
-                <!--dialogPolyfill.registerDialog(dialog);-->
-                <!--// Now dialog acts like a native <dialog>.-->
-                <!--dialog.showModal();-->
-            <!--</script>-->
-        </div>
-    </main>
-</div>
-
-
+<div ui-view></div>
 
 
 
 <!--js libs-->
 <script src="libs/angular/angular.js"></script>
-<script src="libs/angular-route/angular-route.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="libs/angular-resource/angular-resource.js"></script>
 <script src="libs/material-design-lite/material.min.js"></script>
 <script src="libs/dialog-polyfill/dialog-polyfill.js"></script>

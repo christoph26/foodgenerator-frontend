@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.breadcrumbsDirective', ['myApp.breadcrumbsService'])
+angular.module('myApp')
 
     .directive('breadcrumbs', function(currentMovie) {
         return {

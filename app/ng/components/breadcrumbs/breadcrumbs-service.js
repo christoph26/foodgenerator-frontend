@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.breadcrumbsService', [])
+angular.module('myApp')
 
     .factory('currentMovie', ['$rootScope', function($rootScope) {
 

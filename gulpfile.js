@@ -20,7 +20,6 @@ gulp.task('sass', ['sass-libs-copy'], function () {
         //no libs
         '!app/sass/libs/**/*'])
         .pipe(sourcemaps.init())
-        .pipe(concat('app.css'))
         .pipe(sass({
             outputStyle: 'compressed',
         }).on('error', sass.logError))
@@ -44,12 +43,16 @@ gulp.task('frontend-libs-copy', function() {
 
 
 gulp.task('app-js', function () {
-    gulp.src(['app/ng/**/app.js', 'app/ng/**/*.js'])
-        .pipe(sourcemaps.init())
+    //first list files that define new modules. the module definitions must be at the beginning
+    gulp.src(['app/ng/**/app.js', 'app/ng/components/movies/movies.js', 'app/ng/**/*.js'])
+    /*
+    suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
+     */
+        //.pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
+        //.pipe(uglify())
+        //.pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/js'))
 })
 
@@ -68,7 +71,7 @@ gulp.task('watch', MAIN_TASKS, function () {
     gulp.watch('app/ng/**/*.js', ['app-js'])
     gulp.watch('app/ng/**/*.html', [ 'app-templates']);
     gulp.watch(['bower_components/**/*', 'bower.json'], [ 'frontend-libs-copy', 'sass-libs-copy']);
-    gulp.watch('app/sass/**/*.scss', [ 'sass']);
+    gulp.watch('app/sass/**/*.scss', ['sass']);
 })
 
 gulp.task('install', MAIN_TASKS);

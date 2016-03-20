@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.movieCardDirective', [])
+angular.module('myApp.movies')
 
     .directive('movieCard', function() {
         return {

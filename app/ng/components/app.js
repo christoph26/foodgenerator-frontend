@@ -1,10 +1,18 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', ['ngRoute', 'myApp.movieDetail', 'myApp.movieList', 'myApp.breadcrumbs', 'templates'])
+angular.module('myApp', ['ui.router', 'myApp.movies', 'templates'])
 
-    .config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider) {
+    .config(function($stateProvider, $urlRouterProvider) {
 
-        $routeProvider.otherwise({redirectTo: '/movies'});
+        // For any unmatched url, redirect to /movies
+        $urlRouterProvider.otherwise("/movies");
 
-    }]);
+
+        $stateProvider
+            .state('root', {
+
+                abstract: true,
+                templateUrl: "views/root/root.html",
+            })
+    });

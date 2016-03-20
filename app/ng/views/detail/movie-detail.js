@@ -1,21 +1,22 @@
 'use strict';
 
-angular.module('myApp.movieDetail', ['ngRoute','myApp.movies','myApp.breadcrumbs','myApp.movieDetails'])
+angular.module('myApp.movies')
 
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/movies/:movieId', {
+    .constant('movieDetailsState', {
+        name: 'movies.detail',
+        options: {
+            url: '/{movieId}',
             templateUrl: 'views/detail/movie-detail.html',
             controller: 'MovieDetailCtrl',
             resolve: {
-                movie: function($route, movieService,currentMovie){
-                    return movieService.get({movieId: $route.current.params.movieId}, function(movie) {
-                        currentMovie.set(movie);
-                    });
+                movie: function($stateParams, Movie){
+                    return Movie.get({movieId: $stateParams.movieId}, function(movie) {
+                        return movie;
+                    }).$promise;
                 }
             }
-        });
-    }])
-
+        }
+    })
     .controller('MovieDetailCtrl', ['$scope', 'movie', function($scope, movie) {
 
         $scope.movie = movie;

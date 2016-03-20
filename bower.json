@@ -7,11 +7,11 @@
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
     "angular-resource": "~1.4.0",
     "material-design-lite": "^1.1.1",
     "dialog-polyfill": "^0.4.3",
-    "normalize-libsass": "^1.0.3"
+    "normalize-libsass": "^1.0.3",
+    "angular-ui-router": "^0.2.18"
   },
   "overrides": {
     "material-design-lite": {

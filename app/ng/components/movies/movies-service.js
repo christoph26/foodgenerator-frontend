@@ -1,11 +1,8 @@
 'use strict';
 
-angular.module('myApp.moviesService', ['ngResource'])
+angular.module('myApp.movies')
 
-    .factory('movieService', ['$http', '$resource', function($http, $resource) {
-        return $resource('http://localhost:3000/api/movies/:movieId', {}, {
+    .factory('Movie', function( $resource) {
+        return $resource('http://localhost:3000/api/movies/:movieId');
 
-        });
-
-
-    }]);
+    });
