@@ -16,8 +16,13 @@ angular.module('myApp.movies')
             // template will be inserted into the ui-view within this state's
             // parent's template; so the ui-view within contacts.html. This is the
             // most important thing to remember about templates.
-            templateUrl: 'views/list/movie-list.html',
-            controller: 'MovieListCtrl',
+            views: {
+                'content@root': {
+                    templateUrl: 'views/list/movie-list.html',
+                    controller: 'MovieListCtrl',
+                }
+            },
+
 
             resolve: {
                 allMovies: function (Movie) {

@@ -4,7 +4,7 @@ angular.module('myApp.movies')
 
     .directive('movieCard', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             scope: {
                 movie: '='
             },

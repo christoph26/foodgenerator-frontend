@@ -4,36 +4,18 @@
 <![endif]-->
 
 
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="movie-header mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <ui-breadcrumbs
-                    displayname-property="data.breadcrumbName"
-                    template-url="components/breadcrumbs/breadcrumbs.html"
-                    abstract-proxy-property="data.breadcrumbProxy"
-                    class="ui-breadcrumbs">
-            </ui-breadcrumbs>
-        </div>
-    </header>
+<md-toolbar class="toolbar md-primary">
+    <div class="md-toolbar-tools">
+        <ui-breadcrumbs
+                displayname-property="data.breadcrumbName"
+                template-url="components/breadcrumbs/breadcrumbs.html"
+                abstract-proxy-property="data.breadcrumbProxy"
+                class="ui-breadcrumbs">
+        </ui-breadcrumbs>
+    </div>
+</md-toolbar>
+<md-content role="main" class="content" ui-view="content"></md-content>
 
-    <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here -->
-            <div ui-view></div>
-            <!--<dialog>-->
-            <!--I'm a dialog!-->
-            <!--<form method="dialog">-->
-            <!--<input type="submit" value="Close" />-->
-            <!--</form>-->
-            <!--</dialog>-->
-            <!--<script>-->
-            <!--var dialog = document.querySelector('dialog');-->
-            <!--dialogPolyfill.registerDialog(dialog);-->
-            <!--// Now dialog acts like a native <dialog>.-->
-            <!--dialog.showModal();-->
-            <!--</script>-->
-        </div>
-    </main>
-</div>
+
+
 

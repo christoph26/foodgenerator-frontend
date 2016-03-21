@@ -1,1 +1,16 @@
-<movie-details movie="movie"></movie-details>
+<md-card>
+    <md-card-content layout="row" layout-align="space-between" layout-margin>
+        <img class="md-media-xl card-media init-width" ng-src="{{movie.posters.profile}}" />
+
+        <div flex>
+            <div class="md-display-1 md-primary md-accent">{{movie.title}}</div>
+            <p class="md-body-1">year: {{movie.year}} | rating: {{movie.mpaa_rating}} | critics: {{movie.ratings.critics_score}}</p>
+            <div class="md-title">Storyline</div>
+            <p class='md-body-1'>{{movie.synopsis}}</p>
+        </div>
+    </md-card-content>
+
+
+
+    </div>
+</md-card>

@@ -13,10 +13,8 @@ angular.module('myApp.movies', ['ngResource', 'ui.router'])
             // This abstract state will prepend '/movies' onto the urls of all its children.
             url: '/movies',
 
-            // Example of loading a template from a file. This is also a top level state,
-            // so this template file will be loaded and then inserted into the ui-view
-            // within index.html.
-            template: '<div ui-view></div>',
+            // since we have views we do not need to define a template here
+            //template: '<div ui-view></div>',
 
             // Use `resolve` to resolve any asynchronous controller dependencies
             // *before* the controller is instantiated. In this case, since contacts

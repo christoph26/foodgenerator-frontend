@@ -6,8 +6,14 @@ angular.module('myApp.movies')
         name: 'movies.detail',
         options: {
             url: '/{movieId}',
-            templateUrl: 'views/detail/movie-detail.html',
-            controller: 'MovieDetailCtrl',
+
+            views: {
+                "content@root": {
+                    templateUrl: 'views/detail/movie-detail.html',
+                    controller: 'MovieDetailCtrl'
+                }
+            },
+
             resolve: {
                 movie: function($stateParams, Movie){
                     return Movie.get({movieId: $stateParams.movieId}, function(movie) {

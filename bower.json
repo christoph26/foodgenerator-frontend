@@ -6,13 +6,12 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-resource": "~1.4.0",
-    "material-design-lite": "^1.1.1",
-    "dialog-polyfill": "^0.4.3",
+    "angular": "^1.5.2",
+    "angular-resource": "^1.5.2",
     "normalize-libsass": "^1.0.3",
     "angular-ui-router": "^0.2.18",
-    "angular-utils-ui-breadcrumbs": "^0.2.2"
+    "angular-utils-ui-breadcrumbs": "^0.2.2",
+    "angular-material": "^1.0.6"
   },
   "overrides": {
     "angular-utils-ui-breadcrumbs": {
