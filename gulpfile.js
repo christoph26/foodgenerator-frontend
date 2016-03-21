@@ -1,18 +1,20 @@
 var gulp = require('gulp');
 var mainBowerFiles = require('main-bower-files');
 var templateCache = require('gulp-angular-templatecache');
-var concat = require('gulp-concat')
-var sourcemaps = require('gulp-sourcemaps')
-var uglify = require('gulp-uglify')
-var ngAnnotate = require('gulp-ng-annotate')
+var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
+var ngAnnotate = require('gulp-ng-annotate');
 var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var filter = require('gulp-filter');
+var merge = require('merge-stream');
+var debug = require('gulp-debug');
 
 
 
 
-gulp.task('sass', ['sass-libs-copy'], function () {
+gulp.task('sass', function () {
     return gulp.src([
         //usually only screen.scss
         'app/sass/**/*.scss',
@@ -22,24 +24,34 @@ gulp.task('sass', ['sass-libs-copy'], function () {
         '!app/sass/libs/**/*'])
         .pipe(sourcemaps.init())
         .pipe(sass({
-            outputStyle: 'compressed',
+            outputStyle: 'compressed'
         }).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('sass-libs-copy', function() {
-    return gulp.src(["bower_components/**/*.scss",
-        "bower_components/**/*.css"])
-        .pipe(gulp.dest('app/sass/libs'))
-});
 
 gulp.task('frontend-libs-copy', function() {
-    var bower_files_dev =  mainBowerFiles();
-    return gulp.src(bower_files_dev, { base: 'bower_components' })
+
+    var all_libs = gulp.src(mainBowerFiles(), { base: 'bower_components' })
         //css and scss should be includes using sass
-        .pipe(filter(['**', '!**/*.css', '!**/*.scss']))
-        .pipe(gulp.dest('./public/libs'))
+        .pipe(filter(['**', '!**/*.css', '!**/*.scss']));
+
+    var js_filter = filter(["**","!**/*.js"], { restore:true, passthrough: true});
+
+    var other_libs = all_libs
+        .pipe(js_filter)
+        .pipe(gulp.dest('./public/libs'));
+
+    var js_libs = other_libs
+        .pipe(js_filter.restore)
+        .pipe(sourcemaps.init())
+        .pipe(concat('libs.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./public/libs'));
+
+    return merge(js_libs);
 });
 
 gulp.task('app-js', function () {
@@ -70,14 +82,14 @@ var MAIN_TASKS = ['app-js', 'app-templates', 'frontend-libs-copy', 'sass'];
 gulp.task('watch', MAIN_TASKS, function () {
     gulp.watch('app/ng/**/*.js', ['app-js'])
     gulp.watch('app/ng/**/*.html', [ 'app-templates']);
-    gulp.watch(['bower_components/**/*', 'bower.json'], [ 'frontend-libs-copy', 'sass-libs-copy']);
+    gulp.watch(['bower_components/**/*', 'bower.json'], [ 'frontend-libs-copy']);
     gulp.watch('app/sass/**/*.scss', ['sass']);
 })
 
 gulp.task('install', MAIN_TASKS);
 
 gulp.task('clean', function () {
-    return gulp.src(['app/sass/libs',
+    return gulp.src([
                         'public/js/app.js',
                         'public/js/templates.js',
                         'public/css',
