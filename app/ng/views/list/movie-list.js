@@ -26,7 +26,9 @@ angular.module('myApp.movies')
 
             resolve: {
                 allMovies: function (Movie) {
-                    return Movie.query();
+                    return Movie.query().$promise.then(function(movies){
+                        return movies.filter(function(m){ return !!m.title; });
+                    });
                 }
             },
             data: {

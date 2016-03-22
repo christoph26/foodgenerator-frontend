@@ -11,7 +11,28 @@ var filter = require('gulp-filter');
 var merge = require('merge-stream');
 var debug = require('gulp-debug');
 
+var s_filter_i, js_filter, js_filter_i;
 
+(function(){
+
+    function createFilter(file_ending, inverse) {
+        if (typeof(file_ending) == "string") { file_ending = [file_ending]}
+        var pattern = [];
+
+        if (inverse) {
+            pattern.push("**");
+        }
+
+        file_ending.forEach(function(e) { pattern.push((inverse?"!":"") + "**/*." + e); });
+
+        return filter(pattern);
+    }
+
+    s_filter_i = createFilter(['scss', 'css'],true);
+    js_filter = createFilter('js');
+    js_filter_i = createFilter('js',true)
+
+})()
 
 
 gulp.task('sass', function () {
@@ -35,28 +56,27 @@ gulp.task('frontend-libs-copy', function() {
 
     var all_libs = gulp.src(mainBowerFiles(), { base: 'bower_components' })
         //css and scss should be includes using sass
-        .pipe(filter(['**', '!**/*.css', '!**/*.scss']));
+        .pipe(s_filter_i);
 
-    var js_filter = filter(["**","!**/*.js"], { restore:true, passthrough: true});
 
     var other_libs = all_libs
-        .pipe(js_filter)
+        .pipe(js_filter_i)
         .pipe(gulp.dest('./public/libs'));
 
-    var js_libs = other_libs
-        .pipe(js_filter.restore)
+    var js_libs = all_libs
+        .pipe(js_filter)
         .pipe(sourcemaps.init())
         .pipe(concat('libs.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/libs'));
 
-    return merge(js_libs);
+    return merge(other_libs, js_libs);
 });
 
 gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning
-    gulp.src(['app/ng/**/app.js', 'app/ng/components/movies/movies.js', 'app/ng/**/*.js'])
+    return gulp.src(['app/ng/**/app.js', 'app/ng/components/movies/movies.js', 'app/ng/**/*.js'])
     /*
     suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
      */
@@ -80,9 +100,9 @@ gulp.task('app-js', function () {
 var MAIN_TASKS = ['app-js', 'app-templates', 'frontend-libs-copy', 'sass'];
 
 gulp.task('watch', MAIN_TASKS, function () {
-    gulp.watch('app/ng/**/*.js', ['app-js'])
+    gulp.watch('app/ng/**/*.js', ['app-js']);
     gulp.watch('app/ng/**/*.html', [ 'app-templates']);
-    gulp.watch(['bower_components/**/*', 'bower.json'], [ 'frontend-libs-copy']);
+    gulp.watch(['bower_components/*', 'bower.json'], [ 'frontend-libs-copy']);
     gulp.watch('app/sass/**/*.scss', ['sass']);
 })
 
