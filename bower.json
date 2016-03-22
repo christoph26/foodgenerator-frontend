@@ -21,5 +21,8 @@
     "material-design-icons": {
       "main": "sprites/svg-sprite/*.svg"
     }
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.2"
   }
 }
