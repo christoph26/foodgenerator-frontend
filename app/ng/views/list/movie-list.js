@@ -38,6 +38,50 @@ angular.module('myApp.movies')
 
     })
 
-    .controller('MovieListCtrl', function($scope, allMovies) {
+    .controller('MovieListCtrl', function($scope, allMovies, $mdMedia, $mdDialog, $mdToast) {
         $scope.movies = allMovies;
+
+        $scope.createMovieDialog = createMovieDialog;
+
+
+        function createMovieDialog(ev) {
+            var useFullScreen = ( $mdMedia('xs'));
+            $mdDialog.show({
+                    controller: "CreateMovieCtrl",
+                    templateUrl: 'components/create-movie/create-movie.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose:true,
+                    fullscreen: useFullScreen,
+                    preserveScope:true
+                })
+                .then(function(answer) {
+
+                    if (answer) {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Movie saved successfully')
+                                .position('bottom right')
+                                .hideDelay(3000)
+                        );
+                    } else {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('An Error Occured!')
+                                .position('bottom right')
+                                .hideDelay(3000)
+
+                        );
+                    }
+                }, function() {
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('Movie creation cancelled')
+                            .position('bottom right')
+                            .hideDelay(3000)
+
+                    );
+                });
+
+        }
     });

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils.directives.uiBreadcrumbs', 'ngMaterial'])
+angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils.directives.uiBreadcrumbs', 'ngMaterial', 'ngMessages'])
 
     .config(function($stateProvider, $urlRouterProvider, $mdIconProvider) {
 
@@ -13,9 +13,9 @@ angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils
             .state('root', {
 
                 abstract: true,
-                templateUrl: "views/root/root.html",
+                templateUrl: "views/root/root.html"
             })
-debugger;
+
         $mdIconProvider
             .iconSet('content', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-content.svg');
 
