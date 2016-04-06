@@ -16,6 +16,7 @@
   },
   "scripts": {
     "postinstall": "bower install",
+    "postinstall": "gulp install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1"
   },
