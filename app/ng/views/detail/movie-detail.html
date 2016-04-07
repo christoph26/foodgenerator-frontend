@@ -7,7 +7,14 @@
             <p class="md-body-1">year: {{movie.year}} | rating: {{movie.mpaa_rating}} | critics: {{movie.ratings.critics_score}}</p>
             <div class="md-title">Storyline</div>
             <p class='md-body-1'>{{movie.synopsis}}</p>
+
+            <md-button class=" md-raised" ng-click="deleteMovie($event)" >
+                <md-icon md-svg-icon="action:ic_delete_24px"></md-icon>
+                Delete Movie
+            </md-button>
         </div>
+
+
     </md-card-content>
 
 

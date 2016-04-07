@@ -49,7 +49,6 @@ angular.module('myApp.movies')
             $mdDialog.show({
                     controller: "CreateMovieCtrl",
                     templateUrl: 'components/create-movie/create-movie.html',
-                    parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose:true,
                     fullscreen: useFullScreen,
