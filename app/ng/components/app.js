@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils.directives.uiBreadcrumbs', 'ngMaterial', 'ngMessages'])
 
-    .config(function($stateProvider, $urlRouterProvider, $mdIconProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $resourceProvider) {
 
         // For any unmatched url, redirect to /movies
         $urlRouterProvider.otherwise("/movies");
@@ -17,6 +17,17 @@ angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils
             })
 
         $mdIconProvider
-            .iconSet('content', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-content.svg');
+            .iconSet('content', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-content.svg')
+            .iconSet('action', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-action.svg')
+            .iconSet('editor', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-editor.svg')
+            .iconSet('navigation', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-navigation.svg');
 
+        //this overrides the defaults actiosn for all $resources
+        angular.extend($resourceProvider.defaults.actions, {
+
+            update: {
+                method: "PUT"
+            }
+
+        });
     });

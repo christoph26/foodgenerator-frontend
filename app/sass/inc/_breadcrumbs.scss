@@ -1,6 +1,11 @@
+ui-breadcrumbs {
+  overflow: hidden;
+}
 .breadcrumbs {
 
   list-style: none;
+  white-space: nowrap;
+  overflow:hidden;
 
   .crumb {
 

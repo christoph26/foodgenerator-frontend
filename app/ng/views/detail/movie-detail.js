@@ -30,10 +30,22 @@ angular.module('myApp.movies')
 
         $scope.movie = movie;
 
-
-
         $scope.deleteMovie = deleteMovie;
+        $scope.updateMovie = updateMovie;
+        $scope.cancelEditingMovie = function(){ showSimpleToast("Editing cancelled"); }
 
+
+        function updateMovie(changed) {debugger;
+            if (!changed) {
+                showSimpleToast("no change");
+                return;
+            }
+            $scope.movie.$update().then(function(){
+                showSimpleToast("update successfull");
+            }, function(){
+                showSimpleToast("error. please try again later");
+            });
+        }
 
         function deleteMovie(ev) {
 
@@ -48,19 +60,21 @@ angular.module('myApp.movies')
                 return $scope.movie.$remove().then(function() {
                     return $state.go('movies.list');
                 }).then(function(){
-                    toastText = 'Movie deleted successfully';
+                    showSimpleToast('Movie deleted successfully');
                 }, function() {
-                    toastText = "Error. Try again later";
+                    showSimpleToast("Error. Try again later");
                 });
             }, function() {
-                toastText = "delete aborted";
-            }).finally(function(){
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent(toastText)
-                        .position('bottom right')
-                        .hideDelay(3000)
-                );
-            });
-        };
+                showSimpleToast("delete aborted");
+            })
+        }
+
+        function showSimpleToast(txt) {
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent(txt)
+                    .position('bottom right')
+                    .hideDelay(3000)
+            );
+        }
     });

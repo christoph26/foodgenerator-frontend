@@ -40,9 +40,7 @@ angular.module('myApp.movies', ['ngResource', 'ui.router'])
 
         .state(movieDetailsState.name, movieDetailsState.options);
 
-
-    }
-);
+});
 
 
 

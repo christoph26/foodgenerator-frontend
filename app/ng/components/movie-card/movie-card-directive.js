@@ -2,7 +2,7 @@
 
 angular.module('myApp.movies')
 
-    .directive('movieCard', function() {
+    .directive('mvMovieCard', function() {
         return {
             restrict: 'A',
             scope: {
