@@ -46,6 +46,7 @@ angular.module('myApp.movies')
         $scope.save = function() {
             $scope.movie.$save()
                 .then(function(){
+                    $scope.$emit('movieCreated', $scope.movie);
                     $mdDialog.hide(true);
                 }).catch(function(){
                     $mdDialog.hide(false);

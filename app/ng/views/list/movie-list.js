@@ -43,6 +43,9 @@ angular.module('myApp.movies')
 
         $scope.createMovieDialog = createMovieDialog;
 
+        $scope.$on('movieCreated', function(movie){
+            $scope.movies.push(movie);
+        });
 
         function createMovieDialog(ev) {
             var useFullScreen = ( $mdMedia('xs'));
