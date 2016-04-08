@@ -1,4 +1,4 @@
-<md-dialog flex="80">
+<md-dialog class="mv-create-dialog">
     <form name="movieForm">
     <md-toolbar>
         <div class="md-toolbar-tools">
@@ -13,7 +13,7 @@
         <div class="md-dialog-content">
             <h2 class="md-display-1">Let's create a movie!</h2>
             <div layout-gt-xs="row">
-                <md-input-container class="md-block" flex-gt-sm layout="50">
+                <md-input-container class="md-block" flex-gt-xs="50">
                     <label>Title</label>
                     <input md-maxlength="30" required name="title" ng-model="movie.title">
                     <div ng-messages="movieForm.title.$error">
@@ -21,7 +21,7 @@
                         <div ng-message="md-maxlength">The title has to be less than 30 characters long.</div>
                     </div>
                 </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
+                <md-input-container class="md-block" flex-gt-xs="25">
                     <label>Year</label>
                     <md-select ng-model="movie.year">
                         <md-option ng-repeat="year in years" ng-value="year">
@@ -32,7 +32,7 @@
                         <div ng-message="required">Year is required.</div>
                     </div>
                 </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
+                <md-input-container class="md-block" flex-gt-xs="25">
                     <label>Rating</label>
                     <md-select ng-model="movie.mpaa_rating">
                         <md-option ng-repeat="rating in ratings" ng-value="rating.abbr">
