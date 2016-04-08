@@ -1,0 +1,48 @@
+<div class="md-toolbar-tools">
+    <ui-breadcrumbs
+            displayname-property="data.breadcrumbName"
+            template-url="components/breadcrumbs/breadcrumbs.html"
+            abstract-proxy-property="data.breadcrumbProxy"
+            class="ui-breadcrumbs md-title">
+    </ui-breadcrumbs>
+    <span flex></span>
+
+    <!-- not logged in -->
+    <span class="md-body-2" hide-xs ng-if="!loggedIn">You are currently not logged in.</span>
+    <md-menu md-position-mode="target-right target" ng-if="!loggedIn">
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+        </md-button>
+        <md-menu-content>
+            <md-menu-item>
+                <md-button ng-click="showLoginDialog()">
+                    Log in
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button ng-click="showSignupDialog()">
+                    Sign Up
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+
+
+    <!-- logged in -->
+    <span class="md-body-2" hide-xs ng-if="loggedIn">Hello, {{username}}</span>
+    <md-menu md-position-mode="target-right target" ng-if="loggedIn">
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+        </md-button>
+        <md-menu-content>
+            <md-menu-item>
+                <md-button ng-click="logout()">
+                    Log out
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+
+
+
+</div>
