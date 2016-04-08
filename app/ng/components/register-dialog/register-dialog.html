@@ -1,0 +1,34 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>Sign up</h2>
+    </div>
+</md-toolbar>
+
+<md-dialog-content layout-margin>
+    <form name="registerForm">
+        <h2 class="md-title md-primary">Create a new account</h2>
+        <p class="md-warn" ng-show="errorText">{{errorText}}</p>
+        <md-input-container class="md-block">
+            <label>Username</label>
+            <input type="text" required ng-model="username" >
+            <div ng-messages="registerForm.username.$error">
+                <div ng-message="required">Username is required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input type="password" required ng-model="password" >
+            <div ng-messages="registerForm.password.$error">
+                <div ng-message="required">Password is required.</div>
+            </div>
+        </md-input-container>
+    </form>
+</md-dialog-content>
+<md-dialog-actions layout="row" layout-align="space-around center">
+    <md-button ng-click="cancel()">
+        Cancel
+    </md-button>
+    <md-button ng-click="register()" ng-disabled="registerForm.$invalid">
+        Log in
+    </md-button>
+</md-dialog-actions>

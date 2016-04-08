@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils.directives.uiBreadcrumbs', 'ngMaterial', 'ngMessages'])
 
-    .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $resourceProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $resourceProvider, $httpProvider) {
 
         // For any unmatched url, redirect to /movies
         $urlRouterProvider.otherwise("/movies");
@@ -30,4 +30,7 @@ angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils
             }
 
         });
+
+        //auth interceptor
+        $httpProvider.interceptors.push('authInterceptor');
     });
