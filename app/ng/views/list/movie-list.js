@@ -60,30 +60,23 @@ angular.module('myApp.movies')
                 .then(function(answer) {
 
                     if (answer) {
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent('Movie saved successfully')
-                                .position('bottom right')
-                                .hideDelay(3000)
-                        );
+                        showSimpleToast('Movie saved successfully');
                     } else {
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent('An Error Occured!')
-                                .position('bottom right')
-                                .hideDelay(3000)
-
-                        );
+                        showSimpleToast('An Error occured!');
                     }
                 }, function() {
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .textContent('Movie creation cancelled')
-                            .position('bottom right')
-                            .hideDelay(3000)
-
-                    );
+                    showSimpleToast('Movie creation cancelled');
                 });
 
+        }
+
+        function showSimpleToast(txt){
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent(txt)
+                    .position('bottom right')
+                    .hideDelay(3000)
+
+            );
         }
     });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.movies')
+angular.module('myApp')
 
 /*
     a generic directive for editable items.
