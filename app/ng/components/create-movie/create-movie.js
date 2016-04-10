@@ -1,5 +1,5 @@
 angular.module('myApp.movies')
-    .controller('CreateMovieCtrl', function($scope, Movie, $mdDialog) {
+    .controller('CreateMovieCtrl', function($scope, Movie, $mdDialog, $rootScope) {
 
         $scope.movie = new Movie();
         $scope.ratings = [{
@@ -46,7 +46,7 @@ angular.module('myApp.movies')
         $scope.save = function() {
             $scope.movie.$save()
                 .then(function(){
-                    $scope.$emit('movieCreated', $scope.movie);
+                    $rootScope.$broadcast('movieCreated', $scope.movie);
                     $mdDialog.hide(true);
                 }).catch(function(){
                     $mdDialog.hide(false);
