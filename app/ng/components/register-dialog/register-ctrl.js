@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller("register", function () {
+    .controller("register", function ($scope, currUser, $mdDialog) {
         $scope.username = '';
         $scope.pwd = '';
         $scope.errorText = '';

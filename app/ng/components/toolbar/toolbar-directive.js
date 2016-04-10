@@ -20,7 +20,7 @@ angular.module('myApp')
                     var useFullScreen = $mdMedia('xs');
                     $mdDialog.show({
                         controller: 'login',
-                        template: 'components/login-dialog/login-dialog.html',
+                        templateUrl: 'components/login-dialog/login-dialog.html',
                         clickOutsideToClose:true,
                         fullscreen: useFullScreen
                     });
@@ -29,7 +29,7 @@ angular.module('myApp')
                     var useFullScreen = $mdMedia('xs');
                     $mdDialog.show({
                         controller: 'register',
-                        template: 'components/register-dialog/register-dialog.html',
+                        templateUrl: 'components/register-dialog/register-dialog.html',
                         clickOutsideToClose:true,
                         fullscreen: useFullScreen
                     });

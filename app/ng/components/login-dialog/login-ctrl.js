@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller("login", function () {
+    .controller("login", function ($scope, currUser, $mdDialog) {
         $scope.username = '';
         $scope.pwd = '';
         $scope.errorText = '';
