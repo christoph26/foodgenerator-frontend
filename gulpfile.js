@@ -63,12 +63,16 @@ gulp.task('frontend-libs-copy', function() {
         .pipe(js_filter_i)
         .pipe(gulp.dest('./public/libs'));
 
+    /**
+     * suspend minification due to chrome bug
+     * https://bugs.chromium.org/p/chromium/issues/detail?id=327092
+     */
     var js_libs = all_libs
         .pipe(js_filter)
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(concat('libs.js'))
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
+        //.pipe(uglify())
+        //.pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/libs'));
 
     return merge(other_libs, js_libs);
@@ -76,7 +80,7 @@ gulp.task('frontend-libs-copy', function() {
 
 gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning
-    return gulp.src(['app/ng/**/app.js', 'app/ng/components/movies/movies.js', 'app/ng/**/*.js'])
+    return gulp.src(['app/ng/**/app.js', 'app/ng/components/movies/movies-module.js', 'app/ng/**/*.js'])
     /*
     suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
      */
