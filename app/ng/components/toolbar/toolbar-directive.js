@@ -19,7 +19,8 @@ angular.module('myApp')
                 function showLoginDialog(){
                     var useFullScreen = $mdMedia('xs');
                     $mdDialog.show({
-                        template: '<div mv-login-dialog class="mv-login-dialog"></div>',
+                        controller: 'login',
+                        template: 'components/login-dialog/login-dialog.html',
                         clickOutsideToClose:true,
                         fullscreen: useFullScreen
                     });
@@ -27,7 +28,8 @@ angular.module('myApp')
                 function showSignupDialog(){
                     var useFullScreen = $mdMedia('xs');
                     $mdDialog.show({
-                        template: '<div mv-register-dialog class="mv-register-dialog"></div>',
+                        controller: 'register',
+                        template: 'components/register-dialog/register-dialog.html',
                         clickOutsideToClose:true,
                         fullscreen: useFullScreen
                     });

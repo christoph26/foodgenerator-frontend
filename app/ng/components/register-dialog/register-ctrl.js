@@ -1,15 +1,5 @@
-(function() {
-
-    angular.module('myApp')
-        .directive("mvRegisterDialog",function(){
-            return {
-                restrict: "A",
-                templateUrl: "components/register-dialog/register-dialog.html",
-                controller: rctrl
-            }
-        });
-
-    function rctrl($scope, currUser, $mdDialog) {
+angular.module('myApp')
+    .controller("register", function () {
         $scope.username = '';
         $scope.pwd = '';
         $scope.errorText = '';
@@ -18,9 +8,10 @@
         $scope.cancel = cancel;
 
         function register() {
-            currUser.register($scope.username, $scope.password).then(function(){
+            currUser.register($scope.username, $scope.password).then(function () {
                 $mdDialog.hide();
-            }, function(response){ debugger;
+            }, function (response) {
+                debugger;
                 if (response.status == 400 || response.status == 401) {
                     $scope.errorText = "An unknown error occured. please try again later.";
                 }
@@ -30,6 +21,4 @@
         function cancel() {
             $mdDialog.cancel();
         }
-    }
-
-})();
+    });
