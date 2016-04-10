@@ -26,14 +26,30 @@ angular.module('myApp')
             },
             controller: function($scope, $timeout){
 
-                resetValue();
-                $scope.editing = false;
 
-                $scope.startEditing = function() {
+                $scope.editing = false;
+                $scope.startEditing = startEditing;
+                $scope.save = save;
+                $scope.cancel = cancel;
+
+                //init
+                resetValue();
+
+
+                $scope.$watch('model', function(){
+                    if (!$scope.editing) {
+                        resetValue()
+                    }
+                });
+
+
+                ///////////////////////////////////
+
+                function startEditing() {
                     $scope.editing = true;
                 };
 
-                $scope.save = function(){
+                function save(){
                     $scope.editing = false;
                     var changed = ($scope.model != $scope.value);
                     $scope.model = angular.copy($scope.value);
@@ -42,7 +58,7 @@ angular.module('myApp')
                     $timeout( function(){ $scope.saveM({changed:changed}); });
                 };
 
-                $scope.cancel = function() {
+                function cancel() {
                     $scope.editing = false;
                     resetValue();
                     //same as obove. invoke digest cycle

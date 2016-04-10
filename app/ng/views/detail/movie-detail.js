@@ -40,12 +40,17 @@ angular.module('myApp.movies')
         $scope.cancelEditingMovie = function(){ showSimpleToast("Editing cancelled"); }
 
 
-        function updateMovie(changed) {debugger;
+        ////////////////////
+
+        function updateMovie(changed) {
+
             if (!changed) {
                 showSimpleToast("no change");
                 return;
             }
-            $scope.movie.$update().then(function(){
+
+            $scope.movie.$update().then(function(updated){
+                $scope.movie = updated;
                 showSimpleToast("update successfull");
             }, function(){
                 showSimpleToast("error. please try again later");
