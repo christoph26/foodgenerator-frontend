@@ -15,8 +15,13 @@ angular.module('myApp.movies')
             },
 
             resolve: {
-                movie: function($stateParams, Movie){
-                    return Movie.get({movieId: $stateParams.movieId}, function(movie) {
+                movie: function($state, $stateParams, Movie){
+                    var mid = $stateParams.movieId;
+                    if (!mid) {
+                        $state.go("movies.list");
+                        return;
+                    }
+                    return Movie.get({movieId: mid}, function(movie) {
                         return movie;
                     }).$promise;
                 }
