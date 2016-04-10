@@ -10,6 +10,7 @@ var clean = require('gulp-clean');
 var filter = require('gulp-filter');
 var merge = require('merge-stream');
 var debug = require('gulp-debug');
+var plumber = require('gulp-plumber');
 
 var s_filter_i, js_filter, js_filter_i;
 
@@ -32,7 +33,7 @@ var s_filter_i, js_filter, js_filter_i;
     js_filter = createFilter('js');
     js_filter_i = createFilter('js',true)
 
-})()
+})();
 
 
 gulp.task('sass', function () {
@@ -81,9 +82,10 @@ gulp.task('frontend-libs-copy', function() {
 gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning
     return gulp.src(['app/ng/**/app.js', 'app/ng/components/movies/movies-module.js', 'app/ng/**/*.js'])
-    /*
-    suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
-     */
+        .pipe(plumber())
+        /*
+        suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
+         */
         //.pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
@@ -92,8 +94,9 @@ gulp.task('app-js', function () {
         .pipe(gulp.dest('./public/js'))
 })
 
- gulp.task('app-templates', function () {
-     return gulp.src('app/ng/**/*.html')
+gulp.task('app-templates', function () {
+    return gulp.src('app/ng/**/*.html')
+        .pipe(plumber())
         .pipe(templateCache('templates.js', {standalone: true}))
         .pipe(sourcemaps.init())
         .pipe(uglify())
