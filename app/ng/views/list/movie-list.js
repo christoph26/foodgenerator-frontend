@@ -20,6 +20,10 @@ angular.module('myApp.movies')
                 'content@root': {
                     templateUrl: 'views/list/movie-list.html',
                     controller: 'MovieListCtrl',
+                },
+                'outside@root': {
+                    templateUrl: 'views/list/movie-list-buttons.html',
+                    controller: 'movieListButtonCtrl'
                 }
             },
 
@@ -38,14 +42,21 @@ angular.module('myApp.movies')
 
     })
 
-    .controller('MovieListCtrl', function($scope, allMovies, $mdMedia, $mdDialog, $mdToast) {
+    .controller('MovieListCtrl', function($scope, allMovies) {
         $scope.movies = allMovies;
-
-        $scope.createMovieDialog = createMovieDialog;
 
         $scope.$on('movieCreated', function(ev, movie){
             $scope.movies.push(movie);
         });
+
+
+    })
+
+    .controller('movieListButtonCtrl', function($scope, $mdMedia, $mdDialog, $mdToast){
+
+        $scope.createMovieDialog = createMovieDialog;
+
+        ////////////////////////////////////
 
         function createMovieDialog(ev) {
             var useFullScreen = ( $mdMedia('xs'));
