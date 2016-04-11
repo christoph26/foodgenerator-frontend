@@ -17,7 +17,7 @@
 
         }
 
-        function res(res){ console.log(res.data.token);
+        function res(res){
             // If a token was sent back, save it
             if(res.config.url.indexOf(BASEURL) === 0 && res.data.token) {
                 auth.saveToken(res.data.token);
