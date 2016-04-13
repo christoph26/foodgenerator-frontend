@@ -7,17 +7,17 @@
 
     <md-dialog-content layout-margin>
         <h2 class="md-title md-primary">Login</h2>
-        <p class="md-warn" ng-show="errorText">{{errorText}}</p>
+        <span class="md-body-2 mv-error-text" ng-show="errorText">{{errorText}}</span>
         <md-input-container class="md-block">
             <label>Username</label>
-            <input required ng-model="username">
+            <input required name="username" ng-model="username">
             <div ng-messages="loginForm.username.$error">
                 <div ng-message="required">Username is required.</div>
             </div>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Password</label>
-            <input type="password" required ng-model="password">
+            <input type="password" name="password" required ng-model="password">
             <div ng-messages="loginForm.password.$error">
                 <div ng-message="required">Password is required.</div>
             </div>
@@ -31,4 +31,5 @@
             Log in
         </md-button>
     </md-dialog-actions>
+
 </form>

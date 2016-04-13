@@ -11,8 +11,8 @@
     "normalize-libsass": "^1.0.3",
     "angular-ui-router": "^0.2.18",
     "angular-utils-ui-breadcrumbs": "^0.2.2",
-    "angular-material": "^1.0.6",
-    "material-design-icons": "^2.2.3"
+    "material-design-icons": "^2.2.3",
+    "angular-material": "^1.0.7"
   },
   "overrides": {
     "angular-utils-ui-breadcrumbs": {
