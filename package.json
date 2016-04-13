@@ -15,7 +15,7 @@
     "karma-jasmine": "^0.3.8"
   },
   "scripts": {
-    "postinstall": "bower install && gulp install",
+    "postinstall": "bower install && gulp clean && gulp install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1"
   },

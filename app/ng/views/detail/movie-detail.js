@@ -15,10 +15,13 @@ angular.module('myApp.movies')
             },
 
             resolve: {
-                movie: function($state, $stateParams, Movie){
+                movie: function($state, $stateParams, Movie, $timeout){
                     var mid = $stateParams.movieId;
                     if (!mid) {
-                        $state.go("movies.list");
+                        //timeout because the transition cannot happen from here
+                        $timeout(function(){
+                            $state.go("movies.list");
+                        });
                         return;
                     }
                     return Movie.get({movieId: mid}, function(movie) {

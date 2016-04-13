@@ -44,6 +44,7 @@ gulp.task('sass', function () {
         "!app/sass/**/_*.scss",
         //no libs
         '!app/sass/libs/**/*'])
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed'
@@ -56,6 +57,7 @@ gulp.task('sass', function () {
 gulp.task('frontend-libs-copy', function() {
 
     var all_libs = gulp.src(mainBowerFiles(), { base: 'bower_components' })
+        .pipe(plumber())
         //css and scss should be includes using sass
         .pipe(s_filter_i);
 
@@ -109,8 +111,8 @@ var MAIN_TASKS = ['app-js', 'app-templates', 'frontend-libs-copy', 'sass'];
 gulp.task('watch', MAIN_TASKS, function () {
     gulp.watch('app/ng/**/*.js', ['app-js']);
     gulp.watch('app/ng/**/*.html', [ 'app-templates']);
-    gulp.watch(['bower_components/*', 'bower.json'], [ 'frontend-libs-copy']);
-    gulp.watch('app/sass/**/*.scss', ['sass']);
+    gulp.watch('bower.json', [ 'frontend-libs-copy']);
+    gulp.watch(['app/sass/**/*.scss', 'bower.json'], ['sass']);
 })
 
 gulp.task('install', MAIN_TASKS);
