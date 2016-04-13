@@ -27,14 +27,6 @@ angular.module('myApp.movies')
                 }
             },
 
-
-            resolve: {
-                allMovies: function (Movie) {
-                    return Movie.query().$promise.then(function(movies){
-                        return movies.filter(function(m){ return !!m.title; });
-                    });
-                }
-            },
             data: {
                 breadcrumbName: 'Movies'
             }
@@ -42,8 +34,8 @@ angular.module('myApp.movies')
 
     })
 
-    .controller('MovieListCtrl', function($scope, allMovies) {
-        $scope.movies = allMovies;
+    .controller('MovieListCtrl', function($scope, Movie) {
+        $scope.movies = Movie.query();
 
         $scope.$on('movieCreated', function(ev, movie){
             $scope.movies.push(movie);

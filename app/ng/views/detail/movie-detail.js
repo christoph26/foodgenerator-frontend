@@ -15,7 +15,8 @@ angular.module('myApp.movies')
             },
 
             resolve: {
-                movie: function($state, $stateParams, Movie, $timeout){
+                //we abuse the resolve feature for eventual redirection
+                redirect: function($state, $stateParams, Movie, $timeout){
                     var mid = $stateParams.movieId;
                     if (!mid) {
                         //timeout because the transition cannot happen from here
@@ -24,9 +25,6 @@ angular.module('myApp.movies')
                         });
                         return;
                     }
-                    return Movie.get({movieId: mid}, function(movie) {
-                        return movie;
-                    }).$promise;
                 }
             },
             data: {
@@ -34,9 +32,9 @@ angular.module('myApp.movies')
             }
         }
     })
-    .controller('MovieDetailCtrl', function($scope, movie, $mdToast, $mdDialog, $state) {
+    .controller('MovieDetailCtrl', function($scope, Movie, $mdToast, $mdDialog, $stateParams) {
 
-        $scope.movie = movie;
+        $scope.movie = Movie.get({movieId: $stateParams.movieId});
 
         $scope.deleteMovie = deleteMovie;
         $scope.updateMovie = updateMovie;

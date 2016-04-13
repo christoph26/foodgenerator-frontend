@@ -31,6 +31,8 @@ angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils
 
         });
 
+        $httpProvider.interceptors.push('reqErrInterceptor');
         //auth interceptor
         $httpProvider.interceptors.push('authInterceptor');
+
     });
