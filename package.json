@@ -5,23 +5,16 @@
   "description": "Movies example application based on AngularJS",
   "repository": "https://github.com/adrianhdezm/angular-movies",
   "license": "MIT",
-  "devDependencies": {
-    "gulp-clean": "^0.3.2",
-    "gulp-filter": "^4.0.0",
-    "gulp-sass": "^2.2.0",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-jasmine": "^0.3.8"
-  },
   "scripts": {
     "postinstall": "bower install && gulp clean && gulp install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1"
   },
   "dependencies": {
+    "gulp-clean": "^0.3.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-sass": "^2.2.0",
     "bower": "^1.7.9",
-    "dialog-polyfill": "^0.4.3",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-concat": "^2.6.0",
@@ -31,7 +24,6 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "http-server": "^0.6.1",
-    "karma-chrome-launcher": "^0.2.3",
     "main-bower-files": "^2.11.1",
     "merge-stream": "^1.0.0"
   }

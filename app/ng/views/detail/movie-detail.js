@@ -57,7 +57,7 @@ angular.module('myApp.movies')
                 $scope.mayDelete = $scope.movie.user == currUser.getUser()._id;
             }
         });
-        
+
         ////////////////////
 
 
