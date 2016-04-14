@@ -13,7 +13,7 @@
         <div mv-editable model="movie.synopsis" on-save="updateMovie(changed)" on-abort="cancelEditingMovie()">
             <h2 class="md-title">
                 Storyline
-                <md-icon ng-hide="editing" md-svg-icon="editor:ic_mode_edit_24px" ng-click="startEditing()"></md-icon>
+                <md-icon ng-if="$parent.mayEdit" ng-hide="editing" md-svg-icon="editor:ic_mode_edit_24px" ng-click="startEditing()"></md-icon>
             </h2>
             <p class='md-body-1' ng-hide="editing">
                 {{value}}
@@ -40,7 +40,7 @@
         </div>
 
 
-        <md-button class=" md-raised" ng-click="deleteMovie($event)" >
+        <md-button class=" md-raised" ng-click="deleteMovie($event)" ng-if="mayDelete">
             <md-icon md-svg-icon="action:ic_delete_24px"></md-icon>
             Delete Movie
         </md-button>

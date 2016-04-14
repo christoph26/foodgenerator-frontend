@@ -44,9 +44,16 @@ angular.module('myApp.movies')
 
     })
 
-    .controller('movieListButtonCtrl', function($scope, $mdMedia, $mdDialog, $mdToast){
+    .controller('movieListButtonCtrl', function($scope, $mdMedia, $mdDialog, $mdToast, currUser){
 
         $scope.createMovieDialog = createMovieDialog;
+        $scope.authed = false;
+
+        $scope.$watch(function(){
+            return currUser.loggedIn();
+        }, function(loggedIn){
+            $scope.authed = loggedIn;
+        });
 
         ////////////////////////////////////
 

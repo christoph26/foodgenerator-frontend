@@ -4,6 +4,6 @@
         <a ui-sref="{{ crumb.route }}" ng-if="!$last">
             {{ crumb.displayName }}&nbsp;
         </a>
-        <span ng-show="$last">{{ crumb.displayName }}</span>
+        <span ng-if="$last">{{ crumb.displayName }}</span>
     </li>
 </ol>

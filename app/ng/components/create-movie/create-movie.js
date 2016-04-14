@@ -1,5 +1,5 @@
 angular.module('myApp.movies')
-    .controller('CreateMovieCtrl', function($scope, Movie, $mdDialog, $rootScope) {
+    .controller('CreateMovieCtrl', function($scope, Movie, $mdDialog, $rootScope, currUser) {
 
         $scope.movie = new Movie();
         $scope.ratings = [{
@@ -44,6 +44,7 @@ angular.module('myApp.movies')
 
 
         $scope.save = function() {
+            $scope.movie.user = currUser.getUser()._id;
             $scope.movie.$save()
                 .then(function(){
                     $rootScope.$broadcast('movieCreated', $scope.movie);

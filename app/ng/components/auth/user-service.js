@@ -9,7 +9,12 @@
         this.login = login;
         this.loggedIn = auth.isAuthed;
         this.logout = auth.deleteToken;
-        this.getInfo = getInfo
+        this.getUser = getUser;
+
+
+        ////////////////
+
+        var user = null;
 
 
         function register(user, pass) {
@@ -26,8 +31,12 @@
             });
         }
 
-        function getInfo() {
-            return auth.parseJwt(auth.getToken());
+        function getUser() {
+            if (!user) {
+                var token = auth.getToken();
+                user = token? auth.parseJwt(token).user : {};
+            }
+            return user
         }
     }
 

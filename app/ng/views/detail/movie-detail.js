@@ -32,16 +32,34 @@ angular.module('myApp.movies')
             }
         }
     })
-    .controller('MovieDetailCtrl', function($scope, Movie, $mdToast, $mdDialog, $stateParams) {
+    .controller('MovieDetailCtrl', function($scope, Movie, $mdToast, $mdDialog, $stateParams, $state, currUser) {
 
         $scope.movie = Movie.get({movieId: $stateParams.movieId});
 
+        $scope.mayDelete;
+        $scope.mayEdit = currUser.loggedIn();
         $scope.deleteMovie = deleteMovie;
         $scope.updateMovie = updateMovie;
         $scope.cancelEditingMovie = function(){ showSimpleToast("Editing cancelled"); }
 
+        $scope.movie.$promise.then(function(){
+            $scope.mayDelete = $scope.movie.user == currUser.getUser()._id;
+        });
 
+        $scope.$watch(function(){
+            return currUser.loggedIn();
+        }, function(loggedIn){
+            if (!loggedIn) {
+                $scope.mayDelete = false;
+                $scope.mayEdit = false;
+            } else {
+                $scope.mayEdit = true;
+                $scope.mayDelete = $scope.movie.user == currUser.getUser()._id;
+            }
+        });
+        
         ////////////////////
+
 
         function updateMovie(changed) {
 
@@ -88,4 +106,6 @@ angular.module('myApp.movies')
                     .hideDelay(3000)
             );
         }
+
+
     });

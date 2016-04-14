@@ -9,7 +9,7 @@
             // automatically attach Authorization header
             if(config.url.indexOf(BASEURL) === 0 && auth.isAuthed()) {
                 var token = auth.getToken();
-                config.headers.Authorization = 'Bearer ' + token;
+                config.headers.Authorization = 'JWT ' + token;
             }
 
             return config;
