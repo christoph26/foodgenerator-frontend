@@ -29,7 +29,7 @@ Movies example application based on AngularJS. Backend can be found [here](https
 
 and important files
 
-```javascript
+```
 app/                //your app
 -- ng/              // your angular app (js-files and html-templates)
 ---- components/    // your components (services, directives etc.)

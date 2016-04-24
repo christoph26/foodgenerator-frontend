@@ -16,20 +16,24 @@ angular.module('myApp.movies')
 
             resolve: {
                 //we abuse the resolve feature for eventual redirection
-                redirect: function($state, $stateParams, Movie, $timeout){
+                redirect: function($state, $stateParams, Movie, $timeout, $q){
                     var mid = $stateParams.movieId;
                     if (!mid) {
                         //timeout because the transition cannot happen from here
                         $timeout(function(){
                             $state.go("movies.list");
                         });
-                        return;
+                        return $q.reject();
                     }
                 }
             },
-            data: {
-                breadcrumbName: '{{movie.title}}'
+            ncyBreadcrumb: {
+                // a bit ugly (and not stable), but ncybreadcrumbs doesn't support direct access
+                // to a view controller yet if there are multiple views
+                label: "{{$$childHead.$$childHead.movie.title}}",
+                parent: "movies.list"
             }
+
         }
     })
     .controller('MovieDetailCtrl', function($scope, Movie, $mdToast, $mdDialog, $stateParams, $state, currUser) {
@@ -43,7 +47,7 @@ angular.module('myApp.movies')
         $scope.cancelEditingMovie = function(){ showSimpleToast("Editing cancelled"); }
 
         $scope.movie.$promise.then(function(){
-            $scope.mayDelete = $scope.movie.user == currUser.getUser()._id;
+            $scope.mayDelete = $scope.movie.user && $scope.movie.user == currUser.getUser()._id;
         });
 
         $scope.$watch(function(){

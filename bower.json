@@ -10,9 +10,9 @@
     "angular-resource": "^1.5.2",
     "normalize-libsass": "^1.0.3",
     "angular-ui-router": "^0.2.18",
-    "angular-utils-ui-breadcrumbs": "^0.2.2",
     "material-design-icons": "^2.2.3",
-    "angular-material": "^1.0.7"
+    "angular-material": "^1.0.7",
+    "angular-breadcrumb": "^0.4.1"
   },
   "overrides": {
     "angular-utils-ui-breadcrumbs": {

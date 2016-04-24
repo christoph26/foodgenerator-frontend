@@ -14,9 +14,6 @@
 
         ////////////////
 
-        var user = null;
-
-
         function register(user, pass) {
             return $http.post(BASEURL + '/signup', {
                 username: user,
@@ -32,11 +29,8 @@
         }
 
         function getUser() {
-            if (!user) {
-                var token = auth.getToken();
-                user = token? auth.parseJwt(token).user : {};
-            }
-            return user
+            var token = auth.getToken();
+            return token? auth.parseJwt(token).user : {};
         }
     }
 

@@ -1,9 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils.directives.uiBreadcrumbs', 'ngMaterial', 'ngMessages'])
+angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'ncy-angular-breadcrumb', 'ngMaterial', 'ngMessages'])
 
-    .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $resourceProvider, $httpProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $resourceProvider, $httpProvider, $breadcrumbProvider) {
 
         // For any unmatched url, redirect to /movies
         $urlRouterProvider.otherwise("/movies");
@@ -14,7 +14,7 @@ angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils
 
                 abstract: true,
                 templateUrl: "views/root/root.html"
-            })
+            });
 
         $mdIconProvider
             .iconSet('content', 'libs/material-design-icons/sprites/svg-sprite/svg-sprite-content.svg')
@@ -34,5 +34,9 @@ angular.module('myApp', ['ui.router', 'myApp.movies', 'templates', 'angularUtils
         $httpProvider.interceptors.push('reqErrInterceptor');
         //auth interceptor
         $httpProvider.interceptors.push('authInterceptor');
+
+        $breadcrumbProvider.setOptions({
+            templateUrl:"components/breadcrumbs/breadcrumbs.html",
+        });
 
     });

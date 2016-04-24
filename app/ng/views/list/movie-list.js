@@ -27,9 +27,10 @@ angular.module('myApp.movies')
                 }
             },
 
-            data: {
-                breadcrumbName: 'Movies'
+            ncyBreadcrumb: {
+                label: "Movies"
             }
+
         }
 
     })
