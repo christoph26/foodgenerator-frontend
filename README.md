@@ -1,31 +1,31 @@
-# angular-movies
-Movies example application based on AngularJS. Backend can be found [here](https://github.com/treschenhofer/moviebass)
+# sebamaster-movie-frontend application
+Movies example application based on AngularJS. Backend can be found [here](https://bitbucket.org/sebischair/sebamaster-movie-backend/overview)
 
-## prerequisites
+## Prerequisites
 
-**both for the front end and the back end**
+Both for the front end and the back end check:
 
 * nodejs [official website](https://nodejs.org/en/) - nodejs includes [npm](https://www.npmjs.com/) (node package manager)
 
 
-**just for the front end**
+Just for the front end application
 
 * bower [official website](http://bower.io/) - frontend dependencies package manager
 * gulp [official website](http://gulpjs.com/) - javasript task runner
 * sass [official website](http://sass-lang.com/) - css preprocessor (you don't need to install sass, since it's already there as npm dependency on the project)
 
 
-## setup (before first run)
+## Setup (before first run)
 
 * install npm and bower dependencies `npm install`
 
-## running
+## Running
 
 * go to your project folder `cd to/your/folder`
 * execute gulp tasks (and keep watching for further changes) `gulp watch`
 * optional: start built in web server `node node_modules/.bin/http-server` (you can also run the project using your own installation of e.g. XAMPP on windows or even locally). The root folder will be public/
 
-##  directory structure
+## Directory structure
 
 and important files
 
