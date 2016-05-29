@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('myApp')
+    angular.module('foodGenerator')
         .factory("reqErrInterceptor", reqErrInterceptor);
 
     function reqErrInterceptor(BASEURL, $injector, $q) {

@@ -1,9 +1,0 @@
-<ol class="breadcrumbs  mdl-layout-title">
-    <li ng-repeat="crumb in steps"
-        class="crumb">
-        <a href="{{ crumb.ncyBreadcrumbLink }}" ng-if="!$last">
-            {{ crumb.ncyBreadcrumbLabel }}&nbsp;
-        </a>
-        <span ng-if="$last">{{ crumb.ncyBreadcrumbLabel }}</span>
-    </li>
-</ol>

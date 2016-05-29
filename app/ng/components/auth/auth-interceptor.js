@@ -1,6 +1,6 @@
 (function(){
 
-    angular.module('myApp')
+    angular.module('foodGenerator')
         .factory("authInterceptor", authInterceptor);
 
     function authInterceptor(BASEURL, auth) {

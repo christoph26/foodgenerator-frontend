@@ -1,6 +1,6 @@
 (function(){
 
-    angular.module('myApp')
+    angular.module('foodGenerator')
         .service('auth', authService);
 
     function authService($window) {
