@@ -9,7 +9,8 @@ angular.module('foodGenerator.home', ['ngResource', 'ui.router'])
                 url: '/home',
                 views: {
                     "content": {
-                        templateUrl: "views/home/home.html"
+                        templateUrl: "views/home/home.html",
+                        controller: 'HomeCtrl'
                     }
                 }
             })
