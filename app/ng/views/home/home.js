@@ -15,6 +15,6 @@ angular.module('foodGenerator.home', ['ngResource', 'ui.router'])
     })
 
     .controller('HomeCtrl', function ($scope) {
-        $scope.greeting = "Welcome home!";
+        $scope.exampleField = "Hello World!";
     })
 ;

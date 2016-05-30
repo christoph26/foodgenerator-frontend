@@ -15,6 +15,6 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
     })
 
     .controller('AccountCtrl', function ($scope) {
-        $scope.name = "John Doe";
+        $scope.exampleField = "Hello World!";
     })
 ;
