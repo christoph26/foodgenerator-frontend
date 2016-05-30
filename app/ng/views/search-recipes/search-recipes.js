@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('foodGenerator.searchRecipes', ['ngResource', 'ui.router'])
 
     .config(function ($stateProvider) {
@@ -10,13 +8,13 @@ angular.module('foodGenerator.searchRecipes', ['ngResource', 'ui.router'])
                 views: {
                     "content": {
                         templateUrl: "views/search-recipes/search-recipes.html",
-                        controller: 'RecipeCtrl'
+                        controller: 'SearchRecipesCtrl'
                     }
                 }
             })
     })
 
-    .controller('RecipeCtrl', function ($scope) {
+    .controller('SearchRecipesCtrl', function ($scope) {
         $scope.exampleField = "dummyValue";
     })
 ;

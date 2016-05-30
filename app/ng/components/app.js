@@ -1,7 +1,15 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('foodGenerator', ['ui.router', 'foodGenerator.home', 'foodGenerator.account', 'foodGenerator.searchRecipes', 'templates', 'ngMessages'])
+angular.module('foodGenerator', [
+    'ui.router',
+    'foodGenerator.home',
+    'foodGenerator.account',
+    'foodGenerator.searchRecipes',
+    'foodGenerator.searchResults',
+    'templates',
+    'ngMessages'
+])
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
