@@ -14,24 +14,28 @@ var plumber = require('gulp-plumber');
 
 var s_filter_i, js_filter, js_filter_i;
 
-(function(){
+(function () {
 
     function createFilter(file_ending, inverse) {
-        if (typeof(file_ending) == "string") { file_ending = [file_ending]}
+        if (typeof(file_ending) == "string") {
+            file_ending = [file_ending]
+        }
         var pattern = [];
 
         if (inverse) {
             pattern.push("**");
         }
 
-        file_ending.forEach(function(e) { pattern.push((inverse?"!":"") + "**/*." + e); });
+        file_ending.forEach(function (e) {
+            pattern.push((inverse ? "!" : "") + "**/*." + e);
+        });
 
         return filter(pattern);
     }
 
-    s_filter_i = createFilter(['scss', 'css'],true);
+    s_filter_i = createFilter(['scss', 'css'], true);
     js_filter = createFilter('js');
-    js_filter_i = createFilter('js',true)
+    js_filter_i = createFilter('js', true)
 
 })();
 
@@ -54,9 +58,9 @@ gulp.task('sass', function () {
 });
 
 
-gulp.task('frontend-libs-copy', function() {
+gulp.task('frontend-libs-copy', function () {
 
-    var all_libs = gulp.src(mainBowerFiles(), { base: 'bower_components' })
+    var all_libs = gulp.src(mainBowerFiles(), {base: 'bower_components'})
         .pipe(plumber())
         //css and scss should be includes using sass
         .pipe(s_filter_i);
@@ -83,10 +87,14 @@ gulp.task('frontend-libs-copy', function() {
 
 gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning
-    return gulp.src(['app/ng/**/app.js', 'app/ng/views/home/home.js', 'app/ng/views/account/account.js', 'app/ng/**/*.js'])
+    return gulp.src(['app/ng/**/app.js',
+        'app/ng/views/home/home.js',
+        'app/ng/views/account/account.js',
+        'app/ng/views/search-recipes/search-recipes.js',
+        'app/ng/**/*.js'])
         .pipe(plumber())
         /*
-        suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
+         suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513
          */
         //.pipe(sourcemaps.init())
         .pipe(concat('app.js'))
@@ -110,8 +118,8 @@ var MAIN_TASKS = ['app-js', 'app-templates', 'frontend-libs-copy', 'sass'];
 
 gulp.task('watch', MAIN_TASKS, function () {
     gulp.watch('app/ng/**/*.js', ['app-js']);
-    gulp.watch('app/ng/**/*.html', [ 'app-templates']);
-    gulp.watch('bower.json', [ 'frontend-libs-copy']);
+    gulp.watch('app/ng/**/*.html', ['app-templates']);
+    gulp.watch('bower.json', ['frontend-libs-copy']);
     gulp.watch(['app/sass/**/*.scss', 'bower.json'], ['sass']);
 })
 
@@ -119,10 +127,10 @@ gulp.task('install', MAIN_TASKS);
 
 gulp.task('clean', function () {
     return gulp.src([
-                        'public/js/app.js',
-                        'public/js/templates.js',
-                        'public/css',
-                        'public/libs'], {read: false})
+        'public/js/app.js',
+        'public/js/templates.js',
+        'public/css',
+        'public/libs'], {read: false})
         .pipe(clean());
 });
 
