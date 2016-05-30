@@ -6,7 +6,7 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/logo/logo.html",
             controller: function ($scope) {
-                $scope.logo = "LOGO!";
+                $scope.exampleField = "Hello World!";
             }
         }
     })

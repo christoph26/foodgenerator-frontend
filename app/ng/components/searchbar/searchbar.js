@@ -6,7 +6,7 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
             controller: function ($scope) {
-                $scope.searchbar = "SEARCHBAR!";
+                $scope.exampleField = "Hello World!";
             }
         }
     })
