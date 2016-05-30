@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('foodGenerator')
     .directive('navbar', function () {
         return {

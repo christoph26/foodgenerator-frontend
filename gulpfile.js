@@ -83,7 +83,7 @@ gulp.task('frontend-libs-copy', function() {
 
 gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning
-    return gulp.src(['app/ng/**/app.js', 'app/ng/components/home/home.js', 'app/ng/components/account/account.js', 'app/ng/**/*.js'])
+    return gulp.src(['app/ng/**/app.js', 'app/ng/views/home/home.js', 'app/ng/views/account/account.js', 'app/ng/**/*.js'])
         .pipe(plumber())
         /*
         suspend minification, since angular cannot handle sourcemaps in errors https://github.com/angular/angular.js/issues/5217#issuecomment-50993513

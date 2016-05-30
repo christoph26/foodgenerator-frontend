@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('foodGenerator.home', ['ngResource', 'ui.router'])
 
     .config(function ($stateProvider) {
