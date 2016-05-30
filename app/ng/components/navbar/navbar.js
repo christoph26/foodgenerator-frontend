@@ -4,7 +4,7 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/navbar/navbar.html",
             controller: function ($scope) {
-                $scope.navbar = "NAVBAR!";
+                $scope.exampleField = "Hello World!";
             }
         }
     })
