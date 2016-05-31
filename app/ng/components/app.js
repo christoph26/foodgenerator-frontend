@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('foodGenerator', [
     'ui.router',
+    'ui.bootstrap',
     'foodGenerator.home',
     'foodGenerator.account',
     'foodGenerator.searchRecipes',
