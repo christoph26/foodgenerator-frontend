@@ -8,8 +8,7 @@ angular.module('foodGenerator', [
     'foodGenerator.account',
     'foodGenerator.searchRecipes',
     'foodGenerator.searchResults',
-    'templates',
-    'ngMessages'
+    'templates'
 ])
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
