@@ -1,18 +1,10 @@
 //normalize
 @import '../../bower_components/normalize-libsass/normalize.scss';
 
+//bootstrap
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap.scss';
 
 
 @import "custom_normalize.scss";
 @import 'vars/colors';
 @import 'inc/inc';
-
-
-//material-design lib
-@import '../../bower_components/angular-material/angular-material.scss';
-
-
-
-
-
-
