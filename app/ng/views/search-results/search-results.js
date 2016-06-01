@@ -18,6 +18,12 @@ angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
     {
         $scope.exampleField = "Hello World!";
         
+        $scope.resultsofsearch = 
+            [
+                {Recipe: "Spaghetti"},
+                {Recipe: "Pizza"},
+                {Recipe: "Pommes"}
+            ]
     }
 
 )
