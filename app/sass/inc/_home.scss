@@ -1,0 +1,87 @@
+#top {
+  background-color: yellow;
+  height: 360px;
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#mid {
+  background-color: orange;
+  margin-top: 35px;
+  height: 100px;
+}
+
+#bot {
+  background-color: grey;
+  margin-top: 35px;
+  height: 100px;
+}
+
+#site {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button-left {
+
+  background-color: blue;
+  width: 300px;
+  height: 150px;
+  float: left;
+
+}
+
+#button-right {
+  background-color: red;
+  width: 300px;
+  height: 150px;
+  float: right;
+
+}
+
+#top-mid {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #00b3ee;
+  font-size: 120px;
+  text-align: center;
+}
+
+#box-down {
+  background-color: green;
+  margin-left: 100px;
+  margin-top: 20px;
+  height: 100px;
+  float: left;
+  width: 1000px;
+
+}
+
+#button-down {
+  margin-right: 100px;
+  background-color: red;
+  width: 300px;
+  height: 100px;
+  float: right;
+}
+
+.separator {
+  width: 100%;
+  border-bottom: 3px solid #000000;
+  text-align: center;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.separator span {
+  line-height: 15px;
+  padding: 0 10px;
+  background: white; /* Farbe des Elements darunter */
+  display: inline-block;
+  margin-top: 10px;
+  color: #000000;
+  font-size: 40px;
+}
