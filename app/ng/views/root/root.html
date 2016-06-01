@@ -3,17 +3,28 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!--header will go here-->
-<div class="header">
-    <logo></logo>
-    <searchbar></searchbar>
-    <navbar></navbar>
+<div class="container" id="app-container">
+    <!--header:-->
+    <div class="header">
+        <div class="row">
+            <div class="col-xs-3">
+                <logo></logo>
+            </div>
+            <div class="col-xs-9">
+                <searchbar></searchbar>
+            </div>
+        </div>
+        <div class="row">
+            <navbar></navbar>
+        </div>
+    </div>
+
+    <!--content:-->
+    <div class="content" ui-view="content"></div>
+
+    <!--stuff that belongs outside of content container:-->
+    <div class="content-outside" ui-view="outside"></div>
+
+    <!--footer:-->
+    <appfooter></appfooter>
 </div>
-
-<!--content:-->
-<div ui-view="content"></div>
-
-<!--stuff that belongs outside of content container:-->
-<div ui-view="outside"></div>
-
-<appfooter></appfooter>
