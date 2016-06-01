@@ -3,8 +3,22 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/recipe-thumbnail/recipe-thumbnail.html",
-            controller: function ($scope) {
+            controller: function ($scope) 
+            {
+                
                 $scope.exampleField = "Hello World!";
+                
+                $scope.availability =
+                    [
+                        {supermarket: "Aldi"},
+                        {supermarket: "LIDL"}
+                    ];
+                $scope.thumbproperty =
+                    [
+                        {type: "organic"},
+                        {type: "vegetarian"},
+                        {type: "vegan"}
+                    ];
             }
         }
     })
