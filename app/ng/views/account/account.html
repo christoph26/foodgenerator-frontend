@@ -1,7 +1,20 @@
 <div>
     <h1>My Account</h1>
-    <p>
-        This is the content of the my account page.<br/>
-        This is an example of a variable: {{exampleField}}
-    </p>
+    <div ng-if="isLoggedIn == false">
+        <p>
+            You are currently not logged in.
+        </p>
+
+        <button>Login</button>
+        <p>or</p>
+        <button>SignUp</button>
+    </div>
+    <div ng-if="isLoggedIn == true">
+        <p>
+            Welcome to your account page!<br/>
+            <br/>
+            You are currently logged in as {{firstName}} {{lastName}}.
+        </p>
+    </div>
+
 </div>
