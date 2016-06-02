@@ -5,8 +5,11 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
+            scope: {
+                bartype: '='
+            },
             controller: function ($scope) {
-                $scope.exampleField = "Hello World!";
+                // do nothing yet
             }
         }
     })
