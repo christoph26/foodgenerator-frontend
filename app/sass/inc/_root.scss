@@ -1,5 +1,7 @@
-//.mv-content {
-//  max-width: 960px !important;
-//  //we cannot use layout-fill since this directive sets the height also to 100%
-//  width:100%;
-//}
+html, body, body > div, #app-container {
+  height: 100%;
+}
+
+#content-container {
+  min-height: 100%;
+}
