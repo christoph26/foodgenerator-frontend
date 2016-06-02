@@ -1,8 +1,8 @@
 angular.module('foodGenerator')
-    .directive('recipeoverview', function () {
+    .directive('recipethumbnail', function () {
         return {
             restrict: "E",
-            templateUrl: "components/recipe-overview/recipe-overview.html",
+            templateUrl: "components/recipe-thumbnail/recipe-thumbnail.html",
             controller: function ($scope) {
                 $scope.exampleField = "Hello World!";
             }
