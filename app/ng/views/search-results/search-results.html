@@ -8,38 +8,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="row">
-                    <recipethumbnail></recipethumbnail>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="row">
-                    <recipethumbnail></recipethumbnail>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="row">
-                    <recipethumbnail></recipethumbnail>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="row">
-                    <recipethumbnail></recipethumbnail>
-                </div>
-            </div>
+            <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
         </div>
     </div>
-    <div class="container">
-        <div ng-repeat="arrayrecipe in resultsofsearch">
-            <div class="col-sm-3">
-                <div class="row">
-                    <recipethumbnail>{{arrayrecipe}}</recipethumbnail>
-                    {{arrayrecipe.Recipetitle}}
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
-
