@@ -22,8 +22,10 @@ angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
             [
                 {Recipe: "Spaghetti"},
                 {Recipe: "Pizza"},
-                {Recipe: "Pommes"}
+                {Recipe: "Chili"},
+                {Recipe: "Carbonara"}
             ]
+        
     }
 
 )

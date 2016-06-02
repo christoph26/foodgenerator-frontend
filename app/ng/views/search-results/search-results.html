@@ -30,5 +30,16 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div ng-repeat="arrayrecipe in resultsofsearch">
+            <div class="col-sm-3">
+                <div class="row">
+                    <recipethumbnail>{{arrayrecipe}}</recipethumbnail>
+                    {{arrayrecipe.Recipe}}
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
+
