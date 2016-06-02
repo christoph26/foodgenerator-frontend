@@ -6,8 +6,14 @@ angular.module('foodGenerator')
             controller: function ($scope) 
             {
                 
-                $scope.exampleField = function() {$scope.titlethumb = $scope.resultsofsearch};
-                
+                $scope.exampleField = "Hello World!";
+
+                $scope.exampleField1 = function () {
+                    return;
+
+                };
+
+
                 $scope.availability =
                     [
                         {supermarket: "Aldi"},

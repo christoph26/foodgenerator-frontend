@@ -20,10 +20,10 @@ angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
         
         $scope.resultsofsearch = 
             [
-                {Recipe: "Spaghetti"},
-                {Recipe: "Pizza"},
-                {Recipe: "Chili"},
-                {Recipe: "Carbonara"}
+                {Recipetitle: "Spaghetti"},
+                {Recipetitle: "Pizza"},
+                {Recipetitle: "Chili"},
+                {Recipetitle: "Carbonara"}
             ]
         
     }
