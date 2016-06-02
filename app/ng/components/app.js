@@ -7,7 +7,9 @@ angular.module('foodGenerator', [
     'foodGenerator.home',
     'foodGenerator.account',
     'foodGenerator.searchRecipes',
+    'foodGenerator.searchIngredients',
     'foodGenerator.searchResults',
+    'foodGenerator.mealPlanner',
     'templates'
 ])
 
