@@ -1,5 +1,5 @@
 angular.module('foodGenerator')
-    .controller("register", function ($scope, currUser, $mdDialog) {
+    .controller("RegisterCtrl", function ($scope, currUser, $mdDialog) {
         $scope.username = '';
         $scope.pwd = '';
         $scope.pwdConfirm = '';

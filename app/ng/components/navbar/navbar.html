@@ -7,7 +7,85 @@
             <li><a ui-sref="mealPlanner">Meal Planner</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a ui-sref="account">My Account</a></li>
+            <!-- not logged in -->
+            <li uib-dropdown on-toggle="toggled(open)" ng-if="!loggedIn">
+                <a href id="simple-dropdown" uib-dropdown-toggle>
+                    You are currently not logged in.
+                </a>
+                <ul class="dropdown-menu">
+                    <li ng-click="showLoginDialog()">
+                        <a href>Login</a>
+                    </li>
+                    <li ng-click="open()">
+                        <a href>Signup</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--bootstrap version-->
+            <!--<li role="presentation" class="dropdown" ng-if="!loggedIn">-->
+            <!--<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
+            <!--aria-expanded="false">-->
+            <!--You are currently not logged in.-->
+            <!--<span class="caret"></span>-->
+            <!--</a>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<button ng-click="showLoginDialog()">Login</button>-->
+            <!--<li ng-click="showSignupDialog()">Signup</li>-->
+            <!--</ul>-->
+            <!--</li>-->
+
+            <!-- logged in -->
+            <li role="presentation" class="dropdown" ng-if="loggedIn">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Hello, {{user.firstName}}.
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li ui-sref="account">My Account</li>
+                    <li ng-click="logout()">Log out</li>
+                </ul>
+            </li>
+
+
+            <!--&lt;!&ndash; not logged in &ndash;&gt;-->
+            <!--<span class="md-body-2" hide-xs ng-if="!loggedIn">You are currently not logged in.</span>-->
+            <!--<md-menu md-position-mode="target-right target" ng-if="!loggedIn">-->
+            <!--<md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">-->
+            <!--<md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>-->
+            <!--</md-button>-->
+            <!--<md-menu-content>-->
+            <!--<md-menu-item>-->
+            <!--<md-button >-->
+            <!--Log in-->
+            <!--</md-button>-->
+            <!--</md-menu-item>-->
+            <!--<md-menu-item>-->
+            <!--<md-button >-->
+            <!--Sign Up-->
+            <!--</md-button>-->
+            <!--</md-menu-item>-->
+            <!--</md-menu-content>-->
+            <!--</md-menu>-->
+
+
+            <!--&lt;!&ndash; logged in &ndash;&gt;-->
+            <!--<span class="md-body-2" ng-if="loggedIn">Hello, {{username}}</span>-->
+            <!--<md-menu md-position-mode="target-right target" ng-if="loggedIn">-->
+            <!--<md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">-->
+            <!--<md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>-->
+            <!--</md-button>-->
+            <!--<md-menu-content>-->
+            <!--<md-menu-item>-->
+            <!--<md-button >-->
+            <!--Log out-->
+            <!--</md-button>-->
+            <!--</md-menu-item>-->
+            <!--</md-menu-content>-->
+            <!--</md-menu>-->
+
+
         </ul>
     </nav>
 </div>
