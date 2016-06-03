@@ -16,9 +16,11 @@ angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
 
     .controller('SearchResultsCtrl', function ($scope) {
             var resultsList = EXAMPLE_RECIPES;      // "EXAMPLE_RECIPES" will be replaced by a function parameter as soon as the backend is connected
-            var supermarkets = SUPERMARKETS;        // "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
-
-            for (var recipe in resultsList) {
+            var ingredientlist = EXAMPLE_IngredientList;
+            var ingredients = EXAMPLE_Ingredient;
+            var supermarkets = SUPERMARKETS;// "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
+            //[RECIPE1[Ingredient[supermarket]], RECIPE2, ..]
+        for (var recipe in resultsList) {
                 resultsList[recipe].supermarkets = getSupermarketsWithIngredientsAvailable(supermarkets, recipe.ingredientList);
             }
 
@@ -135,7 +137,7 @@ var EXAMPLE_IngredientList = [
     }
 ];
 
-var Example_Ingredient = [
+var EXAMPLE_Ingredient = [
         {
             "_id": "111100000000000000000001",
             "title": "Minced Meat",
