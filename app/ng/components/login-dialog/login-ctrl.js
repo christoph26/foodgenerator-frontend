@@ -1,5 +1,5 @@
 angular.module('foodGenerator')
-    .controller("LoginCtrl", function ($scope, $uibModalInstance) {
+    .controller("LoginCtrl", function ($scope, currentUser, $uibModalInstance) {
         $scope.errorText = '';
 
         $scope.login = login;
@@ -7,16 +7,18 @@ angular.module('foodGenerator')
 
         function login() {
             console.log("Performing login with email '" + $scope.email + "' and password '" + $scope.password + "'.");
-            // var currUser = {};
-            // currUser.login($scope.username, $scope.password).then(function () {
-            //     $uibModalInstance.close();
-            // }, function (response) {
-            //     if (response.status == 400 || response.status == 401) {
-            //         $scope.errorText = "Wrong username or password.";
-            //     } else {
-            //         $scope.errorText = "An unknown error occured. Please try again later.";
-            //     }
-            // });
+            currentUser.login($scope.email, $scope.password).then(function () {
+                console.log("closing model. (success?)");
+                $uibModalInstance.close();
+            }, function (response) {
+                if (response.status == 400 || response.status == 401) {
+                    console.log("wrong username and pw");
+                    $scope.errorText = "Wrong username or password.";
+                } else {
+                    console.log("unkown error");
+                    $scope.errorText = "An unknown error occured. Please try again later.";
+                }
+            });
         }
 
         function cancel() {
