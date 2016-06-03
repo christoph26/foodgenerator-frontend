@@ -1,5 +1,7 @@
 angular.module('foodGenerator')
     .controller("LoginCtrl", function ($scope, $uibModalInstance) {
+        $scope.errorText = '';
+
         $scope.login = login;
         $scope.cancel = cancel;
 
