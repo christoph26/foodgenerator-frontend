@@ -3,7 +3,7 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/navbar/navbar.html",
-            controller: function ($scope) {
+            controller: function ($scope, $uibModal) {
                 var currUser = {};
 
                 $scope.user = null;

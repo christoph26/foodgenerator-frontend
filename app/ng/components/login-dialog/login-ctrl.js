@@ -1,5 +1,6 @@
 angular.module('foodGenerator')
-    .controller("LoginCtrl", function ($scope, currUser, $mdDialog) {
+// .controller("LoginCtrl", function ($scope, currUser, $uibModal) {
+    .controller("LoginCtrl", function ($scope, $uibModal) {
         $scope.username = '';
         $scope.pwd = '';
         $scope.errorText = '';
@@ -8,8 +9,9 @@ angular.module('foodGenerator')
         $scope.cancel = cancel;
 
         function login() {
+            var currUser = {};
             currUser.login($scope.username, $scope.password).then(function () {
-                $mdDialog.hide();
+                $uibModal.close();
             }, function (response) {
                 if (response.status == 400 || response.status == 401) {
                     $scope.errorText = "Wrong username or password.";
@@ -20,6 +22,6 @@ angular.module('foodGenerator')
         }
 
         function cancel() {
-            $mdDialog.cancel();
+            $uibModal.dismiss();
         }
     });
