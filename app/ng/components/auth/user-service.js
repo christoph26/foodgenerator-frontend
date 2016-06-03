@@ -14,16 +14,18 @@
 
         ////////////////
 
-        function register(user, pass) {
+        function register(email, pass, firstName, lastName) {
             return $http.post(BASEURL + '/signup', {
-                username: user,
-                password: pass
+                email: email,
+                password: pass,
+                firstName: firstName,
+                lastName: lastName
             });
         }
 
-        function login(user, pass) {
+        function login(email, pass) {
             return $http.post(BASEURL + '/login', {
-                username: user,
+                email: email,
                 password: pass
             });
         }

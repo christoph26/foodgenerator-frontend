@@ -34,7 +34,6 @@
         }
 
         function isAuthed() {
-
             var token = self.getToken();
             return !!token;
         }
