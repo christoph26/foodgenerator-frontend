@@ -3,22 +3,19 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/navbar/navbar.html",
-            controller: function ($scope, $uibModal) {
-                var currUser = {};
-
+            controller: function ($scope, currentUser, $uibModal) {
                 $scope.user = null;
 
                 $scope.logout = logout;
 
-                $scope.loggedIn = false;
-                // $scope.$watch(function () {
-                //     return currUser.loggedIn;
-                // }, function (loggedIn) {
-                //     $scope.loggedIn = loggedIn;
-                //     if (loggedIn && !$scope.user) {
-                //         $scope.user = currUser.getUser();
-                //     }
-                // });
+                $scope.$watch(function () {
+                    return currentUser.loggedIn;
+                }, function (loggedIn) {
+                    $scope.loggedIn = loggedIn;
+                    if (loggedIn && !$scope.user) {
+                        $scope.user = currentUser.getUser();
+                    }
+                });
 
                 /////////////////////
 
