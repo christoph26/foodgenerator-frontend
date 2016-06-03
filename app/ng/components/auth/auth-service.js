@@ -6,8 +6,6 @@
     function authService($window) {
 
         var self = this;
-        this.token;
-
 
         this.isAuthed = isAuthed;
         this.parseJwt = parseJwt;
