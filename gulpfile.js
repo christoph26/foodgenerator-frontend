@@ -91,7 +91,9 @@ gulp.task('app-js', function () {
         'app/ng/views/home/home.js',
         'app/ng/views/account/account.js',
         'app/ng/views/search-recipes/search-recipes.js',
+        'app/ng/views/search-recipes/search-ingredients.js',
         'app/ng/views/search-recipes/search-results.js',
+        'app/ng/views/search-recipes/meal-planner.js',
         'app/ng/**/*.js'])
         .pipe(plumber())
         /*
