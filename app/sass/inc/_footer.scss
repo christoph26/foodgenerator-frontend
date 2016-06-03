@@ -1,6 +1,7 @@
-.footer {
+footer {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 40px;
-  background-color: $secondary-color;
+  background-color: $color-secondary;
+  color: $color-text-inverted;
 }

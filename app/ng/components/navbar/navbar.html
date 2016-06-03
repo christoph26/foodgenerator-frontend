@@ -6,10 +6,10 @@
             <li><a ui-sref="searchIngredients">Ingredient Search</a></li>
             <li><a ui-sref="mealPlanner">Meal Planner</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav pull-right">
             <!-- not logged in -->
-            <li uib-dropdown ng-if="!loggedIn">
-                <a href id="simple-dropdown" uib-dropdown-toggle>
+            <li uib-dropdown ng-if="!loggedIn" class="pull-right">
+                <a href uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
                     You are currently not logged in.
                     <span class="caret"></span>
                 </a>
@@ -24,9 +24,8 @@
             </li>
 
             <!-- logged in -->
-            <li uib-dropdown ng-if="loggedIn">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">
+            <li uib-dropdown ng-if="loggedIn" class="pull-right">
+                <a href uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
                     Hello, {{user.firstName}}.
                     <span class="caret"></span>
                 </a>
