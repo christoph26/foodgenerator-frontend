@@ -10,14 +10,15 @@ angular.module('foodGenerator')
 
                 $scope.logout = logout;
 
-                $scope.$watch(function () {
-                    return currUser.loggedIn;
-                }, function (loggedIn) {
-                    $scope.loggedIn = loggedIn;
-                    if (loggedIn && !$scope.user) {
-                        $scope.user = currUser.getUser();
-                    }
-                });
+                $scope.loggedIn = false;
+                // $scope.$watch(function () {
+                //     return currUser.loggedIn;
+                // }, function (loggedIn) {
+                //     $scope.loggedIn = loggedIn;
+                //     if (loggedIn && !$scope.user) {
+                //         $scope.user = currUser.getUser();
+                //     }
+                // });
 
                 /////////////////////
 
@@ -27,13 +28,13 @@ angular.module('foodGenerator')
                         modalInstance = $uibModal.open({
                             animation: true,
                             templateUrl: 'components/login-dialog/login-dialog.html',
-                            controller: 'LoginCtrl',
+                            controller: 'LoginCtrl'
                         });
                     } else if (type == 'register') {
                         modalInstance = $uibModal.open({
                             animation: true,
                             templateUrl: 'components/register-dialog/register-dialog.html',
-                            controller: 'RegisterCtrl',
+                            controller: 'RegisterCtrl'
                         });
                     }
 
@@ -45,7 +46,9 @@ angular.module('foodGenerator')
                 };
 
                 function logout() {
-                    currUser.logout();
+                    console.log("Performing logout.");
+                    $scope.loggedIn = false;
+                    // currUser.logout();
                 }
             }
         }
