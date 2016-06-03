@@ -7,7 +7,7 @@ angular.module('foodGenerator')
             console.log("Performing login with email '" + $scope.email + "' and password '" + $scope.password + "'.");
             // var currUser = {};
             // currUser.login($scope.username, $scope.password).then(function () {
-            //     $uibModal.close();
+            //     $uibModalInstance.close();
             // }, function (response) {
             //     if (response.status == 400 || response.status == 401) {
             //         $scope.errorText = "Wrong username or password.";
