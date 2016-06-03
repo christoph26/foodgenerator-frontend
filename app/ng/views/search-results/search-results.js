@@ -32,144 +32,161 @@ function getSupermarketsWithIngredientsAvailable(supermarkets, ingredients) {
     return supermarkets;
 }
 
-var SUPERMARKETS = [
+var EXAMPLE_RECIPES = [
     {
-        "_id": "smID_01",
-        "title": "ALDI SUED",
-        "icon": "http://icons.iconarchive.com/icons/kyo-tux/aeon/256/Sign-LogOff-icon.png"
+        "_id": "333300000000000000000001",
+        "title": "Spaghetti Bolognese Classic",
+        "effort": 1,
+        "description": "Preperation is simple and done in 30 minutes.",
+        "vegan": false,
+        "vegetarian": false,
+        "picture": "https://www.frag-mutti.de/images/uploads/de/head/61/Spaghetti_Bolognese.jpg",
+        "ingredientList": "222200000000000000000001",
+        "recipeFamily": "444400000000000000000001"
     },
     {
-        "_id": "smID_02",
-        "title": "LIDL",
-        "icon": "http://icons.iconarchive.com/icons/kyo-tux/aeon/256/Sign-LogOff-icon.png"
-    },
-    {
-        "_id": "smID_03",
-        "title": "REAL",
-        "icon": "http://icons.iconarchive.com/icons/kyo-tux/aeon/256/Sign-LogOff-icon.png"
+        "_id": "333300000000000000000002",
+        "title": "Rammstein Spaghetti Bolognese",
+        "effort": 3,
+        "description": "HOT as Hell.",
+        "vegan": false,
+        "vegetarian": false,
+        "picture": "http://static.chefkoch-cdn.de/ck.de/rezepte/62/62122/818606-960x720-rammstein-s-spaghetti-bolognese.jpg",
+        "ingredientList": "222200000000000000000002",
+        "recipeFamily": "444400000000000000000001"
     }
 ];
 
-var EXAMPLE_RECIPES = [
+var EXAMPLE_IngredientList = [
     {
-        "_id": "recipe_574b05eaddd8a4376a358c87",
-        "title": "recipe_Manning",
-        "skill": "Handable",
-        "description": "Exercitation ea amet cupidatat aliquip ut quis ex tempor ut. Aute enim nostrud duis est exercitation quis duis duis velit occaecat Lorem est id qui. In labore laborum occaecat sint sunt adipisicing anim aliquip exercitation sint in velit ipsum elit. Pariatur irure exercitation voluptate voluptate Lorem esse ea. Sit duis dolore ea elit anim officia enim proident elit officia.\r\n",
-        "vegan": true,
-        "vegetarian": true,
-        "ingredientList": [
+        "_id": "222200000000000000000001",
+        "ingredients": [
             {
-                "amount": 9,
-                "ingredient": [
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea7eae2359d095cde6"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05eab0ef0cb47b8971bf"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea8a7963de772b08bc"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea021207cf779ab591"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea70836963865efff7"
-                    }
-                ]
+                "amount": 500,
+                "unit": "g",
+                "ingredient": "111100000000000000000001"
             },
             {
                 "amount": 6,
-                "ingredient": [
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea020faf79a8ef4193"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05eac8925482c81b90e2"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea4004da85719f1db4"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea3d97c2b1b6880bab"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05eaabb2c984dec62799"
-                    }
-                ]
+                "unit": "st",
+                "ingredient": "111100000000000000000002"
             },
             {
-                "amount": 5,
-                "ingredient": [
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea3d209fac630adfcc"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea67683593cb11ab4a"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea7f66abd791e4964e"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea4bb284710bfdab22"
-                    },
-                    {
-                        "type": "mongoose.Schema.Types.ObjectId",
-                        "ref": "ingredientID_574b05ea6d34915ea798bc17"
-                    }
-                ]
-            }
-        ],
-        "recipefamily": [
+                "amount": 2,
+                "unit": "st",
+                "ingredient": "111100000000000000000003"
+            },
             {
-                "type": "mongoose.Schema.Types.ObjectId",
-                "ref": "recipefamilyID_574b05ea58e938f0ad49b784"
+                "amount": 1,
+                "unit": "st",
+                "ingredient": "111100000000000000000004"
+            },
+            {
+                "amount": 2,
+                "unit": "tl",
+                "ingredient": "111100000000000000000005"
+            },
+            {
+                "amount": 500,
+                "unit": "g",
+                "ingredient": "111100000000000000000006"
             }
         ]
     },
     {
-        "_id": "recipe_574b05eac9dcafd23d8daaac",
-        "title": "recipe_Shelly",
-        "skill": "Easy",
-        "description": "Do anim est eiusmod ut eu in occaecat excepteur et irure ipsum reprehenderit irure. Est id mollit irure ipsum incididunt occaecat magna. Eiusmod velit non eiusmod tempor amet excepteur voluptate non do minim elit. Occaecat eu est reprehenderit esse. Ullamco minim aute consectetur culpa qui quis proident est elit deserunt. Reprehenderit enim consectetur velit magna ullamco esse dolor elit cupidatat ad reprehenderit aliqua do.\r\n",
-        "vegan": false,
-        "vegetarian": false,
-        "ingredientList": [],
-        "recipefamily": [
+        "_id": "222200000000000000000002",
+        "ingredients": [
             {
-                "type": "mongoose.Schema.Types.ObjectId",
-                "ref": "recipefamilyID_574b05ea3cd829c845969ce9"
+                "amount": 500,
+                "unit": "g",
+                "ingredient": "111100000000000000000001"
+            },
+            {
+                "amount": 6,
+                "unit": "st",
+                "ingredient": "111100000000000000000002"
+            },
+            {
+                "amount": 2,
+                "unit": "st",
+                "ingredient": "111100000000000000000003"
+            },
+            {
+                "amount": 1,
+                "unit": "st",
+                "ingredient": "111100000000000000000004"
+            },
+            {
+                "amount": 2,
+                "unit": "tl",
+                "ingredient": "111100000000000000000005"
+            },
+            {
+                "amount": 500,
+                "unit": "g",
+                "ingredient": "111100000000000000000006"
+            },
+            {
+                "amount": 6,
+                "unit": "st",
+                "ingredient": "111100000000000000000007"
             }
         ]
+    }
+];
+
+var Example_Ingredient = [
+        {
+            "_id": "111100000000000000000001",
+            "title": "Minced Meat",
+            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+        },
+        {
+            "_id": "111100000000000000000002",
+            "title": "Tomato",
+            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+        },
+        {
+            "_id": "111100000000000000000003",
+            "title": "Onion",
+            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+        },
+        {
+            "_id": "111100000000000000000004",
+            "title": "Garlic",
+            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+        },
+        {
+            "_id": "111100000000000000000005",
+            "title": "Oregano",
+            "supermarkets": ["888800000000000000000003"]
+        },
+        {
+            "_id": "111100000000000000000006",
+            "title": "Spaghetti",
+            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+        },
+        {
+            "_id": "111100000000000000000007",
+            "title": "Pepper Red",
+            "supermarkets": "888800000000000000000003"
+        }
+];
+
+var SUPERMARKETS = [
+    {
+        "_id": "888800000000000000000001",
+        "title": "ALDI SUED",
+        "icon": "http://static06.kaufda.de/Geschaefte/Aldi-Sued.v9774.jpg"
     },
     {
-        "_id": "recipe_574b05ea80671e04acdf7616",
-        "title": "recipe_Shields",
-        "skill": "Handable",
-        "description": "Velit pariatur commodo exercitation sit ullamco consequat mollit voluptate nulla laboris elit excepteur. Culpa cillum consequat cillum aliquip enim excepteur sit fugiat. Non quis quis deserunt anim aliquip.\r\n",
-        "vegan": false,
-        "vegetarian": false,
-        "ingredientList": [],
-        "recipefamily": [
-            {
-                "type": "mongoose.Schema.Types.ObjectId",
-                "ref": "recipefamilyID_574b05ea15911f05e656b7fc"
-            }
-        ]
+        "_id": "888800000000000000000002",
+        "title": "Penny",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Penny-Logo.svg/142px-Penny-Logo.svg.png"
+    },
+    {
+        "_id": "888800000000000000000003",
+        "title": "REAL",
+        "icon": "http://static05.kaufda.de/Geschaefte/Real.v1111.png"
     }
 ];
