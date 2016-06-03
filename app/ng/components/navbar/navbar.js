@@ -8,8 +8,6 @@ angular.module('foodGenerator')
 
                 $scope.user = null;
 
-                $scope.showLoginDialog = showLoginDialog;
-                $scope.showSignupDialog = showSignupDialog;
                 $scope.logout = logout;
 
                 $scope.$watch(function () {
@@ -30,22 +28,12 @@ angular.module('foodGenerator')
                             animation: true,
                             templateUrl: 'components/login-dialog/login-dialog.html',
                             controller: 'LoginCtrl',
-                            resolve: {
-                                items: function () {
-                                    return $scope.items;
-                                }
-                            }
                         });
                     } else if (type == 'register') {
                         modalInstance = $uibModal.open({
                             animation: true,
                             templateUrl: 'components/register-dialog/register-dialog.html',
                             controller: 'RegisterCtrl',
-                            resolve: {
-                                items: function () {
-                                    return $scope.items;
-                                }
-                            }
                         });
                     }
 
@@ -54,25 +42,6 @@ angular.module('foodGenerator')
                     // }, function () {
                     //     $log.info('Modal dismissed at: ' + new Date());
                     // });
-                };
-
-                function showLoginDialog() {
-                    // var useFullScreen = $mdMedia('xs');
-                    $mdDialog.show({
-                        controller: 'login',
-                        templateUrl: 'components/login-dialog/login-dialog.html',
-                        clickOutsideToClose: true,
-                        // fullscreen: useFullScreen
-                    });
-                };
-                function showSignupDialog() {
-                    // var useFullScreen = $mdMedia('xs');
-                    $mdDialog.show({
-                        controller: 'register',
-                        templateUrl: 'components/register-dialog/register-dialog.html',
-                        clickOutsideToClose: true,
-                        // fullscreen: useFullScreen
-                    });
                 };
 
                 function logout() {
