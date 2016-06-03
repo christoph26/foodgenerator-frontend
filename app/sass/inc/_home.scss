@@ -12,5 +12,16 @@
   width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  background-color: $tertiary-color;
 }
 
+#button{
+  background-color: $primary-color;
+  font-size: xx-large;
+}
+#reason{
+  font-size:x-large;
+}
+
+ul {font-size:smaller}
+p {font-size:smaller}
