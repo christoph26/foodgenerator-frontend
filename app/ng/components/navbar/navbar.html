@@ -8,9 +8,10 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <!-- not logged in -->
-            <li uib-dropdown on-toggle="toggled(open)" ng-if="!loggedIn">
+            <li uib-dropdown ng-if="!loggedIn">
                 <a href id="simple-dropdown" uib-dropdown-toggle>
                     You are currently not logged in.
+                    <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li ng-click="open('login')">
@@ -23,7 +24,7 @@
             </li>
 
             <!-- logged in -->
-            <li role="presentation" class="dropdown" ng-if="loggedIn">
+            <li uib-dropdown ng-if="loggedIn">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
                     Hello, {{user.firstName}}.
