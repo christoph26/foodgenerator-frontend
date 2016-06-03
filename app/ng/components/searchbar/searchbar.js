@@ -9,7 +9,14 @@ angular.module('foodGenerator')
                 bartype: '='
             },
             controller: function ($scope) {
-                // do nothing yet
+                $scope.expanded = "down";
+                $scope.adustGlyphicon = function() {
+                    if($scope.expanded == "down") {
+                        $scope.expanded = "up";
+                    } else {
+                        $scope.expanded = "down";
+                    }
+                }
             }
         }
     })
