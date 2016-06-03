@@ -14,7 +14,7 @@ angular.module('foodGenerator')
             //     if (response.status == 400 || response.status == 401) {
             //         $scope.errorText = "Wrong username or password.";
             //     } else {
-            //         $scope.errorText = "An unknown error occured. please try again later.";
+            //         $scope.errorText = "An unknown error occured. Please try again later.";
             //     }
             // });
         }
