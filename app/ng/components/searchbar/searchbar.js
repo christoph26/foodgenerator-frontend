@@ -4,12 +4,14 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
             scope: {
-                bartype: '<',               // read-only access to the bartype html attribute
-                searchTerm: '='             // read and write access to the searchTerm html attribute
+                bartype: '<'               // read-only access to the bartype html attribute
             },
             controller: function ($scope, $state, SearchService, Supermarket) {
+
+                var searchBarInput = SearchService.searchTerm;
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
+                $scope.searchBarInput = searchBarInput;
 
                 $scope.updateGlyphicon = function () {
                     if ($scope.expanded == "down") {
@@ -20,12 +22,12 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformSearch = function () {
-                    if ($scope.searchTerm == undefined) {
-                        $scope.searchTerm = "";
+                    var searchTerm = this.searchBarInput;
+                    if (searchTerm == undefined) {
+                        searchTerm = "";
                     }
-                    console.log("performing search for search term: " + $scope.searchTerm);
                     // propagate the current search term to the search service
-                    SearchService.setSearchTerm($scope.searchTerm);
+                    SearchService.setSearchTerm(searchTerm);
                     // redirect the user to the search results page
                     $state.go('search.results');
                 };
