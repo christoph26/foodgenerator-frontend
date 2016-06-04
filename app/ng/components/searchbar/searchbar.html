@@ -1,43 +1,57 @@
 <div class="searchbar">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for recipes...">
-      <span class="input-group-btn">
-          <button class="btn btn-default" data-toggle="collapse" data-target="#searchfilters"
-                  ng-click="adjustGlyphicon()">
-              <span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span>
-          </button>
-          <button class="btn btn-default" type="button">Search</button>
-      </span>
+    <div ng-if="bartype == 'recipes'">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for recipes...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" data-toggle="collapse" data-target="#searchfilters"
+                    ng-click="updateGlyphicon()">
+            <span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-default" type="button">Search</button>
+        </span>
+        </div>
+
+        <div id="searchfilters" class="collapse">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="">Vegetarian</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="">Vegan</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="">Low</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="">Medium</label>
+                    </div>
+                    <div class="checkbox disabled">
+                        <label><input type="checkbox" value="">High</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="http://www.duvenstedt-aktiv.de/images/mitglieder/rewe_icon.jpg" class="{{selected}}"
+                         alt="Rewe" width="40" height="40">
+                    <img src="http://www.aldi-nord.de/images/logo_deu.png" class="" alt="Aldi" width="40" height="40">
+                    <img ng-repeat="supermarket in supermarkets" src="http://www.aldi-nord.de/images/logo_deu.png"
+                         class=""
+                         alt="{{supermarket.title}}" width="40" height="40">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="searchfilters" class="collapse">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Vegetarian</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Vegan</label>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Low</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Medium</label>
-                </div>
-                <div class="checkbox disabled">
-                    <label><input type="checkbox" value="">High</label>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <img src="http://www.duvenstedt-aktiv.de/images/mitglieder/rewe_icon.jpg" class="{{selected}}"
-                     alt="Rewe" width="40" height="40">
-                <img src="http://www.aldi-nord.de/images/logo_deu.png" class="" alt="Aldi" width="40" height="40">
-                <img ng-repeat="supermarket in supermarkets" src="http://www.aldi-nord.de/images/logo_deu.png" class=""
-                     alt="{{supermarket.title}}" width="40" height="40">
-            </div>
+    <div ng-if="bartype == 'ingredients'">
+        <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
+    </div>
+
+    <div ng-if="!bartype">
+        <div class="alert alert-danger" role="alert">
+            <strong>Implementation error!</strong>
+            Need to specify "bartype" attribute on searchbar html element!
         </div>
     </div>
 </div>

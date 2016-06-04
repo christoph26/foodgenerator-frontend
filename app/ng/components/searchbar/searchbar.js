@@ -13,11 +13,11 @@ angular.module('foodGenerator')
 
                 $scope.expanded = "down";
 
-                $scope.adjustGlyphicon = function () {
+                $scope.updateGlyphicon = function () {
                     if ($scope.expanded == "down") {
-                        $scope.expanded = "up";
+                        $scope.expanded = "up";     // let glyphicon point upwards if options are displayed
                     } else {
-                        $scope.expanded = "down";
+                        $scope.expanded = "down";   // let glyphicon point downwards if options are hidden
                     }
                 }
 
