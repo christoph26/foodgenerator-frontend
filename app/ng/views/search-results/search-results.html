@@ -1,15 +1,16 @@
 <div>
     <h1>Search Results</h1>
     <p>
-        This is the content of the search results page.<br/>
-        This is an example of a variable: {{exampleField}}
+        The search results for <u>{{exampleField}}</u>:
     </p>
     <button ui-sref="search.recipes">Back to search</button>
 
     <span>searchTerm:</span>
     <pre>{{searchTerm}}</pre>
 
-    <recipethumbnail></recipethumbnail>
-    <recipethumbnail></recipethumbnail>
-    <recipethumbnail></recipethumbnail>
+    <div class="container">
+        <div class="row">
+            <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
+        </div>
+    </div>
 </div>

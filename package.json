@@ -26,5 +26,9 @@
     "http-server": "^0.6.1",
     "main-bower-files": "^2.11.1",
     "merge-stream": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-ng-annotate": "^2.0.0"
   }
 }
