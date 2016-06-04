@@ -6,9 +6,9 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
             bindings: {
-                bartype: '<',               // read-only access to the bartype attribute
-                searchTerm: '<',            // read-only access to the searchTerm attribute
-                onSearchTermChange: '&'     // write-only access to the onSearchTermChange attribute
+                bartype: '<',               // read-only access to the bartype html attribute
+                searchTerm: '<',            // read-only access to the searchTerm html attribute
+                onSearchTermChange: '&'     // write-only access to the onSearchTermChange html attribute
             },
             controller: function ($scope, Supermarket) {
                 $scope.supermarkets = Supermarket.query();
