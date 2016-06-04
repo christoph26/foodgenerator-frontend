@@ -10,9 +10,6 @@ angular.module('foodGenerator.search.results', ['ngResource', 'ui.router'])
                         templateUrl: "views/search-results/search-results.html",
                         controller: 'SearchResultsCtrl'
                     }
-                },
-                bindings: {
-                    searchTerm: '<'     // read-only access to the searchTerm html attribute
                 }
             })
     })
@@ -23,19 +20,11 @@ angular.module('foodGenerator.search.results', ['ngResource', 'ui.router'])
             var ingredients = EXAMPLE_Ingredient;
             var supermarkets = SUPERMARKETS;// "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
             //[RECIPE1[Ingredient[supermarket]], RECIPE2, ..]
-        for (var recipe in resultsList) {
-                resultsList[recipe].supermarkets = getSupermarketsWithIngredientsAvailable(supermarkets, recipe.ingredientList);
-            }
 
             $scope.resultsList = resultsList;
         }
     )
 ;
-
-function getSupermarketsWithIngredientsAvailable(supermarkets, ingredients) {
-    // TODO implement function that returns only those supermarkets that have all ingredients available
-    return supermarkets;
-}
 
 var EXAMPLE_RECIPES = [
     {
