@@ -1,9 +1,9 @@
-angular.module('foodGenerator.searchRecipes', ['ngResource', 'ui.router'])
+angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
 
     .config(function ($stateProvider) {
         $stateProvider
-            .state('searchRecipes', {
-                parent: 'root',
+            .state('search.recipes', {
+                parent: 'search',
                 url: '/find-recipes',
                 views: {
                     "content": {

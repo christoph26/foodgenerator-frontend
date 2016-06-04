@@ -6,9 +6,10 @@ angular.module('foodGenerator', [
     'ui.bootstrap',
     'foodGenerator.home',
     'foodGenerator.account',
-    'foodGenerator.searchRecipes',
-    'foodGenerator.searchIngredients',
-    'foodGenerator.searchResults',
+    'foodGenerator.search',
+    'foodGenerator.search.recipes',
+    'foodGenerator.search.ingredients',
+    'foodGenerator.search.results',
     'foodGenerator.mealPlanner',
     'templates'
 ])

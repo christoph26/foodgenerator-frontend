@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('foodGenerator')
     .directive('searchbar', function () {
         return {
@@ -28,7 +26,7 @@ angular.module('foodGenerator')
                     // propagate the current search term to the parent component
                     // $scope.updateSearchTerm({$event: {searchTerm: $scope.searchTerm}});
                     // redirect the user to the search results page
-                    $state.go('searchResults');
+                    $state.go('search.results');
                 };
             }
         }
