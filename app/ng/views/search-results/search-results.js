@@ -42,7 +42,7 @@ var EXAMPLE_RECIPES = [
         "description": "Preperation is simple and done in 30 minutes.",
         "vegan": true,
         "vegetarian": false,
-        "picture": "https://www.frag-mutti.de/images/uploads/de/head/61/Spaghetti_Bolognese.jpg",
+        "picture": "http://static.chefkoch-cdn.de/ck.de/rezepte/161/161863/732836-960x720-spaghetti-bolognese.jpg",
         "ingredientList": "222200000000000000000001",
         "recipeFamily": "444400000000000000000001"
     },
