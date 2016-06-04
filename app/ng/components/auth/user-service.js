@@ -11,7 +11,6 @@
         this.logout = auth.deleteToken;
         this.getUser = getUser;
 
-
         ////////////////
 
         function register(email, pass, firstName, lastName) {
