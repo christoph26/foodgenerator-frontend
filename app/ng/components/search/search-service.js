@@ -1,9 +1,9 @@
 (function () {
 
     angular.module('foodGenerator')
-        .service('searchService', searchService);
+        .service('SearchService', searchService);
 
-    function searchService(BASEURL, $resource) {
+    function searchService(BASEURL, $http) {
 
         var searchTerm = "";
         var self = this;
@@ -16,6 +16,7 @@
 
         function setSearchTerm(searchTerm) {
             self.searchTerm = searchTerm;
+            console.log("search term updated: " + self.searchTerm)
         }
 
         function performRecipeSearch() {

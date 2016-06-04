@@ -5,12 +5,9 @@ angular.module('foodGenerator')
             templateUrl: "components/searchbar/searchbar.html",
             scope: {
                 bartype: '<',               // read-only access to the bartype html attribute
-                myDirectiveVar: '=',        // read and write access to the myDirectiveVar html attribute
                 searchTerm: '='             // read and write access to the searchTerm html attribute
             },
-            controller: function ($scope, $state, Supermarket) {
-                console.debug($scope);
-
+            controller: function ($scope, $state, SearchService, Supermarket) {
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
 
@@ -23,9 +20,12 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformSearch = function () {
+                    if ($scope.searchTerm == undefined) {
+                        $scope.searchTerm = "";
+                    }
                     console.log("performing search for search term: " + $scope.searchTerm);
-                    // propagate the current search term to the parent component
-                    // $scope.updateSearchTerm({$event: {searchTerm: $scope.searchTerm}});
+                    // propagate the current search term to the search service
+                    SearchService.setSearchTerm($scope.searchTerm);
                     // redirect the user to the search results page
                     $state.go('search.results');
                 };
