@@ -29,13 +29,13 @@
             var searchDTO = {
                 searchText: searchTermCache,
                 searchDirectRecipes: true      //TODO update according to expansion state of search bar
+                //TODO add properties from frontend
             };
             $http.post(BASEURL + '/recipesearch', searchDTO).then(function (response) {
                 console.log(response);
-                debugger;
+                alert("search request success!");
             }, function (error) {
                 console.log(error);
-                debugger;
             });
         }
 
