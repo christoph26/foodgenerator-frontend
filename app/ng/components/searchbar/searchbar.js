@@ -8,9 +8,9 @@ angular.module('foodGenerator')
             bindings: {
                 bartype: '<',               // read-only access to the bartype html attribute
                 searchTerm: '<',            // read-only access to the searchTerm html attribute
-                onSearchTermChange: '&'     // write-only access to the onSearchTermChange html attribute
+                updateSearchTerm: '&'     // write-only access to the updateSearchTerm html attribute
             },
-            controller: function ($scope, Supermarket) {
+            controller: function ($scope, $state, Supermarket) {
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
                 $scope.searchTerm = "";
@@ -24,11 +24,11 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformSearch = function () {
+                    console.log("performing search for search term: " + $scope.searchTerm);
                     // propagate the current search term to the parent component
-                    $scope.onSearchTermChange({$event: {searchTerm: $scope.searchTerm}});
+                    // $scope.updateSearchTerm({$event: {searchTerm: $scope.searchTerm}});
                     // redirect the user to the search results page
-                    //TODO implement redirection
-                    console.log("Would now redirect to results page.");
+                    $state.go('searchResults');
                 };
             }
         }
