@@ -2,16 +2,14 @@
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search for recipes...">
       <span class="input-group-btn">
-          <button class="btn btn-default" data-toggle="collapse" data-target="#searchfilters" ng-click="adustGlyphicon()"><span class="glyphicon glyphicon-chevron-{{expanded}}
-" aria-hidden="true"></span>
-          </button>
+          <button class="btn btn-default" data-toggle="collapse" data-target="#searchfilters" ng-click="adustGlyphicon()"><span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span></button>
           <button class="btn btn-default" type="button">Search</button>
       </span>
     </div>
 
     <div id="searchfilters" class="collapse">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4"> Nutrition:
                 <div class="checkbox">
                     <label><input type="checkbox" value="">Vegetarian</label>
                 </div>
@@ -19,7 +17,7 @@
                     <label><input type="checkbox" value="">Vegan</label>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4">Effort:
                 <div class="checkbox">
                     <label><input type="checkbox" value="">Low</label>
                 </div>
@@ -30,7 +28,7 @@
                     <label><input type="checkbox" value="">High</label>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4"> Availiability: <p>
                 <img class="searchbarsupermarket" src="http://www.duvenstedt-aktiv.de/images/mitglieder/rewe_icon.jpg" class="{{selected}}" alt="Rewe">
                 <img class="searchbarsupermarket" src="http://www.aldi-nord.de/images/logo_deu.png" class="{{selected}}" alt="Aldi">
 

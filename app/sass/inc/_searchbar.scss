@@ -7,11 +7,21 @@
   height: 40px;
 }
 .searchbar {
-  margin-top: 75px;
+  margin-top: 40px;
 
 }
 .input-group {
   border-style: solid;
-  border-color: darkseagreen;
+  border-color: #60B99B;
+  border-radius: 5px;
+}
+#searchfilters {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+  background-color: #60B99B;
+  border-style: solid;
+  border-color: #60B99B;
   border-radius: 5px;
 }
