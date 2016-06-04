@@ -10,6 +10,9 @@ angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
                         templateUrl: "views/search-results/search-results.html",
                         controller: 'SearchResultsCtrl'
                     }
+                },
+                bindings: {
+                    searchTerm: '<'     // read-only access to the searchTerm html attribute
                 }
             })
     })
