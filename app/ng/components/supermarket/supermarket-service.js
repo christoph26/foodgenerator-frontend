@@ -1,7 +1,7 @@
 (function () {
 
     angular.module('foodGenerator')
-        .service('currentUser', supermarketService);
+        .service('supermarkets', supermarketService);
 
     function supermarketService(BASEURL, $http) {
 
