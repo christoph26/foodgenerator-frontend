@@ -40,7 +40,7 @@ var EXAMPLE_RECIPES = [
         "title": "Spaghetti Bolognese Classic",
         "effort": 1,
         "description": "Preperation is simple and done in 30 minutes.",
-        "vegan": false,
+        "vegan": true,
         "vegetarian": false,
         "picture": "https://www.frag-mutti.de/images/uploads/de/head/61/Spaghetti_Bolognese.jpg",
         "ingredientList": "222200000000000000000001",
@@ -52,7 +52,7 @@ var EXAMPLE_RECIPES = [
         "effort": 3,
         "description": "HOT as Hell.",
         "vegan": false,
-        "vegetarian": false,
+        "vegetarian": true,
         "picture": "http://static.chefkoch-cdn.de/ck.de/rezepte/62/62122/818606-960x720-rammstein-s-spaghetti-bolognese.jpg",
         "ingredientList": "222200000000000000000002",
         "recipeFamily": "444400000000000000000001"
