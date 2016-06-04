@@ -4,13 +4,13 @@
 
 
 #site {
-  //width: 1200px;
-  //margin-left: auto;
-  //margin-right: auto;
+  //background-color: $color-tertiary-light;
+  padding: 15px;
 }
 
+
 #button{
-  background-color: $primary-color;
+  background-color: $color-primary;
   font-size: xx-large;
 }
 #reason{
@@ -18,4 +18,10 @@
 }
 
 ul {font-size:smaller}
-p {font-size:smaller}
+.smaller-text {font-size:smaller}
+
+hr {
+  height:
+          3px;
+  background-color: black;
+}
