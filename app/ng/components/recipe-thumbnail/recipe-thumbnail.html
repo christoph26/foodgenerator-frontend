@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-sm-6 col-md-12" >
                 <div class="thumbnail">
-                    <center><img id="thumbpictureofrecipe" src="{{recipe.picture}} alt="Foto von Gericht"></center>
+                    <img id="thumbpictureofrecipe" src="{{recipe.picture}} alt="FotovonGericht">
                     <div class="caption">
                         <h3>{{recipe.title}}</h3>
-                        <hr size = "10">
+                        <hr>
                         <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
                         <span ng-if="!recipe.vegan"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Vegan</span><br>
                         <span ng-if="recipe.vegetarian"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegetarien</span>
