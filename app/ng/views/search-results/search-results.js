@@ -16,14 +16,18 @@ angular.module('foodGenerator.search.results', ['ngResource', 'ui.router'])
 
     .controller('SearchResultsCtrl', function ($scope, SearchService) {
             $scope.searchTerm = SearchService.getSearchTerm();
+            $scope.resultsList = [];
 
-            var resultsList = EXAMPLE_RECIPES;      // "EXAMPLE_RECIPES" will be replaced by a function parameter as soon as the backend is connected
-            var ingredientlist = EXAMPLE_IngredientList;
-            var ingredients = EXAMPLE_Ingredient;
-            var supermarkets = SUPERMARKETS;// "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
-            //[RECIPE1[Ingredient[supermarket]], RECIPE2, ..]
+            if (!($scope.searchTerm == undefined || $scope.searchTerm == "")) {
+                // var resultsList = EXAMPLE_RECIPES;      // "EXAMPLE_RECIPES" will be replaced by a function parameter as soon as the backend is connected
+                var resultsList = SearchService.performRecipeSearch();
+                var ingredientlist = EXAMPLE_IngredientList;
+                var ingredients = EXAMPLE_Ingredient;
+                var supermarkets = SUPERMARKETS;// "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
+                //[RECIPE1[Ingredient[supermarket]], RECIPE2, ..]
 
-            $scope.resultsList = resultsList;
+                $scope.resultsList = resultsList;
+            }
         }
     )
 ;

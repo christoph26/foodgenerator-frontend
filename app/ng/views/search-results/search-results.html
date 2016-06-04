@@ -1,13 +1,19 @@
 <div>
     <h1>Search Results</h1>
-    <p>
+    <p ng-if="searchTerm">
         The search results for <strong>{{searchTerm}}</strong>:
+    </p>
+    <p ng-if="!searchTerm">
+        Nothing to display.
     </p>
     <button ui-sref="search.recipes">Back to search</button>
 
-    <div class="container">
+    <div class="container" ng-if="resultsList">
         <div class="row">
             <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
         </div>
     </div>
+    <p ng-if="!resultsList">
+        No results.
+    </p>
 </div>
