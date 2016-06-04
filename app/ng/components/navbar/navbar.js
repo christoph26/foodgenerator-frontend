@@ -43,9 +43,8 @@ angular.module('foodGenerator')
                 };
 
                 function logout() {
-                    console.log("Performing logout.");
-                    $scope.loggedIn = false;
-                    // currUser.logout();
+                    currentUser.logout();
+                    $scope.isLoggedIn = false;
                 }
             }
         }
