@@ -1,18 +1,8 @@
 (function () {
 
     angular.module('foodGenerator')
-        .service('supermarkets', supermarketService);
-
-    function supermarketService(BASEURL, $http) {
-
-        this.getAll = getAll;
-
-        ////////////////
-
-        function getAll() {
-            return $http.get(BASEURL + '/supermarkets');
-        }
-
-    }
+        .factory('Supermarket', function(BASEURL, $resource) {
+            return $resource(BASEURL + '/supermarkets/:id');
+        });
 
 })();
