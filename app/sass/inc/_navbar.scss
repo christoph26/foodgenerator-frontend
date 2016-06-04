@@ -14,10 +14,12 @@ nav {
 }
 
 .nav {
-  padding-top: 1px;
-  padding-right: 1px;
-  padding-bottom: 1px;
-  padding-left: 1px;
   font-weight: bold;
   font-size: 15px;
+}
+
+.navbar {
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
