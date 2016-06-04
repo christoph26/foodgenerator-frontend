@@ -12,4 +12,8 @@ angular.module('foodGenerator.search', ['ui.router'])
                 }
             })
     })
+
+    .controller("SearchCtrl", function ($scope) {
+        $scope.myDirectiveVar = "This should work now from search-root!";
+    })
 ;

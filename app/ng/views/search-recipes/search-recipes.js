@@ -15,6 +15,7 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
     })
 
     .controller('SearchRecipesCtrl', function ($scope) {
-        $scope.exampleField = "Hello World!";
+        $scope.barType = "recipes";
+        $scope.searchTerm = "This is a test.";
     })
 ;

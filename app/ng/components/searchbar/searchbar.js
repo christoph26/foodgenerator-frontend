@@ -3,15 +3,16 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
-            bindings: {
+            scope: {
                 bartype: '<',               // read-only access to the bartype html attribute
-                searchTerm: '<',            // read-only access to the searchTerm html attribute
-                updateSearchTerm: '&'     // write-only access to the updateSearchTerm html attribute
+                myDirectiveVar: '=',        // read and write access to the myDirectiveVar html attribute
+                searchTerm: '='             // read and write access to the searchTerm html attribute
             },
             controller: function ($scope, $state, Supermarket) {
+                console.debug($scope);
+
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
-                $scope.searchTerm = "";
 
                 $scope.updateGlyphicon = function () {
                     if ($scope.expanded == "down") {
