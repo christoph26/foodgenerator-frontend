@@ -1,6 +1,16 @@
-img {
+#searchbarsupermarket {
   -webkit-filter: grayscale(60%);
   &:hover {
     -webkit-filter: grayscale(0%);
   }
+  width: 40px;
+  height: 40px;
+}
+#searchbarsupermarket1 {
+  -webkit-filter: grayscale(60%);
+  &:hover {
+    -webkit-filter: grayscale(0%);
+  }
+  width: 40px;
+  height: 40px;
 }
