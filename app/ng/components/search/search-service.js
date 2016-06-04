@@ -6,9 +6,8 @@
     function searchService(BASEURL, $http) {
 
         var searchTermCache = "";
-        var self = this;
 
-        this.searchTerm = searchTermCache;
+        this.getSearchTerm = getSearchTerm;
         this.setSearchTerm = setSearchTerm;
         this.performRecipeSearch = performRecipeSearch;
 
@@ -16,7 +15,11 @@
 
         function setSearchTerm(searchTerm) {
             searchTermCache = searchTerm;
-            console.log("search term updated: " + self.searchTerm)
+            console.log("search term updated: " + searchTermCache)
+        }
+
+        function getSearchTerm() {
+            return searchTermCache;
         }
 
         function performRecipeSearch() {

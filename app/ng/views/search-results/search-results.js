@@ -15,7 +15,7 @@ angular.module('foodGenerator.search.results', ['ngResource', 'ui.router'])
     })
 
     .controller('SearchResultsCtrl', function ($scope, SearchService) {
-            $scope.searchTerm = SearchService.searchTerm;
+            $scope.searchTerm = SearchService.getSearchTerm();
 
             var resultsList = EXAMPLE_RECIPES;      // "EXAMPLE_RECIPES" will be replaced by a function parameter as soon as the backend is connected
             var ingredientlist = EXAMPLE_IngredientList;
@@ -132,41 +132,41 @@ var EXAMPLE_IngredientList = [
 ];
 
 var EXAMPLE_Ingredient = [
-        {
-            "_id": "111100000000000000000001",
-            "title": "Minced Meat",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000002",
-            "title": "Tomato",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000003",
-            "title": "Onion",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000004",
-            "title": "Garlic",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000005",
-            "title": "Oregano",
-            "supermarkets": ["888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000006",
-            "title": "Spaghetti",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000007",
-            "title": "Pepper Red",
-            "supermarkets": "888800000000000000000003"
-        }
+    {
+        "_id": "111100000000000000000001",
+        "title": "Minced Meat",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000002",
+        "title": "Tomato",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000003",
+        "title": "Onion",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000004",
+        "title": "Garlic",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000005",
+        "title": "Oregano",
+        "supermarkets": ["888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000006",
+        "title": "Spaghetti",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000007",
+        "title": "Pepper Red",
+        "supermarkets": "888800000000000000000003"
+    }
 ];
 
 var SUPERMARKETS = [

@@ -7,8 +7,7 @@ angular.module('foodGenerator')
                 bartype: '<'               // read-only access to the bartype html attribute
             },
             controller: function ($scope, $state, SearchService, Supermarket) {
-
-                var searchBarInput = SearchService.searchTerm;
+                var searchBarInput = SearchService.getSearchTerm();
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
                 $scope.searchBarInput = searchBarInput;
@@ -29,7 +28,11 @@ angular.module('foodGenerator')
                     // propagate the current search term to the search service
                     SearchService.setSearchTerm(searchTerm);
                     // redirect the user to the search results page
-                    $state.go('search.results');
+                    if ($state.current.name == 'search.results') {
+                        $state.go($state.current.name, $state.params, {reload: true});
+                    } else {
+                        $state.go('search.results');
+                    }
                 };
             }
         }
