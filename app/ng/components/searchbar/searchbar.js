@@ -6,8 +6,9 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
             bindings: {
-                bartype: '<',       // only read from the bartype property
-                searchTerm: '='     // read from and write to the searchTerm property
+                bartype: '<',               // read-only access to the bartype attribute
+                searchTerm: '<',            // read-only access to the searchTerm attribute
+                onSearchTermChange: '&'     // write-only access to the onSearchTermChange attribute
             },
             controller: function ($scope, Supermarket) {
                 $scope.supermarkets = Supermarket.query();
@@ -22,9 +23,13 @@ angular.module('foodGenerator')
                     }
                 };
 
-                $scope.performSearch = function () {
-                    //TODO make sure searchTerm was updated and open the results page
-                }
+                $scope.setTermAndPerformSearch = function () {
+                    // propagate the current search term to the parent component
+                    $scope.onSearchTermChange({$event: {searchTerm: $scope.searchTerm}});
+                    // redirect the user to the search results page
+                    //TODO implement redirection
+                    console.log("Would now redirect to results page.");
+                };
             }
         }
     })

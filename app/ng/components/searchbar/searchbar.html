@@ -1,13 +1,13 @@
 <div class="searchbar">
     <div ng-if="true">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for recipes...">
+            <input type="text" class="form-control" placeholder="Search for recipes..." ng-model="searchTerm">
         <span class="input-group-btn">
             <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters"
                     ng-click="updateGlyphicon()">
             <span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span>
             </button>
-            <button class="btn btn-default" type="button">Search</button>
+            <button class="btn btn-default" type="button" ng-click="setTermAndPerformSearch()">Search</button>
         </span>
         </div>
 
