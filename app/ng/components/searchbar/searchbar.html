@@ -1,9 +1,9 @@
 <div class="searchbar">
-    <div ng-if="bartype == 'recipes'">
+    <div ng-if="true">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for recipes...">
         <span class="input-group-btn">
-            <button class="btn btn-default" data-toggle="collapse" data-target="#searchfilters"
+            <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters"
                     ng-click="updateGlyphicon()">
             <span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span>
             </button>
@@ -11,7 +11,7 @@
         </span>
         </div>
 
-        <div id="searchfilters" class="collapse">
+        <div class="searchfilters collapse">
             <div class="row">
                 <div class="col-md-4">
                     <div class="checkbox">
@@ -44,14 +44,14 @@
         </div>
     </div>
 
-    <div ng-if="bartype == 'ingredients'">
-        <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
-    </div>
-
-    <div ng-if="!bartype">
-        <div class="alert alert-danger" role="alert">
-            <strong>Implementation error!</strong>
-            Need to specify "bartype" attribute on searchbar html element!
+    <!--<div ng-if="bartype == 'ingredients'">
+            <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
         </div>
-    </div>
+
+        <div ng-if="!bartype">
+            <div class="alert alert-danger" role="alert">
+                <strong>Implementation error!</strong>
+                Need to specify "bartype" attribute on searchbar html element!
+            </div>
+        </div>-->
 </div>
