@@ -1,11 +1,13 @@
 <div>
-    <h1>Search Results</h1>
-    <p>
-        The search results for <u>{{exampleField}}</u>:
-    </p>
-    <button ui-sref="searchRecipes">Back to search</button>
-
-    <div class="container">
+    <center><h1>Search Results <span class="glyphicon glyphicon-search" aria-hidden="true"></span></h1></center>
+    <div><center>
+    The search results of <u>{{exampleField}}</u>
+    </center></div>
+    <div class="backbutton">
+        <button type="button" class="btn btn-primary btn-xs">Back to the search side</button>
+    </div>
+    <hr>
+    <div>
         <div class="row">
             <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
         </div>
