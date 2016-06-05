@@ -34,7 +34,7 @@ hr {
 
 .frameoffunctiontexts {
   border-style: double;
-  border-color: #60B99B;
+  border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
   font-size: 0.8em;
@@ -43,7 +43,7 @@ hr {
 }
 
 .frameoftexts {
-  border-color: #60B99B;
+  border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
   font-size: 18px;
