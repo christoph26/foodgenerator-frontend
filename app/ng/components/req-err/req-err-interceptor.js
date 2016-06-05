@@ -25,17 +25,10 @@
         }
 
         function showAlert(opt) {
-            alert(opt.title + ": " + opt.msg);
-            // //inject manually to resolve circular dependency error
-            // var $mdDialog = $injector.get('$mdDialog');
-            // var alert = $mdDialog.alert({
-            //     title: opt.title,
-            //     textContent: opt.msg,
-            //     ok: 'Close'
-            // });
-            //
-            // $mdDialog.show(alert)
-
+            // enable debug error logging here
+            //          vvv
+            
+            // alert(opt.title + ": " + opt.msg);
         }
 
     }
