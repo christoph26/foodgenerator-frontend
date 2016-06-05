@@ -34,22 +34,22 @@
                 </div>
                 <div class="col-md-4"> Availiability: <p>
                     <img ng-class="checkImgClass(supermarket._id)" ng-repeat="supermarket in supermarkets"
-                         src="{{supermarket.icon}}"
-                         class="" name="{{supermarket._id}}" ng-click="clickSupermarket(supermarket._id)"
-                         alt="{{supermarket.title}}" width="40" height="40">
+                         src="{{supermarket.icon}}" name="{{supermarket._id}}"
+                         ng-click="clickSupermarket(supermarket._id)" alt="{{supermarket.title}}" width="40"
+                         height="40">
                 </div>
             </div>
         </div>
 
-    <!--<div ng-if="bartype == 'ingredients'">
-            <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
-        </div>
-
-        <div ng-if="!bartype">
-            <div class="alert alert-danger" role="alert">
-                <strong>Implementation error!</strong>
-                Need to specify "bartype" attribute on searchbar html element!
+        <!--<div ng-if="bartype == 'ingredients'">
+                <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
             </div>
-        </div>-->
+
+            <div ng-if="!bartype">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Implementation error!</strong>
+                    Need to specify "bartype" attribute on searchbar html element!
+                </div>
+            </div>-->
     </div>
 </div>

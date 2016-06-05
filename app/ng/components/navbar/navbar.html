@@ -1,44 +1,42 @@
-<div class="row">
-    <nav class="navbar">
-        <ul class="nav navbar-nav navbar-left">
-            <li><a ui-sref="home">Home</a></li>
-            <li><a ui-sref="search.recipes">Recipe Search</a></li>
-            <li><a ui-sref="search.ingredients">Ingredient Search</a></li>
-            <li><a ui-sref="mealPlanner">Meal Planner</a></li>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-            <!-- not logged in -->
-            <li uib-dropdown ng-if="!loggedIn" class="pull-right">
-                <a href uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
-                    You are currently not logged in.
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li ng-click="open('login')">
-                        <a href>Login <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i></a>
-                    </li>
-                    <li ng-click="open('register')">
-                        <a href>Signup</a>
-                    </li>
-                </ul>
-            </li>
+<nav class="navbar">
+    <ul class="nav navbar-nav navbar-left">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="search.recipes">Recipe Search</a></li>
+        <li><a ui-sref="search.ingredients">Ingredient Search</a></li>
+        <li><a ui-sref="mealPlanner">Meal Planner</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
+        <!-- not logged in -->
+        <li uib-dropdown ng-if="!loggedIn" class="pull-right">
+            <a href uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
+                You are currently not logged in.
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ng-click="open('login')">
+                    <a href>Login <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i></a>
+                </li>
+                <li ng-click="open('register')">
+                    <a href>Signup</a>
+                </li>
+            </ul>
+        </li>
 
-            <!-- logged in -->
-            <li uib-dropdown ng-if="loggedIn" class="pull-right">
-                <a href uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
-                    Hello, {{user.firstName}}.
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a ui-sref="account">My Account <i class="glyphicon glyphicon-user" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href ng-click="logout()">Logout <i class="glyphicon glyphicon-log-out"
-                                                              aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</div>
+        <!-- logged in -->
+        <li uib-dropdown ng-if="loggedIn" class="pull-right">
+            <a href uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
+                Hello, {{user.firstName}}.
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a ui-sref="account">My Account <i class="glyphicon glyphicon-user" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href ng-click="logout()">Logout <i class="glyphicon glyphicon-log-out"
+                                                          aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
