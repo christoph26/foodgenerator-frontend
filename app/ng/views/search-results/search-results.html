@@ -7,21 +7,16 @@
     </div>
     <div ng-if="!searchTerm">
         <center>
-            Enter term above to start search.
+            You have not yet performed a search. Start typing above to do so.
         </center>
     </div>
-    <div class="backbuttonpos">
-        <button id="buttonback" class="btn btn-default btn-xs" ui-sref="search.recipes"><span
-                class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Go Back
-        </button>
-    </div>
     <hr>
-    <div ng-if="resultsList">
+    <div ng-if="resultsList.length">
         <div class="row">
             <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
         </div>
     </div>
-    <p ng-if="!resultsList">
+    <p class="text-center" ng-if="!resultsList.length">
         No results.
     </p>
 </div>
