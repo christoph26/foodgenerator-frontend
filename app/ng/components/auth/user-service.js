@@ -8,7 +8,7 @@
         this.register = register;
         this.login = login;
         this.loggedIn = auth.isAuthed;
-        this.logout = auth.deleteToken;
+        this.logout = logout;
         this.getUser = getUser;
 
         ////////////////
