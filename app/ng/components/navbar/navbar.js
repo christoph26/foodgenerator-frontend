@@ -11,11 +11,9 @@ angular.module('foodGenerator')
                 $scope.$watch(function () {
                     return currentUser.loggedIn();
                 }, function (loggedIn) {
-                    console.log("Detected change in loggedIn state. Value now: " + loggedIn);
                     $scope.loggedIn = loggedIn;
                     if (loggedIn && !$scope.user) {
                         $scope.user = currentUser.getUser();
-                        console.log("Updated current user in scope: " + currentUser.getUser());
                     }
                 });
 
