@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-sm-6 col-md-12">
                 <div class="thumbnail">
-                    <img src="{{recipe.picture}}" alt="Foto von Gericht" width="260" height="260">
+                    <img class="thumbpictureofrecipe" ng-src="{{recipe.picture}}" alt="Foto von Gericht" width="260"
+                         height="260">
                     <div class="caption">
                         <h3>{{recipe.title}}</h3>
                         <hr size="10">
@@ -15,9 +16,9 @@
                                                                aria-hidden="true"></span> Vegetarian</span>
                         <hr size="10">
                         <ul class="unstyled">
-                            <li ng-repeat="supermarket in recipe.supermarkets">{{supermarket.title}}</li>
+                            <li ng-repeat="supermarket in recipe.availability">{{supermarket.title}}</li>
                         </ul>
-                        <p><a href class="btn btn-success" role="button">Show Recipe</a></p>
+                        <p><a href class="btn btn-success buttonrecipe" role="button">Show Recipe</a></p>
                     </div>
                 </div>
             </div>

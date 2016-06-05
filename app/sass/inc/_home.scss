@@ -1,24 +1,28 @@
-.site {
+
+#site {
   //background-color: $color-tertiary-light;
   padding: 15px;
 }
 
+.button {
 .headline {
-  font-size: 5em;
+  font-size: $font-size-large;
   margin-bottom: 0.5em;
 }
 
 .buttonhome{
   background-color: $color-primary;
-  font-size: xx-large;
+  font-size: $font-size-middle;
   color: white;
 }
-.reason{
-  font-size:x-large;
+
+ul {
+  font-size: smaller
 }
 
-ul {font-size:smaller}
-.smaller-text {font-size:smaller}
+.smaller-text {
+  font-size: smaller
+}
 
 hr {
   height: 1px;
@@ -32,26 +36,47 @@ hr {
   margin-right: auto;
 }
 
-.frameoffunctiontexts {
+.profilepic {
+  height: 150px;
+}
+
+#whoweare {
+  font-size: $font-size-normal;
   border-style: double;
   border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
-  font-size: 0.8em;
-  padding: 0.5em;
-  text-align: justify;
 }
 
 .frameoftexts {
+  border-style: dotted;
   border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
-  font-size: 18px;
-  padding: 5px;
+  font-size: $font-size-normal;
   text-align: justify;
+  padding: 10px;
 }
 
-.chapterheadline{
-  margin-top: 1px;
-  margin-bottom: 1em;
+#howdoesitwork {
+  border-style: dotted;
+  border-color: $color-primary;
+  border-width: 2px;
+  border-radius: 10px;
+  font-size: $font-size-normal;
 }
+
+  .frameoffunctiontexts {
+    border-style: double;
+    border-color: $color-primary;
+    border-width: 2px;
+    border-radius: 10px;
+    font-size: $font-size-small;
+    padding: 0.5em;
+    text-align: justify;
+  }
+
+  .chapterheadline{
+    margin-top: 1px;
+    margin-bottom: 1em;
+  }

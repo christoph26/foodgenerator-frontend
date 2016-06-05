@@ -9,7 +9,7 @@ angular.module('foodGenerator')
                 $scope.logout = logout;
 
                 $scope.$watch(function () {
-                    return currentUser.loggedIn;
+                    return currentUser.loggedIn();
                 }, function (loggedIn) {
                     $scope.loggedIn = loggedIn;
                     if (loggedIn && !$scope.user) {

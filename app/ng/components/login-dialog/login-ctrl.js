@@ -8,8 +8,9 @@ angular.module('foodGenerator')
         function login() {
             currentUser.login($scope.email, $scope.password).then(function () {
                 $uibModalInstance.close();
-            }, function (response) {
-                if (response.status == 400 || response.status == 401) {
+                // returned token is automatically saved by auth-interceptor
+            }, function (error) {
+                if (error.status == 400 || error.status == 401) {
                     $scope.errorText = "Wrong username or password.";
                 } else {
                     $scope.errorText = "An unknown error occured. Please try again later.";

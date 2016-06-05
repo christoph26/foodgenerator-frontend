@@ -40,7 +40,7 @@ var EXAMPLE_RECIPES = [
         "description": "Preperation is simple and done in 30 minutes.",
         "vegan": true,
         "vegetarian": false,
-        "picture": "http://static.chefkoch-cdn.de/ck.de/rezepte/161/161863/732836-960x720-spaghetti-bolognese.jpg",
+        "picture": "img/recipes/spaghetti-bolognese-classic.jpg",
         "ingredientList": "222200000000000000000001",
         "recipeFamily": "444400000000000000000001"
     },
@@ -51,7 +51,7 @@ var EXAMPLE_RECIPES = [
         "description": "HOT as Hell.",
         "vegan": false,
         "vegetarian": true,
-        "picture": "http://static.chefkoch-cdn.de/ck.de/rezepte/62/62122/818606-960x720-rammstein-s-spaghetti-bolognese.jpg",
+        "picture": "img/recipes/spaghetti-bolognese-rammstein.jpg",
         "ingredientList": "222200000000000000000002",
         "recipeFamily": "444400000000000000000001"
     }

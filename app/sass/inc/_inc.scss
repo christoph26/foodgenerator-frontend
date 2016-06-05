@@ -1,4 +1,5 @@
 @import "../vars/colors";
+@import "../vars/fonts";
 
 @import "misc";
 @import "root";
@@ -7,7 +8,7 @@
 @import "footer";
 @import "logo";
 @import "navbar";
-@import "recipe-overview";
+@import "recipe-thumbnail";
 @import "search-recipes";
 @import "search-results";
 @import "searchbar";
