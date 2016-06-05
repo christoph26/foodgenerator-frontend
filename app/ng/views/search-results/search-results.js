@@ -1,9 +1,9 @@
-angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
+angular.module('foodGenerator.search.results', ['ngResource', 'ui.router'])
 
     .config(function ($stateProvider) {
         $stateProvider
-            .state('searchResults', {
-                parent: 'root',
+            .state('search.results', {
+                parent: 'search',
                 url: '/search-results',
                 views: {
                     "content": {
@@ -14,25 +14,23 @@ angular.module('foodGenerator.searchResults', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('SearchResultsCtrl', function ($scope) {
-            var resultsList = EXAMPLE_RECIPES;      // "EXAMPLE_RECIPES" will be replaced by a function parameter as soon as the backend is connected
-            var ingredientlist = EXAMPLE_IngredientList;
-            var ingredients = EXAMPLE_Ingredient;
-            var supermarkets = SUPERMARKETS;// "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
-            //[RECIPE1[Ingredient[supermarket]], RECIPE2, ..]
-        for (var recipe in resultsList) {
-                resultsList[recipe].supermarkets = getSupermarketsWithIngredientsAvailable(supermarkets, recipe.ingredientList);
-            }
+    .controller('SearchResultsCtrl', function ($scope, SearchService) {
+            $scope.searchTerm = SearchService.getSearchTerm();
+            $scope.resultsList = [];
 
-            $scope.resultsList = resultsList;
+            if (!($scope.searchTerm == undefined || $scope.searchTerm == "")) {
+                // var resultsList = EXAMPLE_RECIPES;      // "EXAMPLE_RECIPES" will be replaced by a function parameter as soon as the backend is connected
+                var resultsList = SearchService.performRecipeSearch();
+                var ingredientlist = EXAMPLE_IngredientList;
+                var ingredients = EXAMPLE_Ingredient;
+                var supermarkets = SUPERMARKETS;// "SUPERMARKETS" will be replaced by a function parameter as soon as the backend is connected
+                //[RECIPE1[Ingredient[supermarket]], RECIPE2, ..]
+
+                $scope.resultsList = resultsList;
+            }
         }
     )
 ;
-
-function getSupermarketsWithIngredientsAvailable(supermarkets, ingredients) {
-    // TODO implement function that returns only those supermarkets that have all ingredients available
-    return supermarkets;
-}
 
 var EXAMPLE_RECIPES = [
     {
@@ -138,41 +136,41 @@ var EXAMPLE_IngredientList = [
 ];
 
 var EXAMPLE_Ingredient = [
-        {
-            "_id": "111100000000000000000001",
-            "title": "Minced Meat",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000002",
-            "title": "Tomato",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000003",
-            "title": "Onion",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000004",
-            "title": "Garlic",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000005",
-            "title": "Oregano",
-            "supermarkets": ["888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000006",
-            "title": "Spaghetti",
-            "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
-        },
-        {
-            "_id": "111100000000000000000007",
-            "title": "Pepper Red",
-            "supermarkets": "888800000000000000000003"
-        }
+    {
+        "_id": "111100000000000000000001",
+        "title": "Minced Meat",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000002",
+        "title": "Tomato",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000003",
+        "title": "Onion",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000004",
+        "title": "Garlic",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000005",
+        "title": "Oregano",
+        "supermarkets": ["888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000006",
+        "title": "Spaghetti",
+        "supermarkets": ["888800000000000000000001", "888800000000000000000002", "888800000000000000000003"]
+    },
+    {
+        "_id": "111100000000000000000007",
+        "title": "Pepper Red",
+        "supermarkets": "888800000000000000000003"
+    }
 ];
 
 var SUPERMARKETS = [

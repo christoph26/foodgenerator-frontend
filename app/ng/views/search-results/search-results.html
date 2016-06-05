@@ -4,12 +4,15 @@
     The search results of <u>{{exampleField}}</u>
     </center></div>
     <div class="backbuttonpos">
-        <button id="buttonback" class="btn btn-default btn-xs" ui-sref="Recipe"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Go Back</button>
+        <button id="buttonback" class="btn btn-default btn-xs" ui-sref="search.recipe"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Go Back</button>
     </div>
     <hr>
-    <div>
+    <div ng-if="resultsList">
         <div class="row">
             <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
         </div>
     </div>
+    <p ng-if="!resultsList">
+        No results.
+    </p>
 </div>
