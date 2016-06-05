@@ -47,11 +47,11 @@ angular.module('foodGenerator')
 
                 $scope.clickSupermarket = function (id) {
                     if (this.supermarketFilter.indexOf(id) >= 0) {
-                        $("img[name=" + id + "]").toggleClass("searchbarsupermarket");
+                        $("img[name=" + id + "]").toggleClass("picture-grayscale");
                         this.supermarketFilter.splice(this.supermarketFilter.indexOf(id), 1);
                     } else {
                         var x = $("img[name=" + id + "]");
-                        $("img[name=" + id + "]").toggleClass("searchbarsupermarket");
+                        $("img[name=" + id + "]").toggleClass("picture-grayscale");
                         this.supermarketFilter.push(id);
                     }
 
@@ -60,9 +60,9 @@ angular.module('foodGenerator')
 
                 $scope.checkImgClass = function (id) {
                     if (this.supermarketFilter.indexOf(id) >= 0) {
-                        return "";
-                    } else {
                         return "searchbarsupermarket";
+                    } else {
+                        return "searchbarsupermarket picture-grayscale";
                     }
                 }
             }
