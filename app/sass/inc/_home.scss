@@ -2,9 +2,6 @@
   font-size: $font-size-large;
 }
 
-#subhead {
-  font-size: 40px;
-}
 
 #site {
   //background-color: $color-tertiary-light;
@@ -13,11 +10,8 @@
 
 .button {
   background-color: $color-primary;
-  font-size: xx-large;
-}
-
-.reason {
-  font-size: x-large;
+  font-size: $font-size-middle;
+  color: white;
 }
 
 ul {
@@ -42,26 +36,26 @@ hr {
 }
 
 #whoweare {
-  font-size: 1.5em;
-  border-style: dotted;
-  border-color: #60B99B;
+  font-size: $font-size-normal;
+  border-style: double;
+  border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
 }
 
 .frameoftexts {
-  border-style: dotted;
-  border-color: #60B99B;
+  border-style: double;
+  border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
-  font-size: 18px;
+  padding: 10px;
+  font-size: $font-size-normal;
 }
 
 #howdoesitwork {
   border-style: dotted;
-  border-color: #60B99B;
+  border-color: $color-primary;
   border-width: 2px;
   border-radius: 10px;
-  font-size: 18px;
-  font-size: 1.5em;
+  font-size: $font-size-normal;
 }
