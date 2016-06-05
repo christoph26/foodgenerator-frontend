@@ -1,28 +1,32 @@
 #headline {
-  font-size: 80px;
+  font-size: $font-size-large;
 }
 
 #subhead {
   font-size: 40px;
 }
 
-
 #site {
   //background-color: $color-tertiary-light;
   padding: 15px;
 }
 
-
-.button{
+.button {
   background-color: $color-primary;
   font-size: xx-large;
 }
-.reason{
-  font-size:x-large;
+
+.reason {
+  font-size: x-large;
 }
 
-ul {font-size:smaller}
-.smaller-text {font-size:smaller}
+ul {
+  font-size: smaller
+}
+
+.smaller-text {
+  font-size: smaller
+}
 
 hr {
   height: 1px;
