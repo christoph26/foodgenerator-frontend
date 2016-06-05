@@ -1,13 +1,14 @@
 
 #site {
   //background-color: $color-tertiary-light;
-  padding: 15px;
+  padding: 20px;
 }
 
 
 .headline {
   font-size: $font-size-large;
   margin-bottom: 0.5em;
+  padding-top: 20px;
 }
 
 .buttonhome{
@@ -40,22 +41,10 @@ hr {
   height: 150px;
 }
 
-#whoweare {
+.contentlandingpage {
   font-size: $font-size-normal;
   text-align: justify;
-  padding: 10px;
-}
-
-
-#howdoesitwork {
-  border-style: dotted;
-  border-color: $color-primary;
-  border-width: 2px;
-  border-radius: 10px;
-  font-size: $font-size-normal;
-  text-align: justify;
-  padding: 10px;
-}
+  }
 
   .frameoffunctiontexts {
     border-style: double;
@@ -69,7 +58,7 @@ hr {
 
   .chapterheadline{
     margin-top: 1px;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
 
 .landingpagepic {
