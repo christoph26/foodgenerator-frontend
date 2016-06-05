@@ -1,10 +1,12 @@
 .searchbarsupermarket {
+  width: 40px;
+  height: 40px;
+
   -webkit-filter: grayscale(60%);
   &:hover {
     -webkit-filter: grayscale(0%);
   }
-  width: 40px;
-  height: 40px;
+
 }
 .searchbar {
   margin-top: 11em;
