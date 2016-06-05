@@ -33,10 +33,7 @@
             var token = auth.getToken();
             if (token) {
                 var userId = auth.parseJwt(token).user._id;
-                var user = $resource(BASEURL + '/users/:userId', {userId: '@_id'})
-                    .get({userId: userId}, function () {
-                        return user;
-                    });
+                return $resource(BASEURL + '/users/:userId', {userId: '@_id'}).get({userId: userId});
             } else {
                 return {};
             }
