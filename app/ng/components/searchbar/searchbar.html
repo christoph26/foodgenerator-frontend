@@ -15,29 +15,27 @@
             <div class="row">
                 <div class="col-md-4"> Nutrition:
                     <div class="checkbox">
-                        <label><input type="checkbox" value="">Vegetarian</label>
+                        <label><input type="checkbox" ng-model="vegetarian">Vegetarian</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" value="">Vegan</label>
+                        <label><input type="checkbox" ng-model="vegan">Vegan</label>
                     </div>
                 </div>
                 <div class="col-md-4"> Effort:
                     <div class="checkbox">
-                        <label><input type="checkbox" value="">Low</label>
+                        <label><input type="checkbox" ng-model="effortLow">Low</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" value="">Medium</label>
+                        <label><input type="checkbox" ng-model="effortMedium">Medium</label>
                     </div>
-                    <div class="checkbox disabled">
-                        <label><input type="checkbox" value="">High</label>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="effortHigh">High</label>
                     </div>
                 </div>
                 <div class="col-md-4"> Availiability: <p>
-                    <img class="searchbarsupermarket" src="http://www.duvenstedt-aktiv.de/images/mitglieder/rewe_icon.jpg" class="{{selected}}"
-                         alt="Rewe" width="40" height="40">
-                    <img class="searchbarsupermarket" src="http://www.aldi-nord.de/images/logo_deu.png" class="" alt="Aldi" width="40" height="40">
-                    <img class="searchbarsupermarket" ng-repeat="supermarket in supermarkets" src="http://www.aldi-nord.de/images/logo_deu.png"
-                         class=""
+                    <img ng-class="checkImgClass(supermarket._id)" ng-repeat="supermarket in supermarkets"
+                         src="{{supermarket.icon}}"
+                         class="" name="{{supermarket._id}}" ng-click="clickSupermarket(supermarket._id)"
                          alt="{{supermarket.title}}" width="40" height="40">
                 </div>
             </div>

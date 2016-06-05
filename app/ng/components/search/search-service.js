@@ -5,38 +5,32 @@
 
     function searchService(BASEURL, $http) {
 
-        var searchTermCache = "";
-
-        this.getSearchTerm = getSearchTerm;
-        this.setSearchTerm = setSearchTerm;
+        this.searchTerm = "";
+        this.vegan = false;
+        this.vegetarian = false;
+        this.effortLow = false;
+        this.effortMedium = false;
+        this.effortHigh = false;
+        this.supermarketFilter = [];
+        
+        
         this.performRecipeSearch = performRecipeSearch;
 
-        ////////////////
-
-        function setSearchTerm(searchTerm) {
-            searchTermCache = searchTerm;
-            console.log("search term updated: " + searchTermCache)
-        }
-
-        function getSearchTerm() {
-            return searchTermCache;
-        }
 
         function performRecipeSearch() {
-            if (searchTermCache == undefined || searchTermCache == "") {
-                return [];
-            }
+
+            var searchDirectRecipes = this.vegan || this.vegetarian || this.effortLow || this.effortMedium || this.effortHigh || (this.supermarketFilter.length > 0);
             var searchDTO = {
-                searchText: searchTermCache,
-                searchDirectRecipes: true      //TODO update according to expansion state of search bar
-                //TODO add properties from frontend
+                searchText: this.searchTerm,
+                searchDirectRecipes: searchDirectRecipes,
+                supermarketFilter: this.supermarketFilter,
+                vegan: this.vegan,
+                vegetarian: this.vegetarian,
+                effortLow: this.effortLow,
+                effortMedium: this.effortMedium,
+                effortHigh: this.effortHigh
             };
-            $http.post(BASEURL + '/search/recipesearch', searchDTO).then(function (response) {
-                console.log(response);
-                alert("search request success!");
-            }, function (error) {
-                console.log(error);
-            });
+            return $http.post(BASEURL + '/search/recipesearch', searchDTO);
         }
 
     }
