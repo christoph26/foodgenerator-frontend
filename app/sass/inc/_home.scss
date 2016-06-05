@@ -4,8 +4,8 @@
 }
 
 .headline {
-  font-size: 80px;
-  margin-bottom: 20px;
+  font-size: 5em;
+  margin-bottom: 0.5em;
 }
 
 .buttonhome{
@@ -26,14 +26,10 @@ hr {
 }
 
 .imgbuttononhome {
-  height: 200px;
+  height: 10em;
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-.profilepic {
-  height: 150px;
 }
 
 .frameoffunctiontexts {
@@ -41,8 +37,8 @@ hr {
   border-color: #60B99B;
   border-width: 2px;
   border-radius: 10px;
-  font-size: 18px;
-  padding: 5px;
+  font-size: 0.8em;
+  padding: 0.5em;
   text-align: justify;
 }
 
@@ -57,5 +53,5 @@ hr {
 
 .chapterheadline{
   margin-top: 1px;
-  margin-bottom: 25px;
+  margin-bottom: 1em;
 }
