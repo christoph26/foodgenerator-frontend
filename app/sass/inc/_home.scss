@@ -1,20 +1,19 @@
-.headline {
-  font-size: 80px;
-}
-
-
 .site {
   //background-color: $color-tertiary-light;
   padding: 15px;
-
 }
 
+.headline {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
 
-#button{
+.buttonhome{
   background-color: $color-primary;
   font-size: xx-large;
+  color: white;
 }
-#reason{
+.reason{
   font-size:x-large;
 }
 
@@ -27,34 +26,36 @@ hr {
 }
 
 .imgbuttononhome {
-  height: 240px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profilepic {
   height: 150px;
 }
 
-#whoweare {
-  font-size: 1.5em;
-  border-style: dotted;
+.frameoffunctiontexts {
+  border-style: double;
   border-color: #60B99B;
   border-width: 2px;
   border-radius: 10px;
+  font-size: 18px;
+  padding: 5px;
+  text-align: justify;
 }
 
 .frameoftexts {
-  border-style: dotted;
   border-color: #60B99B;
   border-width: 2px;
   border-radius: 10px;
   font-size: 18px;
+  padding: 5px;
+  text-align: justify;
 }
 
-#howdoesitwork {
-  border-style: dotted;
-  border-color: #60B99B;
-  border-width: 2px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-size: 1.5em;
+.chapterheadline{
+  margin-top: 1px;
+  margin-bottom: 25px;
 }
