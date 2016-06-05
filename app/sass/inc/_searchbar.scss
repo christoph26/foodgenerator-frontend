@@ -6,7 +6,10 @@
   &:hover {
     -webkit-filter: grayscale(0%);
   }
+}
 
+.searchbar {
+  margin-top: 4.67em;   // corresponds to hardcoded logo size
 }
 
 .input-group {
