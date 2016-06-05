@@ -31,7 +31,7 @@
                 searchDirectRecipes: true      //TODO update according to expansion state of search bar
                 //TODO add properties from frontend
             };
-            $http.post(BASEURL + '/recipesearch', searchDTO).then(function (response) {
+            $http.post(BASEURL + '/search/recipesearch', searchDTO).then(function (response) {
                 console.log(response);
                 alert("search request success!");
             }, function (error) {
