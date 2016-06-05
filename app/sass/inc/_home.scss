@@ -25,7 +25,7 @@ ul {
 }
 
 hr {
-  height: 1px;
+  height: 2px;
   background-color: lightgrey;
 }
 
@@ -42,21 +42,10 @@ hr {
 
 #whoweare {
   font-size: $font-size-normal;
-  border-style: double;
-  border-color: $color-primary;
-  border-width: 2px;
-  border-radius: 10px;
-}
-
-.frameoftexts {
-  border-style: dotted;
-  border-color: $color-primary;
-  border-width: 2px;
-  border-radius: 10px;
-  font-size: $font-size-normal;
   text-align: justify;
   padding: 10px;
 }
+
 
 #howdoesitwork {
   border-style: dotted;
@@ -64,6 +53,8 @@ hr {
   border-width: 2px;
   border-radius: 10px;
   font-size: $font-size-normal;
+  text-align: justify;
+  padding: 10px;
 }
 
   .frameoffunctiontexts {
@@ -80,3 +71,10 @@ hr {
     margin-top: 1px;
     margin-bottom: 1em;
   }
+
+.landingpagepic {
+  width:auto;
+  max-height: 250px;
+  max-width: 350px;
+  text-align: justify;
+}
