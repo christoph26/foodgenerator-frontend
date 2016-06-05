@@ -9,17 +9,29 @@
             {{errorText}}
         </div>
         <div class="form-group">
-            <label for="loginEmailInput">Email address</label>
-            <input class="form-control" id="loginEmailInput" ng-model="email" type="email" placeholder="Email" required>
+            <label for="registerFirstNameInput">First name</label>
+            <input class="form-control" id="registerFirstNameInput" ng-model="firstName" type="text"
+                   placeholder="First Name" required>
         </div>
         <div class="form-group">
-            <label for="loginPasswordInput">Password</label>
-            <input class="form-control" id="loginPasswordInput" ng-model="password" type="password"
+            <label for="registerLastNameInput">Last name</label>
+            <input class="form-control" id="registerLastNameInput" ng-model="lastName" type="text"
+                   placeholder="Last Name" required>
+        </div>
+        <div class="form-group">
+            <label for="registerEmailInput">Email address</label>
+            <input class="form-control" id="registerEmailInput" ng-model="email" type="email" placeholder="Email"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="registerPasswordInput">Password</label>
+            <input class="form-control" id="registerPasswordInput" ng-model="password" type="password"
                    placeholder="Password" required>
         </div>
         <div class="form-group">
-            <label for="loginPasswordConfirmInput">Confirm password</label>
-            <input class="form-control" id="loginPasswordConfirmInput" compare-to="password" ng-model="passwordConfirm"
+            <label for="registerPasswordConfirmInput">Confirm password</label>
+            <input class="form-control" id="registerPasswordConfirmInput" compare-to="password"
+                   ng-model="passwordConfirm"
                    type="password" placeholder="Confirm password" required>
             <div ng-messages="registerForm.$invalid">
                 <div ng-message="compareTo">Passwords must match.</div>
