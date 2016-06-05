@@ -14,19 +14,15 @@
         ////////////////
 
         function register(email, pass, firstName, lastName) {
-            return $http.post(BASEURL + '/signup', {
-                email: email,
-                password: pass,
-                firstName: firstName,
-                lastName: lastName
-            });
+            console.log("Creating a new account for '" + email + "'.");
+            var user = {email: email, password: pass, firstName: firstName, lastName: lastName};
+            return $http.post(BASEURL + '/signup', user);
         }
 
         function login(email, pass) {
-            return $http.post(BASEURL + '/login', {
-                email: email,
-                password: pass
-            });
+            console.log("Logging in as user '" + email + "'.");
+            var user = {email: email, password: pass};
+            return $http.post(BASEURL + '/login', user);
         }
 
         function logout() {
