@@ -15,6 +15,6 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
     })
 
     .controller('AccountCtrl', function ($scope, auth) {
-        $scope.isLoggedIn = auth.isLoggedIn;
+        $scope.isLoggedIn = auth.isAuthed;
     })
 ;
