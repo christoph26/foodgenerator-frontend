@@ -14,21 +14,7 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('AccountCtrl', function ($scope) {
-        $scope.exampleField = "Hello World!";
-
-        var currUser;
-        currUser = {
-            firstName: "Test",
-            lastName: "User"
-        };
-
-        $scope.isLoggedIn = false;
-        if (currUser != null) {
-            $scope.isLoggedIn = true;
-
-            $scope.firstName = currUser.firstName;
-            $scope.lastName = currUser.lastName;
-        }
+    .controller('AccountCtrl', function ($scope, auth) {
+        $scope.isLoggedIn = auth.isLoggedIn;
     })
 ;
