@@ -1,0 +1,21 @@
+<div>
+    <h1>My Account</h1>
+    <div ng-if="!loggedIn">
+        <br/>
+        <p>
+            You are currently not logged in.
+        </p>
+    </div>
+    <div ng-if="loggedIn">
+        <p>
+            Welcome to your account page!<br/>
+            <br/>
+            You are currently logged in.<br/>
+            <br/>
+            Your email is: <strong>{{user.email}}</strong><br/>
+            Your first name is: <strong>{{user.firstName}}</strong><br/>
+            Your last name is: <strong>{{user.lastName}}</strong><br/>
+        </p>
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div class="searchbar">
+    <div ng-if="true">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for recipes..." ng-model="searchBarInput">
+        <span class="input-group-btn">
+            <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters"
+                    ng-click="updateGlyphicon()">
+            <span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-default" type="button" ng-click="setTermAndPerformSearch()">Search</button>
+        </span>
+        </div>
+
+        <div class="searchfilters collapse">
+            <div class="row">
+                <div class="col-md-4"> Nutrition:
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="vegetarian">Vegetarian</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="vegan">Vegan</label>
+                    </div>
+                </div>
+                <div class="col-md-4"> Effort:
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="effortLow">Low</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="effortMedium">Medium</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="effortHigh">High</label>
+                    </div>
+                </div>
+                <div class="col-md-4"> Availiability: <p>
+                    <img ng-class="checkImgClass(supermarket._id)" ng-repeat="supermarket in supermarkets"
+                         src="{{supermarket.icon}}" name="{{supermarket._id}}"
+                         ng-click="clickSupermarket(supermarket._id)" alt="{{supermarket.title}}" width="40"
+                         height="40">
+                </div>
+            </div>
+        </div>
+
+        <!--<div ng-if="bartype == 'ingredients'">
+                <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
+            </div>
+
+            <div ng-if="!bartype">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Implementation error!</strong>
+                    Need to specify "bartype" attribute on searchbar html element!
+                </div>
+            </div>-->
+    </div>
+</div>

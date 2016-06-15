@@ -1,18 +1,32 @@
-
 <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
+<div class="container" id="app-container">
+    <!--header:-->
+    <div class="header">
+        <div class="row">
+            <div class="col-xs-3">
+                <logo></logo>
+            </div>
+            <div class="col-xs-9">
+                <searchbar bartype="recipes"></searchbar>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+            <navbar></navbar>
+            </div>
+        </div>
+    </div>
 
-<md-toolbar class="md-primary" mv-toolbar>
+    <!--content:-->
+    <div class="content" id="content-container" ui-view="content"></div>
 
+    <!--stuff that belongs outside of content container:-->
+    <div class="content-outside" ui-view="outside"></div>
 
-</md-toolbar>
-<md-content role="main" class="mv-content" layout-padding ui-view="content"></md-content>
-
-<!--stuff that belongs outside of the md-content container like fab buttons-->
-<div ui-view="outside"></div>
-
-
-
-
+    <!--footer:-->
+    <appfooter></appfooter>
+</div>

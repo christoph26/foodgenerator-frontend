@@ -1,6 +1,7 @@
 //taken from http://stackoverflow.com/a/31671397/3200478
+//initially used for comparing the "password" and "password confirm" fields during user registration
 
-angular.module('myApp')
+angular.module('foodGenerator')
     .directive("compareTo", function () {
         return {
             require: "ngModel",

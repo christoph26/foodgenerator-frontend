@@ -1,0 +1,35 @@
+.searchbarsupermarket {
+  width: 40px;
+  height: 40px;
+  margin: 0.1em;
+}
+
+.picture-grayscale {
+  -webkit-filter: grayscale(60%);
+  &:hover {
+    -webkit-filter: grayscale(0%);
+  }
+}
+
+.searchbar {
+  margin-top: 4.67em;   // corresponds to hardcoded logo size
+}
+
+.input-group {
+  border-style: solid;
+  border-color: $color-primary;
+  border-radius: 5px;
+}
+
+.searchfilters {
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  margin-top: 0.8em;
+  padding-left: 0.6em;
+  padding-top: 0.6em;
+  background-color: $color-primary;
+  border-style: solid;
+  border-color: $color-primary;
+  border-radius: 5px;
+}

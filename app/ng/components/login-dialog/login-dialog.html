@@ -1,35 +1,26 @@
 <form name="loginForm" ng-submit="login()">
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <h2>Welcome back!</h2>
+    <div class="modal-header">
+        <h3 class="modal-title">Login</h3>
+    </div>
+
+    <div class="modal-body">
+        <div class="alert alert-danger" role="alert" ng-show="errorText">
+            <strong>Error!</strong>
+            {{errorText}}
         </div>
-    </md-toolbar>
+        <div class="form-group">
+            <label for="loginEmailInput">Email address</label>
+            <input class="form-control" id="loginEmailInput" ng-model="email" type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="loginPasswordInput">Password</label>
+            <input class="form-control" id="loginPasswordInput" ng-model="password" type="password"
+                   placeholder="Password" required>
+        </div>
+    </div>
 
-    <md-dialog-content layout-margin>
-        <h2 class="md-title md-primary">Login</h2>
-        <span class="md-body-2 mv-error-text" ng-show="errorText">{{errorText}}</span>
-        <md-input-container class="md-block">
-            <label>Username</label>
-            <input required name="username" ng-model="username">
-            <div ng-messages="loginForm.username.$error">
-                <div ng-message="required">Username is required.</div>
-            </div>
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>Password</label>
-            <input type="password" name="password" required ng-model="password">
-            <div ng-messages="loginForm.password.$error">
-                <div ng-message="required">Password is required.</div>
-            </div>
-        </md-input-container>
-    </md-dialog-content>
-    <md-dialog-actions layout="row" layout-align="space-around center">
-        <md-button ng-click="cancel()">
-            Cancel
-        </md-button>
-        <md-button type="submit" ng-disabled="loginForm.$invalid">
-            Log in
-        </md-button>
-    </md-dialog-actions>
-
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">OK</button>
+        <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+    </div>
 </form>

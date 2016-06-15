@@ -1,0 +1,25 @@
+nav {
+  background-color: $color-secondary;
+}
+
+.nav > li > a {
+  color: $color-text-inverted;
+}
+
+.nav > li > a:hover,
+.nav > li > a:active,
+.nav > li > a:focus {
+  background-color: inherit;
+  color: $color-text-highlight;
+}
+
+.nav {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.navbar {
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

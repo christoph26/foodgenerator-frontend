@@ -1,8 +1,14 @@
 @import "../vars/colors";
+@import "../vars/fonts";
 
 @import "misc";
 @import "root";
-@import "breadcrumbs";
-@import "movie-card";
-@import "movie-details";
-@import "movie-create";
+@import "home";
+@import "account";
+@import "footer";
+@import "logo";
+@import "navbar";
+@import "recipe-thumbnail";
+@import "search-recipes";
+@import "search-results";
+@import "searchbar";
