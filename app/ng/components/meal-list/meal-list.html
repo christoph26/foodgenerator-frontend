@@ -1,7 +1,11 @@
-<div class="meal-list">
+<div class="meal-list" ng-if="mealList">
     <p>
         title: {{mealList.title}}<br/>
         order: {{mealList.order}}<br/>
         meals: {{mealList.meal.size}}<br/>  <!-- TODO rename meal field to "meals" -->
     </p>
+</div>
+
+<div class="meal-list" ng-if="!mealList">
+    <p>Empty meal list.</p>
 </div>

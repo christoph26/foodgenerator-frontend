@@ -16,5 +16,6 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router'])
 
     .controller('MealPlannerCtrl', function ($scope) {
         $scope.exampleField = "Hello World!";
+        $scope.mealPlan = {};
     })
 ;
