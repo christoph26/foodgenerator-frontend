@@ -3,18 +3,13 @@
     <p><strong>your current plan:</strong></p>
 
     <div class="meal-planner-container row">
-        <div class="col-md-4">
+        <div class="col-md-4" ng-repeat="mealList in mealPlan.mealList">
             <meallist meal-list="mealList"></meallist>
         </div>
-        <div class="col-md-4">
-            <meallist meal-list="mealList"></meallist>
-        </div>
-        <div class="col-md-4">
-            <meallist meal-list="mealList"></meallist>
-        </div>
+        <!-- TODO add new functionality -->
     </div>
 
-    <br/>   <!-- remove break and use padding instead -->
+    <br/>   <!-- TODO remove break and use padding instead -->
 
     <div class="recipe-recommendations-container row">
         <div class="marked-recipes-container col-md-6">
