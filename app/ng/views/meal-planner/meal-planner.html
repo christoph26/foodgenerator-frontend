@@ -1,7 +1,33 @@
-<div>
-    <h1>Meal Planner</h1>
-    <p>
-        This is the content of the meal planner page.<br/>
-        This is an example of a variable: {{exampleField}}
-    </p>
+<div class="container-fluid">
+    <h1>Meal planner</h1>
+    <p><strong>your current plan:</strong></p>
+
+    <div class="meal-planner-container row">
+        <div class="col-md-4">
+            <div>meal planner component goes here</div>
+        </div>
+        <div class="col-md-4">
+            <div>meal planner component goes here</div>
+        </div>
+        <div class="col-md-4">
+            <div>meal planner component goes here</div>
+        </div>
+    </div>
+
+    <br/>   <!-- remove break and use padding instead -->
+
+    <div class="recipe-recommendations-container row">
+        <div class="marked-recipes-container col-md-6">
+            <p><strong>your marked recipes:</strong></p>
+            <div>meal label goes here</div>
+            <div>meal label goes here</div>
+            <div>meal label goes here</div>
+        </div>
+        <div class="recent-recipes-container col-md-6">
+            <p><strong>your recent views:</strong></p>
+            <div>meal label goes here</div>
+            <div>meal label goes here</div>
+            <div>meal label goes here</div>
+        </div>
+    </div>
 </div>
