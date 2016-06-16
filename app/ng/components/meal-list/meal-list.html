@@ -1,10 +1,7 @@
 <div class="meal-list thumbnail" ng-if="mealList">
-    <p>
-        title: {{mealList.title}}<br/>
-        order: {{mealList.order}}<br/>
-        meal count: {{mealList.meal.length}}<br/>  <!-- TODO rename meal field to "meals" -->
-        <meallabel ng-repeat="meal in mealList.meal" recipe="meal.recipe"></meallabel>
-    </p>
+    <h3 class="text-center">{{mealList.title}}</h3>
+    <hr>
+    <meallabel class="row" ng-repeat="meal in mealList.meal" recipe="meal.recipe"></meallabel>  <!-- TODO rename meal field to "meals" -->
 </div>
 
 <div class="meal-list thumbnail" ng-if="!mealList">
