@@ -16,7 +16,7 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router'])
 
     .controller('MealPlannerCtrl', function ($scope) {
         $scope.exampleField = "Hello World!";
-        $scope.mealPlan = {};
+        $scope.mealPlan = exampleMealPlan;
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
     })
@@ -24,15 +24,15 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router'])
 
 var markedExampleRecipes = [
     {
-        "_id": "333300000000000000000001",
-        "title": "Spaghetti Bolognese Classic",
+        "_id": "333300000000000000000003",
+        "title": "Chili Con Carne",
         "effort": 1,
-        "description": "Preperation is simple and done in 30 minutes.",
+        "description": "Hot & Spicy",
         "vegan": false,
         "vegetarian": false,
-        "picture": "img/recipes/spaghetti-bolognese-classic.jpg",
-        "ingredientList": "222200000000000000000001",
-        "recipeFamily": "444400000000000000000001"
+        "picture": "img/recipes/chili-con-carne.jpg",
+        "ingredientList": "222200000000000000000003",
+        "recipeFamily": "444400000000000000000002"
     },
     {
         "_id": "333300000000000000000002",
@@ -49,15 +49,15 @@ var markedExampleRecipes = [
 
 var viewedExampleRecipes = [
     {
-        "_id": "333300000000000000000003",
-        "title": "Chili Con Carne",
+        "_id": "333300000000000000000001",
+        "title": "Spaghetti Bolognese Classic",
         "effort": 1,
-        "description": "Hot & Spicy",
+        "description": "Preperation is simple and done in 30 minutes.",
         "vegan": false,
         "vegetarian": false,
-        "picture": "img/recipes/chili-con-carne.jpg",
-        "ingredientList": "222200000000000000000003",
-        "recipeFamily": "444400000000000000000002"
+        "picture": "img/recipes/spaghetti-bolognese-classic.jpg",
+        "ingredientList": "222200000000000000000001",
+        "recipeFamily": "444400000000000000000001"
     },
     {
         "_id": "333300000000000000000004",
@@ -82,3 +82,25 @@ var viewedExampleRecipes = [
         "recipeFamily": "444400000000000000000003"
     }
 ];
+
+var exampleMealPlan = {
+    title: "myTestPlan",
+    mealList: [{
+        title: "MealList 1",
+        order: 1,
+        meal: [{
+            order: 1,
+            recipe: "333300000000000000000005"
+        }, {
+            order: 2,
+            recipe: "333300000000000000000001"
+        }]
+    }, {
+        title: "MealList 2",
+        order: 2,
+        meal: [{
+            order: 1,
+            recipe: "333300000000000000000003"
+        }]
+    }]
+};
