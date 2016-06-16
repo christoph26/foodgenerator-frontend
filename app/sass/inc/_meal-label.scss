@@ -1,17 +1,25 @@
 .meal-label {
-  height: 5em;
-
   background-color: $color-primary;
   border: none;
 }
 
-.meal-label > img {
-    display: block;
-    height: 100%;
-    max-height: 100%;
-    width: auto;
+.meal-label-img {
+  height: 5em;
+  max-height: 100%;
+  width: auto;
 
   border: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+
+.meal-label > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.meal-label-caption {
+  padding: 1em;
+  font-weight: bold;
+  color: white;
 }
