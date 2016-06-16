@@ -3,13 +3,15 @@
     <p><strong>your current plan:</strong></p>
 
     <div class="meal-planner-container row">
-        <div class="col-md-4 thumbnail" ng-repeat="mealList in mealPlan.mealList">
+        <div class="col-md-4" ng-repeat="mealList in mealPlan.mealList">
             <meallist meal-list="mealList"></meallist>
         </div>
-        <div class="col-md-4 thumbnail thumbnail-add-new-meal">
-            <!-- TODO implement "new meal list" functionality -->
-            <img ng-src="img/meal-planner/icon-plus.png"/>
-            <p class="text-center">"Click to add new item"</p>
+        <div class="col-md-4">
+            <div class="thumbnail thumbnail-add-new-meal">
+                <!-- TODO implement "new meal list" functionality -->
+                <img ng-src="img/meal-planner/icon-plus.png"/>
+                <p class="text-center">"Click to add new item"</p>
+            </div>
         </div>
     </div>
 

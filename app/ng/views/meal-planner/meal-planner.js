@@ -90,17 +90,47 @@ var exampleMealPlan = {
         order: 1,
         meal: [{
             order: 1,
-            recipe: "333300000000000000000005"
+            recipe: {
+                "_id": "333300000000000000000005",
+                "title": "Avocado Salad Feta",
+                "effort": 1,
+                "description": "Delicious Healthy Salat for Vegetarian People",
+                "vegan": false,
+                "vegetarian": true,
+                "picture": "img/recipes/avocado-salad-feta.jpg",
+                "ingredientList": "222200000000000000000005",
+                "recipeFamily": "444400000000000000000003"
+            }
         }, {
             order: 2,
-            recipe: "333300000000000000000001"
+            recipe: {
+                "_id": "333300000000000000000001",
+                "title": "Spaghetti Bolognese Classic",
+                "effort": 1,
+                "description": "Preperation is simple and done in 30 minutes.",
+                "vegan": false,
+                "vegetarian": false,
+                "picture": "img/recipes/spaghetti-bolognese-classic.jpg",
+                "ingredientList": "222200000000000000000001",
+                "recipeFamily": "444400000000000000000001"
+            }
         }]
     }, {
         title: "MealList 2",
         order: 2,
         meal: [{
             order: 1,
-            recipe: "333300000000000000000003"
+            recipe: {
+                "_id": "333300000000000000000003",
+                "title": "Chili Con Carne",
+                "effort": 1,
+                "description": "Hot & Spicy",
+                "vegan": false,
+                "vegetarian": false,
+                "picture": "img/recipes/chili-con-carne.jpg",
+                "ingredientList": "222200000000000000000003",
+                "recipeFamily": "444400000000000000000002"
+            }
         }]
     }]
 };
