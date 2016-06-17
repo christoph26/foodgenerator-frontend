@@ -15,14 +15,24 @@
         </div>
     </div>
 
-    <div class="recipe-recommendations-container row">
-        <div class="marked-recipes-container col-md-6">
+    <div class="recipe-recommendations-header row">
+        <div class="col-md-6">
             <p><strong>your marked recipes:</strong></p>
-            <meallabel ng-repeat="recipe in markedRecipes" recipe="recipe"></meallabel>
         </div>
-        <div class="recent-recipes-container col-md-6">
+        <div class="col-md-6">
             <p><strong>your recent views:</strong></p>
-            <meallabel ng-repeat="recipe in recentRecipes" recipe="recipe"></meallabel>
+        </div>
+    </div>
+    <div class="recipe-recommendations-container row thumbnail">
+        <div class="col-md-6">
+            <div class="marked-recipes-container">
+                <meallabel ng-repeat="recipe in markedRecipes" recipe="recipe"></meallabel>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="recent-recipes-container">
+                <meallabel ng-repeat="recipe in recentRecipes" recipe="recipe"></meallabel>
+            </div>
         </div>
     </div>
 </div>

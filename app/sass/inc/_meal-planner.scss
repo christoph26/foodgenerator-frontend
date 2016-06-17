@@ -1,0 +1,11 @@
+.recipe-recommendations-container {
+  //margin-bottom: 0;
+
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.recipe-recommendations-container > div:first-child {
+  border-right: 1px solid #ddd;
+}
