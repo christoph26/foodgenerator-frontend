@@ -1,7 +1,7 @@
-<div class="searchbar">
+<div class="searchbar-{{bartype}}">
     <div ng-if="bartype">
         <div class="input-group style-{{bartype}}">
-            <input type="text" class="form-control" placeholder="Search for recipes..." ng-model="searchBarInput">
+            <input type="text" class="form-control" placeholder="Search for {{bartype}}..." ng-model="searchBarInput">
         <span class="input-group-btn">
             <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters-{{bartype}}"
                     ng-click="updateGlyphicon()">
