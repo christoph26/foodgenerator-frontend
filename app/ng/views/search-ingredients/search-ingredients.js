@@ -15,6 +15,5 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
     })
 
     .controller('SearchIngredientsCtrl', function ($scope) {
-        $scope.exampleField = "Hello World!";
     })
 ;

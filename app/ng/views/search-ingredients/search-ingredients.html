@@ -1,13 +1,23 @@
 <div>
-    <h1>Search Recipes by Ingredients</h1>
-    <p>
-        This is the content of the search recipes by ingredients page.<br/>
-        This is an example of a variable: {{exampleField}}
-    </p>
-
     <searchbar bartype="ingredients"></searchbar>
+    <br>
 
-    <br/>
+    <!--TODO: replace searchTerm by ingredient labels-->
+    <div ng-if="searchTerm">
+        The search results for "{{searchTerm}}":
+        <hr>
+        <div ng-if="resultsList.length">
+            <div class="row">
+                <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
+            </div>
+        </div>
+        <p class="text-center" ng-if="!resultsList.length">
+            No results.
+        </p>
+    </div>
 
-    <button ui-sref="search.results">Go to results (debugging only)</button>
+    <!--TODO: add arrow to input-->
+    <p ng-if="!searchTerm" class="text-center">
+        You have not yet performed a search. Use the searchbar to search for ingredients.
+    </p>
 </div>

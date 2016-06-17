@@ -1,6 +1,6 @@
 <div class="searchbar">
     <div ng-if="bartype">
-        <div class="input-group">
+        <div class="input-group style-{{bartype}}">
             <input type="text" class="form-control" placeholder="Search for recipes..." ng-model="searchBarInput">
         <span class="input-group-btn">
             <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters-{{bartype}}"
@@ -15,7 +15,7 @@
         </span>
         </div>
 
-        <div class="searchfilters searchfilters-{{bartype}} collapse">
+        <div class="searchfilters searchfilters-{{bartype}} style-{{bartype}} collapse">
             <div class="row">
                 <div class="col-md-4"> Nutrition:
                     <div class="checkbox">
