@@ -4,7 +4,10 @@
 
 .meal-label-img {
   height: 5em;
-  max-height: 100%;
+}
+
+.meal-label-img > * {
+  height: 100%;
   width: auto;
 
   border: none;
@@ -29,13 +32,12 @@
 
 .meal-label-add > .meal-label-caption {
   background-color: transparent;
-
   border: 3px dashed $color-tertiary;
-  border-left: none;
 
   color: $color-tertiary;
 }
 
 .meal-label-add .meal-label-img {
   border: 3px dashed $color-tertiary;
+  border-right: none;
 }
