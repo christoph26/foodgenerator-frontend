@@ -28,8 +28,16 @@
   margin-top: 0.8em;
   padding-left: 0.6em;
   padding-top: 0.6em;
-  background-color: $color-primary;
   border-style: solid;
-  border-color: $color-primary;
   border-radius: 5px;
+}
+
+.searchfilters-recipes {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.searchfilters-ingredients {
+  background-color: $color-tertiary;
+  border-color: $color-tertiary;
 }
