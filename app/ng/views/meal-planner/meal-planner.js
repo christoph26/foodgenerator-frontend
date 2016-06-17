@@ -1,4 +1,4 @@
-angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router'])
+angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndLists'])
 
     .config(function ($stateProvider) {
         $stateProvider

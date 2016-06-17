@@ -25,14 +25,19 @@
     </div>
     <div class="recipe-recommendations-container row thumbnail">
         <div class="col-md-6">
-            <div class="marked-recipes-container">
-                <meallabel ng-repeat="recipe in markedRecipes" recipe="recipe"></meallabel>
-            </div>
+            <ul class="marked-recipes-container" dnd-list="markedRecipes">
+                <li ng-repeat="recipe in markedRecipes">
+                    <meallabel recipe="recipe"></meallabel>
+                </li>
+            </ul>
         </div>
         <div class="col-md-6">
-            <div class="recent-recipes-container">
-                <meallabel ng-repeat="recipe in recentRecipes" recipe="recipe"></meallabel>
-            </div>
+            <ul class="recent-recipes-container" dnd-list="recentRecipes">
+                <li ng-repeat="recipe in recentRecipes" dnd-draggable="recipe" dnd-moved="recipe.splice($index, 1)"
+                    dnd-effect-allowed="move">
+                    <meallabel recipe="recipe"></meallabel>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

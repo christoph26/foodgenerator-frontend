@@ -6,13 +6,15 @@
         <div class="row">
             <hr>
         </div>
-        <div class="row" ng-repeat="meal in mealList.meal">
-            <meallabel recipe="meal.recipe"></meallabel>
-            <!-- TODO rename meal field to "meals" -->
-        </div>
-        <div class="row">
-            <meallabel></meallabel>
-        </div>
+        <ul>
+            <li class="row" ng-repeat="meal in mealList.meal">
+                <meallabel recipe="meal.recipe"></meallabel>
+                <!-- TODO rename meal field to "meals" -->
+            </li>
+            <li class="row">
+                <meallabel></meallabel>
+            </li>
+        </ul>
     </div>
 </div>
 
