@@ -4,7 +4,7 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
             scope: {
-                bartype: '<'               // read-only access to the bartype html attribute
+                bartype: '@'               // the evaluated value in the attribute 'bartype' is bound into the scope as String
             },
             controller: function ($scope, $state, SearchService, Supermarket) {
                 $scope.supermarkets = Supermarket.query();
