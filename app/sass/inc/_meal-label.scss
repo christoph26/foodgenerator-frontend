@@ -1,5 +1,4 @@
 .meal-label {
-  background-color: $color-primary;
   border: none;
 }
 
@@ -9,8 +8,6 @@
   width: auto;
 
   border: none;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
 }
 
 .meal-label > div {
@@ -19,7 +16,26 @@
 }
 
 .meal-label-caption {
+  width: 100%;
   padding: 1em;
+
+  background-color: $color-primary;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
   font-weight: bold;
   color: white;
+}
+
+.meal-label-add > .meal-label-caption {
+  background-color: transparent;
+
+  border: 3px dashed $color-tertiary;
+  border-left: none;
+
+  color: $color-tertiary;
+}
+
+.meal-label-add .meal-label-img {
+  border: 3px dashed $color-tertiary;
 }

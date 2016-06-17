@@ -1,8 +1,17 @@
-<div class="panel meal-label">
+<div class="panel meal-label" ng-if="recipe">
     <div>
         <img ng-src="{{recipe.picture}}" class="meal-label-img"/>
     </div>
     <div class="meal-label-caption">
         {{recipe.title}}
+    </div>
+</div>
+
+<div class="panel meal-label meal-label-add" ng-if="!recipe">
+    <div>
+        <img ng-src="img/meal-planner/icon-plus.png" class="meal-label-img"/>
+    </div>
+    <div class="meal-label-caption">
+        Drop recipes here
     </div>
 </div>
