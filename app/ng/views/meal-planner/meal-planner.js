@@ -88,7 +88,7 @@ var exampleMealPlan = {
     mealList: [{
         title: "MealList 1",
         order: 1,
-        meal: [{
+        meals: [{
             order: 1,
             recipe: {
                 "_id": "333300000000000000000005",
@@ -118,7 +118,7 @@ var exampleMealPlan = {
     }, {
         title: "MealList 2",
         order: 2,
-        meal: [{
+        meals: [{
             order: 1,
             recipe: {
                 "_id": "333300000000000000000003",
