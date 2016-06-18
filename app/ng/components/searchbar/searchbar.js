@@ -27,7 +27,7 @@ angular.module('foodGenerator')
                     }
                 };
 
-                $scope.setTermAndPerformSearch = function () {
+                $scope.setTermAndPerformRecipeSearch = function () {
                     // propagate the current search term to the search service
                     SearchService.searchTerm = this.searchBarInput;
                     SearchService.vegan = this.vegan;
@@ -43,6 +43,10 @@ angular.module('foodGenerator')
                     } else {
                         $state.go('search.results');
                     }
+                };
+
+                $scope.setTermAndPerformIngredientSearch = function () {
+                    //TODO: perform ingredient search
                 };
 
                 $scope.clickSupermarket = function (id) {
