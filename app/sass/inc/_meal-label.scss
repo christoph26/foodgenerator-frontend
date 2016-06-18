@@ -1,9 +1,3 @@
-.meal-label {
-  border: none;
-  /* show the move cursor as the user moves the mouse over the label.*/
-  //cursor: move;
-}
-
 .meal-label-img {
   height: 5em;
 }
@@ -31,12 +25,6 @@
   font-weight: bold;
   color: white;
 }
-
-//
-//.meal-label-add {
-//  /* do not show the move cursor as the user moves the mouse over the drop zones.*/
-//  cursor: initial;
-//}
 
 .meal-label-add > .meal-label-caption {
   background-color: transparent;

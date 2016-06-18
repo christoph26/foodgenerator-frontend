@@ -26,6 +26,10 @@
   position: relative;
 }
 
+.meal-planner ul[dnd-list] > li[dnd-draggable] {
+  cursor: move;
+}
+
 /**
  * The dndDraggingSource class will be applied to
  * the source element of a drag operation. It makes
@@ -44,5 +48,6 @@
 .meal-planner ul[dnd-list] .dndPlaceholder {
   display: block;
   background-color: #ddd;
-  min-height: 42px;
+  min-height: 5em;
+  border-radius: 0 10px 10px 0;
 }
