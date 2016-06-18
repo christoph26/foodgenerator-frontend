@@ -25,26 +25,26 @@
     </div>
     <div class="recipe-recommendations-container row thumbnail">
         <div class="col-md-6">
+            <!--suppress HtmlUnknownAttribute -->
             <ul class="marked-recipes-container"
                 dnd-list="markedRecipes"
                 dnd-disable-if="true">
                 <!--suppress HtmlUnknownAttribute -->
                 <li ng-repeat="recipe in markedRecipes"
                     dnd-draggable="{recipe: recipe, order: 0}"
-                    dnd-moved="markedRecipes.splice($index, 1)"
                     dnd-effect-allowed="copy">
                     <meallabel recipe="recipe"></meallabel>
                 </li>
             </ul>
         </div>
         <div class="col-md-6">
+            <!--suppress HtmlUnknownAttribute -->
             <ul class="recent-recipes-container"
                 dnd-list="recentRecipes"
                 dnd-disable-if="true">
                 <!--suppress HtmlUnknownAttribute -->
                 <li ng-repeat="recipe in recentRecipes"
                     dnd-draggable="{recipe: recipe, order: 0}"
-                    dnd-moved="recentRecipes.splice($index, 1)"
                     dnd-effect-allowed="copy">
                     <meallabel recipe="recipe"></meallabel>
                 </li>

@@ -7,13 +7,14 @@
             <hr>
         </div>
         <ul dnd-list="mealList.meals">
+            <!--suppress HtmlUnknownAttribute -->
             <li class="row" ng-repeat="meal in mealList.meals"
                 dnd-draggable="meal"
-                dnd-moved="mealList.meals.splice($index, 1)"
                 dnd-effect-allowed="move">
+                dnd-moved="mealList.meals.splice($index, 1)"
                 <meallabel recipe="meal.recipe"></meallabel>
             </li>
-            <li class="row">
+            <li class="row" ng-if="!mealList.meals.length">
                 <meallabel></meallabel>
             </li>
             <li class="row panel dndPlaceholder"></li>
