@@ -58,8 +58,6 @@ angular.module('foodGenerator')
                         $("img[name=" + id + "]").toggleClass("picture-grayscale");
                         this.supermarketFilter.push(id);
                     }
-
-
                 };
 
                 $scope.checkImgClass = function (id) {
@@ -68,6 +66,10 @@ angular.module('foodGenerator')
                     } else {
                         return "searchbarsupermarket picture-grayscale";
                     }
+                }
+
+                $scope.loadIngredient = function (query) {
+                    return [{text: "Ingredient_dump2", _id: "testid2"}, {text: "Ingredient_dump1", _id: "testid1"}]
                 }
             }
         }

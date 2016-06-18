@@ -11,7 +11,8 @@ angular.module('foodGenerator', [
     'foodGenerator.search.ingredients',
     'foodGenerator.search.results',
     'foodGenerator.mealPlanner',
-    'templates'
+    'templates',
+    'ngTagsInput'
 ])
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
