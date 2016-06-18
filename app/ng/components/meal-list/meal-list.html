@@ -6,10 +6,12 @@
         <div class="row">
             <hr>
         </div>
-        <ul>
-            <li class="row" ng-repeat="meal in mealList.meal">
+        <ul dnd-list="mealList.meals">
+            <li class="row" ng-repeat="meal in mealList.meals"
+                dnd-draggable="meal"
+                dnd-moved="mealList.meals.splice($index, 1)"
+                dnd-effect-allowed="move">
                 <meallabel recipe="meal.recipe"></meallabel>
-                <!-- TODO rename meal field to "meals" -->
             </li>
             <li class="row">
                 <meallabel></meallabel>
