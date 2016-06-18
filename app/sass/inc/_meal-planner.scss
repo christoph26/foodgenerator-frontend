@@ -47,7 +47,9 @@
  */
 .meal-planner ul[dnd-list] .dndPlaceholder {
   display: block;
-  background-color: #ddd;
   min-height: 5em;
+  margin-bottom: 20px;
+
+  background-color: #ddd;
   border-radius: 0 10px 10px 0;
 }
