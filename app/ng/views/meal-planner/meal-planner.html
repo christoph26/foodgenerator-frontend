@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid meal-planner">
     <h1>Meal planner</h1>
     <p><strong>your current plan:</strong></p>
 
@@ -26,15 +26,16 @@
     <div class="recipe-recommendations-container row thumbnail">
         <div class="col-md-6">
             <ul class="marked-recipes-container" dnd-list="markedRecipes">
-                <li ng-repeat="recipe in markedRecipes">
+                <li ng-repeat="recipe in markedRecipes" dnd-draggable="recipe" dnd-moved="markedRecipes.splice($index, 1)"
+                    dnd-effect-allowed="copyMove">
                     <meallabel recipe="recipe"></meallabel>
                 </li>
             </ul>
         </div>
         <div class="col-md-6">
             <ul class="recent-recipes-container" dnd-list="recentRecipes">
-                <li ng-repeat="recipe in recentRecipes" dnd-draggable="recipe" dnd-moved="recipe.splice($index, 1)"
-                    dnd-effect-allowed="move">
+                <li ng-repeat="recipe in recentRecipes" dnd-draggable="recipe" dnd-moved="recentRecipes.splice($index, 1)"
+                    dnd-effect-allowed="copy">
                     <meallabel recipe="recipe"></meallabel>
                 </li>
             </ul>
