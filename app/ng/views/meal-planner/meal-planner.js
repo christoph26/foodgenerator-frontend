@@ -15,10 +15,18 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
     })
 
     .controller('MealPlannerCtrl', function ($scope) {
-        $scope.exampleField = "Hello World!";
         $scope.mealPlan = exampleMealPlan;
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
+
+        $scope.addMealList = function () {
+            var newMealList = {
+                title: "New MealList",
+                order: $scope.mealPlan.mealList.length,
+                meals: []
+            };
+            $scope.mealPlan.mealList.push(newMealList);
+        }
     })
 ;
 
@@ -87,9 +95,9 @@ var exampleMealPlan = {
     title: "myTestPlan",
     mealList: [{
         title: "MealList 1",
-        order: 1,
+        order: 0,
         meals: [{
-            order: 1,
+            order: 0,
             recipe: {
                 "_id": "333300000000000000000005",
                 "title": "Avocado Salad Feta",
@@ -102,7 +110,7 @@ var exampleMealPlan = {
                 "recipeFamily": "444400000000000000000003"
             }
         }, {
-            order: 2,
+            order: 1,
             recipe: {
                 "_id": "333300000000000000000001",
                 "title": "Spaghetti Bolognese Classic",
@@ -117,7 +125,7 @@ var exampleMealPlan = {
         }]
     }, {
         title: "MealList 2",
-        order: 2,
+        order: 1,
         meals: [{
             order: 1,
             recipe: {
