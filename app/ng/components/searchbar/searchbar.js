@@ -47,6 +47,7 @@ angular.module('foodGenerator')
 
                 $scope.setTermAndPerformIngredientSearch = function () {
                     //TODO: perform ingredient search
+
                 };
 
                 $scope.clickSupermarket = function (id) {
@@ -69,7 +70,11 @@ angular.module('foodGenerator')
                 }
 
                 $scope.loadIngredient = function (query) {
-                    return [{text: "Ingredient_dump2", _id: "testid2"}, {text: "Ingredient_dump1", _id: "testid1"}]
+
+                    var autocompleteDTO = {
+                        searchTerm: query
+                    };
+                    return SearchService.performIngredientAutocomplete(autocompleteDTO);
                 }
             }
         }

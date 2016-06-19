@@ -15,6 +15,7 @@
         
         
         this.performRecipeSearch = performRecipeSearch;
+        this.performIngredientAutocomplete = performIngredientAutocomplete;
 
 
         function performRecipeSearch() {
@@ -31,6 +32,10 @@
                 effortHigh: this.effortHigh
             };
             return $http.post(BASEURL + '/search/recipesearch', searchDTO);
+        }
+
+        function performIngredientAutocomplete(autocompleteDTO) {
+            return $http.post(BASEURL + '/ingredients', autocompleteDTO);
         }
 
     }
