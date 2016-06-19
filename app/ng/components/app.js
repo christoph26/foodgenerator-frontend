@@ -8,7 +8,7 @@ angular.module('foodGenerator', [
     'foodGenerator.account',
     'foodGenerator.search',
     'foodGenerator.search.ingredients',
-    'foodGenerator.search.results',
+    'foodGenerator.search.recipes',
     'foodGenerator.mealPlanner',
     'templates',
     'ngTagsInput'

@@ -1,20 +1,20 @@
-angular.module('foodGenerator.search.results', ['ngResource', 'ui.router'])
+angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
 
     .config(function ($stateProvider) {
         $stateProvider
-            .state('search.results', {
+            .state('search.recipes', {
                 parent: 'search',
-                url: '/search-results',
+                url: '/search-recipes',
                 views: {
                     "content": {
-                        templateUrl: "views/search-results/search-results.html",
-                        controller: 'SearchResultsCtrl'
+                        templateUrl: "views/search-recipes/search-recipes.html",
+                        controller: 'SearchRecipesCtrl'
                     }
                 }
             })
     })
 
-    .controller('SearchResultsCtrl', function ($scope, SearchService) {
+    .controller('SearchRecipesCtrl', function ($scope, SearchService) {
             $scope.searchTerm = SearchService.searchTerm;
 
             SearchService.performRecipeSearch().then(function (response) {
