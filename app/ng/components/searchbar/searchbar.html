@@ -1,10 +1,11 @@
 <div class="searchbar-{{bartype}}">
     <div ng-if="bartype">
         <div class="input-group style-{{bartype}}">
-            <input ng-if="bartype == 'recipes'" type="text" class="form-control" placeholder="Search for {{bartype}}..."
+            <input ng-show="bartype == 'recipes'" type="text" class="form-control"
+                   placeholder="Search for {{bartype}}..."
                    ng-model="searchBarInput">
 
-            <tags-input ng-if="bartype == 'ingredients'" ng-model="tags">
+            <tags-input ng-show="bartype == 'ingredients'" ng-model="tags">
                 <auto-complete source="loadIngredient($query)"></auto-complete>
             </tags-input>
         <span class="input-group-btn">
