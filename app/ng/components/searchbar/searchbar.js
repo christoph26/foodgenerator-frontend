@@ -38,10 +38,10 @@ angular.module('foodGenerator')
                     SearchService.supermarketFilter = this.supermarketFilter;
 
                     // redirect the user to the search results page
-                    if ($state.current.name == 'search.results') {
+                    if ($state.current.name == 'search.recipes') {
                         $state.go($state.current.name, $state.params, {reload: true});
                     } else {
-                        $state.go('search.results');
+                        $state.go('search.recipes');
                     }
                 };
 
