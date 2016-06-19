@@ -5,7 +5,7 @@
                    placeholder="Search for {{bartype}}..."
                    ng-model="searchBarInput">
 
-            <tags-input ng-show="bartype == 'ingredients'" ng-model="tags">
+            <tags-input ng-show="bartype == 'ingredients'" ng-model="tags" placeholder="Add an ingredient">
                 <auto-complete source="loadIngredient($query)"></auto-complete>
             </tags-input>
         <span class="input-group-btn">
