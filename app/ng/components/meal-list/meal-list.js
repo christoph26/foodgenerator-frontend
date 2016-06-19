@@ -16,7 +16,6 @@ angular.module('foodGenerator')
             for (var index in $scope.mealList.meals) {
                 $scope.mealList.meals[index].order = index;
             }
-            console.log($scope.mealList.meals);
         }
     })
 ;
