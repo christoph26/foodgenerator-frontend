@@ -16,7 +16,9 @@
                         <img ng-repeat="supermarket in recipe.availability" src="{{supermarket.icon}}"
                              class="supermarketicon" alt="{{supermarket.title}}" width="40" height="40">
                         <hr>
-                        <button class="btn btn-success buttonrecipe">Show Recipe</button>
+                        Missing Ingerdients:<br>
+                        <hr ng-if="search.ingredients">
+                        <div>{{search.ingredients}}</div>
                     </div>
                 </div>
             </div>
