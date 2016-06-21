@@ -6,7 +6,7 @@
                     <img class="thumbpictureofrecipe" ng-src="{{recipe.picture}}" alt="Foto von Gericht" width="260"
                          height="260">
                     <div class="caption">
-                        <h3>{{recipe.title}}</h3>
+                        <h3><a ng-href="{{recipe}}">{{recipe.title}}</a></h3>
                         <hr ng-if="recipe.vegan || recipe.vegetarian">
                         <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
                         <br ng-if="recipe.vegan && recipe.vegetarian">
