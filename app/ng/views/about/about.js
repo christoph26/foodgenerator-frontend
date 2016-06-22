@@ -1,16 +1,16 @@
 /**
  * Created by Stefan on 22.06.2016.
  */
-angular.module('foodGenerator.terms', ['ngResource', 'ui.router'])
+angular.module('foodGenerator.about', ['ngResource', 'ui.router'])
 
     .config(function ($stateProvider) {
         $stateProvider
-            .state('terms', {
+            .state('about', {
                 parent: 'search',
-                url: '/terms',
+                url: '/about',
                 views: {
                     "content": {
-                        templateUrl: "views/terms/terms.html",
+                        templateUrl: "views/about/about.html",
                     }
                 }
             })
