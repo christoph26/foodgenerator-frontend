@@ -6,7 +6,8 @@
                     <img class="thumbpictureofrecipe" ng-src="{{recipe.picture}}" alt="Foto von Gericht" width="260"
                          height="260">
                     <div class="caption">
-                        <h3><a ng-href="{{recipe}}">{{recipe.title}}</a></h3>
+                        <h3><a ng-href="recipeDetail{{recipe}}">{{recipe.title}}</a></h3>
+
                         <hr ng-if="recipe.vegan || recipe.vegetarian">
                         <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
                         <br ng-if="recipe.vegan && recipe.vegetarian">
@@ -16,9 +17,10 @@
                         <img ng-repeat="supermarket in recipe.availability" src="{{supermarket.icon}}"
                              class="supermarketicon" alt="{{supermarket.title}}" width="40" height="40">
                         <hr>
+                        <hr ng-if="recipe.missingIngredients">
                         Missing Ingerdients:<br>
-                        <hr ng-if="search.ingredients">
-                        <div>{{search.ingredients}}</div>
+                        <br ng-repeat="missedIngredient in recipe.missingIngredients">
+                        <div>{{missedIngredient.title}}/div>
                     </div>
                 </div>
             </div>
