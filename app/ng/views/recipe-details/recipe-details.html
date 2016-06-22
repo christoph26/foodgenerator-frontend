@@ -4,6 +4,7 @@
             <div class="col-md-12">
                 <img class="headerpicture" src="http://youqueen.com/wp-content/uploads/2013/08/spaghetti-bolognese.jpg"
                      alt="Titel Foto von Gericht">
+                <span class="header">{{recipe.title}}</span>
             </div>
         </div>
         <div class="row functionbar">
@@ -25,7 +26,6 @@
 
             </div>
             <div class="col-md-3">
-                Supermarkets
                 <img ng-repeat="supermarket in recipe.availability" src="{{supermarket.icon}}" class="supermarketicon"
                      alt="{{supermarket.title}}" width="40" height="40">
             </div>
@@ -36,7 +36,25 @@
                 {{recipe.description}}
             </div>
             <div class="col-md-4">
-                Ingredient for _ persons:<br>
+
+                <div class="dropdown">Ingredients for
+                    <button class="btn btn-default dropdown-toggle anzperson" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        #
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                    persons:
+                </div>
+
                 cook properties: {{recipe.effort}}<br>
                 ingredients: {{recipe.ingredientList}}
             </div>
