@@ -13,7 +13,8 @@ angular.module('foodGenerator', [
     'foodGenerator.recipeDetail',
     'foodGenerator.terms',
     'foodGenerator.about',
-    'foodGenerator.contact',   
+    'foodGenerator.contact',
+    'foodGenerator.privacy',    
     'templates',
     'ngTagsInput'
 ])
