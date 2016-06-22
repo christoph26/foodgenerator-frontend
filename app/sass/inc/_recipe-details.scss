@@ -1,10 +1,38 @@
+.recipedetail-overview{
+  border-style: solid;
+  border-color: gainsboro;
+  border-width: 1px;
+  margin-top: 1em;
+}
 .headerpicture {
-  width: 250px;
-  height: 250px;
-  border-radius: 5px;
+  width: 79em;
+  height: 13em;
+  border-radius: 2px;
+  margin-bottom: 1em;
+}
+.buttonrecipedetail {
+  background-color: $color-primary;
+  font-weight: bold;
 }
 
-.buttonrecipedetail {
-    background-color: $color-primary;
-    font-weight: bold;
+.functionbar{
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+
 }
+.descriptionrow{
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.variationsbar{
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+

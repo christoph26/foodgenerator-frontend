@@ -8,7 +8,7 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 views: {
                     "content": {
                         templateUrl: "views/recipe-details/recipe-details.html",
-                        controller: 'RecipeCtrl'
+                        controller: 'RecipeDetailCtrl'
                     }
                 }
             })
@@ -23,7 +23,7 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             "effort": 1,
             "description": "Preperation is simple and done in 30 minutes.",
             "vegan": false,
-            "vegetarian": false,
+            "vegetarian": true,
             "picture": "img/recipes/spaghetti-bolognese-classic.jpg",
             "ingredientList": [
                 {
