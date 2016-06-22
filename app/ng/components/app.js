@@ -11,6 +11,7 @@ angular.module('foodGenerator', [
     'foodGenerator.search.recipes',
     'foodGenerator.mealPlanner',
     'foodGenerator.recipeDetail',
+    'foodGenerator.terms',
     'templates',
     'ngTagsInput'
 ])
