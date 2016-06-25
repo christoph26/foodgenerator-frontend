@@ -4,8 +4,16 @@
 }
 
 .meal-list ul {
-  padding: 0;
-  margin: 0;
+  max-height: 280px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+
   font-size: initial;
   list-style: none;
+  overflow-y: auto;
+}
+
+.meal-list ul li:last-child .meal-label {
+  margin-bottom: 0;
 }
