@@ -27,7 +27,19 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
                 meals: []
             };
             mealPlan.mealLists.push(newMealList);
-        }
+        };
+
+        $scope.saveMealPlan = function () {
+            
+        };
+
+        $scope.saveMealPlanAs = function () {
+
+        };
+
+        $scope.loadMealPlan = function () {
+
+        };
     })
 ;
 

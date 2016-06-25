@@ -1,3 +1,19 @@
+.meal-planner .headline-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.meal-planner .button-load,
+.meal-planner .button-save,
+.meal-planner .button-save-as {
+  margin-left: 10px;
+}
+
+.meal-planner .button-save {
+  background-color: $color-tertiary;
+  color: white;
+}
+
 ul.meal-planner-container {
   white-space: nowrap;
   overflow-x: auto;
