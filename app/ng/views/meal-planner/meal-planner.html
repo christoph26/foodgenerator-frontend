@@ -2,7 +2,20 @@
     <h1>Meal planner</h1>
     <p><strong>your current plan:</strong></p>
 
-    <div class="meal-planner-container row">
+    <!-- Meal planner on large screens (stacks & scrolls horizontally) -->
+    <div class="meal-planner-container row hidden-xs hidden-sm">
+        <div class="col-md-4" ng-repeat="mealList in mealPlan.mealList">
+            Large
+            <meallist meal-list="mealList"></meallist>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail thumbnail-add-new-meal">
+                <img ng-src="img/meal-planner/icon-plus.png" ng-click="addMealList()"/>
+            </div>
+        </div>
+    </div>
+    <!-- Meal planner on small screens (stacks vertically) -->
+    <div class="meal-planner-container row hidden-md hidden-lg">
         <div class="col-md-4" ng-repeat="mealList in mealPlan.mealList">
             <meallist meal-list="mealList"></meallist>
         </div>
@@ -13,6 +26,7 @@
         </div>
     </div>
 
+    <!-- Recipe recommendations -->
     <div class="recipe-recommendations-header row">
         <div class="col-md-6">
             <p><strong>your marked recipes:</strong></p>
@@ -22,6 +36,7 @@
         </div>
     </div>
     <div class="recipe-recommendations-container row thumbnail">
+        <!-- Marked Recipes -->
         <div class="col-md-6">
             <!--suppress HtmlUnknownAttribute -->
             <ul class="marked-recipes-container"
@@ -35,6 +50,7 @@
                 </li>
             </ul>
         </div>
+        <!-- Recently viewed recipes -->
         <div class="col-md-6">
             <!--suppress HtmlUnknownAttribute -->
             <ul class="recent-recipes-container"
