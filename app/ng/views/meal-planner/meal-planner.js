@@ -14,7 +14,7 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             })
     })
 
-    .controller('MealPlannerCtrl', function ($scope, $filter) {
+    .controller('MealPlannerCtrl', function ($scope, $filter, mealPlanService) {
         $scope.mealPlan = exampleMealPlan;
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
@@ -30,7 +30,11 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
         };
 
         $scope.saveMealPlan = function () {
-            
+            if ($scope.mealPlan._id) {
+                mealPlanService.update($scope.mealPlan);
+            } else {
+                mealPlanService.create($scope.mealPlan, $scope.user);
+            }
         };
 
         $scope.saveMealPlanAs = function () {
@@ -38,7 +42,7 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
         };
 
         $scope.loadMealPlan = function () {
-
+            // mealPlanService.listAll();
         };
     })
 ;
