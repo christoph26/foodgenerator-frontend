@@ -14,21 +14,48 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             })
     })
 
-    .controller('MealPlannerCtrl', function ($scope) {
+    .controller('MealPlannerCtrl', function ($scope, $filter) {
         $scope.mealPlan = exampleMealPlan;
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
 
         $scope.addMealList = function () {
+            var mealPlan = $scope.mealPlan;
             var newMealList = {
-                title: "New MealList",
-                order: $scope.mealPlan.mealList.length,
+                title: calculateMealListTitle(mealPlan, $filter),
+                order: mealPlan.mealLists.length,
                 meals: []
             };
-            $scope.mealPlan.mealList.push(newMealList);
+            mealPlan.mealLists.push(newMealList);
         }
     })
 ;
+
+function calculateMealListTitle(mealPlan, $filter) {
+    var mealLists = mealPlan.mealLists;
+    var date = new Date();
+    if (mealLists && mealLists.length) {
+        // if the last item has a date as caption, increment it by one day
+        var lastTitle = mealLists[mealLists.length - 1].title;
+        if (parseDate(lastTitle)) {
+            date = parseDate(lastTitle);
+            date.setDate(date.getDate() + 1);
+        }
+    }
+    return $filter('date')(date, 'dd.MM.yyyy');
+}
+
+function parseDate(dateString) {
+    var date = dateString.split(".");
+    if (date.length == 3) {
+        var day = date[0];
+        var month = date[1];
+        var year = date[2];
+        var dateStringISO = year + "-" + month + "-" + day;
+        return new Date(dateStringISO);
+    }
+    return undefined;
+}
 
 var markedExampleRecipes = [
     {
@@ -93,8 +120,8 @@ var viewedExampleRecipes = [
 
 var exampleMealPlan = {
     title: "myTestPlan",
-    mealList: [{
-        title: "MealList 1",
+    mealLists: [{
+        title: "24.06.2016",
         order: 0,
         meals: [{
             order: 0,
@@ -124,7 +151,7 @@ var exampleMealPlan = {
             }
         }]
     }, {
-        title: "MealList 2",
+        title: "25.06.2016",
         order: 1,
         meals: [{
             order: 1,
