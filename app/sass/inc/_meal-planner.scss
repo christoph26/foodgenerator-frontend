@@ -1,3 +1,17 @@
+ul.meal-planner-container {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+ul.meal-planner-container > * {
+  white-space: normal;
+}
+
+ul.meal-planner-container > .meal-list-container {
+  width: calc(100% / 3 - 0.85px);
+  vertical-align: top;
+}
+
 .recipe-recommendations-container {
   margin-bottom: 0;
 

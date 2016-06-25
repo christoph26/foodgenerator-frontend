@@ -3,23 +3,22 @@
     <p><strong>your current plan:</strong></p>
 
     <!-- Meal planner on large screens (stacks & scrolls horizontally) -->
-    <div class="meal-planner-container row hidden-xs hidden-sm">
-        <div class="col-md-4" ng-repeat="mealList in mealPlan.mealList">
-            Large
+    <ul class="meal-planner-container row hidden-xs hidden-sm list-inline">
+        <li class="meal-list-container" ng-repeat="mealList in mealPlan.mealList">
             <meallist meal-list="mealList"></meallist>
-        </div>
-        <div class="col-md-4">
+        </li>
+        <li class="meal-list-container">
             <div class="thumbnail thumbnail-add-new-meal">
                 <img ng-src="img/meal-planner/icon-plus.png" ng-click="addMealList()"/>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
     <!-- Meal planner on small screens (stacks vertically) -->
     <div class="meal-planner-container row hidden-md hidden-lg">
-        <div class="col-md-4" ng-repeat="mealList in mealPlan.mealList">
+        <div class="meal-list-container col-md-4" ng-repeat="mealList in mealPlan.mealList">
             <meallist meal-list="mealList"></meallist>
         </div>
-        <div class="col-md-4">
+        <div class="meal-list-container col-md-4">
             <div class="thumbnail thumbnail-add-new-meal">
                 <img ng-src="img/meal-planner/icon-plus.png" ng-click="addMealList()"/>
             </div>
