@@ -14,7 +14,7 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             })
     })
 
-    .controller('MealPlannerCtrl', function ($scope, $filter, mealPlanService) {
+    .controller('MealPlannerCtrl', function ($scope, $filter, $uibModal, mealPlanService) {
         $scope.mealPlan = exampleMealPlan;
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
@@ -29,21 +29,50 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             mealPlan.mealLists.push(newMealList);
         };
 
+        $scope.open = function (type) {
+            var modalInstance;
+            if (type == 'load') {
+                modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'components/load-save-dialog/load-save-dialog.html',
+                    controller: 'LoadSaveCtrl',
+                    resolve: {
+                        activeTab: function () {
+                            return 'load';
+                        }
+                    }
+                });
+            } else if (type == 'save') {
+                modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'components/load-save-dialog/load-save-dialog.html',
+                    controller: 'LoadSaveCtrl',
+                    resolve: {
+                        activeTab: function () {
+                            return 'save';
+                        },
+                        mealPlan: function () {
+                            return $scope.mealPlan;
+                        }
+                    }
+                });
+            }
+
+            modalInstance.result.then(function (updatedMealPlan) {
+                $scope.mealPlan = updatedMealPlan;
+            }, function () {
+                console.log('Modal dismissed at: ' + new Date());
+            });
+        };
+
         $scope.saveMealPlan = function () {
             if ($scope.mealPlan._id) {
                 mealPlanService.update($scope.mealPlan);
             } else {
-                mealPlanService.create($scope.mealPlan, $scope.user);
+                open('save');
             }
         };
 
-        $scope.saveMealPlanAs = function () {
-
-        };
-
-        $scope.loadMealPlan = function () {
-            // mealPlanService.listAll();
-        };
     })
 ;
 
