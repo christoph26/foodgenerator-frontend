@@ -69,7 +69,7 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             if ($scope.mealPlan._id) {
                 mealPlanService.update($scope.mealPlan);
             } else {
-                open('save');
+                $scope.open('save');
             }
         };
 
