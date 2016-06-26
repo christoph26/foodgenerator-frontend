@@ -1,0 +1,47 @@
+<!--suppress HtmlUnknownTag -->
+<form class="load-save-form" name="loadSaveForm">
+    <div class="modal-body">
+        <uib-tabset active="active">
+            <!-- Load dialog -->
+            <uib-tab index="0" heading="Load">
+                <div class="alert alert-danger" role="alert" ng-show="errorText">
+                    <strong>Error!</strong>
+                    {{errorText}}
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                    dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                    sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                    ipsum dolor sit amet.
+                </p>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-disabled="loadSaveForm.$invalid">OK</button>
+                    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </uib-tab>
+            <!-- Save dialog -->
+            <uib-tab index="1" heading="Save">
+                <div class="alert alert-danger" role="alert" ng-show="errorText">
+                    <strong>Error!</strong>
+                    {{errorText}}
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                    dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                    sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                    ipsum dolor sit amet.
+                </p>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-disabled="loadSaveForm.$invalid">OK</button>
+                    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</form>
