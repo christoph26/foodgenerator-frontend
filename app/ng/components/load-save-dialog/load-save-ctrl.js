@@ -1,21 +1,33 @@
 angular.module('foodGenerator')
-    .controller("LoadSaveCtrl", function ($scope, mealPlanService, $uibModalInstance) {
+    .controller("LoadSaveCtrl", function ($scope, currentUser, mealPlanService, $uibModalInstance) {
         $scope.errorText = '';
-
-        // $scope.mealPlans = mealPlanService.listAll();
         $scope.currentMealPlan = undefined;
-
-        if ($scope.$resolve.activeTab == 'save') {
-            $scope.active = 1;
-        } else {
-            $scope.active = 0;
-        }
 
         $scope.load = load;
         $scope.save = save;
         $scope.cancel = cancel;
 
+        initialize();
+
         //////////////////////////
+
+        function initialize() {
+            if ($scope.$resolve.activeTab == 'save') {
+                $scope.active = 1;
+            } else {
+                $scope.active = 0;
+            }
+
+            mealPlanService.listAll().then(function (response) {
+                $scope.mealPlans = response.data;
+            }, function (error) {
+                if (error.status == 401) {
+                    $scope.errorText = "Please log in to use this feature.";
+                } else {
+                    $scope.errorText = "An unknown error occured. Please try again later.";
+                }
+            });
+        }
 
         function load() {
 

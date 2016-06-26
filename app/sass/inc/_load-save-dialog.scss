@@ -5,3 +5,9 @@
 .load-save-form .modal-body {
   padding-bottom: 0;
 }
+
+.load-save-form .button-load,
+.load-save-form .button-save {
+  background-color: $color-tertiary;
+  color: white;
+}

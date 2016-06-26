@@ -3,7 +3,7 @@
     angular.module('foodGenerator')
         .service('mealPlanService', mealPlanService);
 
-    function mealPlanService(BASEURL, $http, auth) {
+    function mealPlanService(BASEURL, $http, auth, currentUser) {
 
         this.create = createPlan;
         this.read = readPlan;
@@ -13,11 +13,13 @@
 
         ////////////////
 
-        function createPlan(mealPlan, user) {
+        function createPlan(mealPlan) {
             if (auth.isAuthed()) {
-                console.log("Creating a new meal plan for user '" + user.email + "'.");
-                mealPlan.user = user._id;
-                return $http.post(BASEURL + '/mealplans', mealPlan);
+                return currentUser.getUser().$promise.then(function (user) {
+                    console.log("Creating a new meal plan for user '" + user.email + "'.");
+                    mealPlan.user = user._id;
+                    return $http.post(BASEURL + '/mealplans', mealPlan);
+                });
             }
         }
 
@@ -44,8 +46,10 @@
 
         function listAllPlans() {
             if (auth.isAuthed()) {
-                console.log("Listing all meal plans for user '" + mealPlan.user + "'.");
-                return $http.get(BASEURL + '/mealplans/list');
+                return currentUser.getUser().$promise.then(function (user) {
+                    console.log("Listing all meal plans for user " + user.email + ".");
+                    return $http.post(BASEURL + '/mealplans/list', {user: user._id});
+                });
             }
         }
 
