@@ -45,7 +45,7 @@
         function listAllPlans() {
             if (auth.isAuthed()) {
                 console.log("Listing all meal plans for user '" + mealPlan.user + "'.");
-                return $http.delete(BASEURL + '/mealplans/' + mealPlan._id);
+                return $http.get(BASEURL + '/mealplans/list');
             }
         }
 
