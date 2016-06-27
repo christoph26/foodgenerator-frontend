@@ -14,17 +14,21 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('SearchIngredientsCtrl', function ($scope, SearchService) {
+    .controller('SearchIngredientsCtrl', function ($scope, $http) {
 
+        $scope.performIngSearch = function (searchDTO) {
+            debugger;
+            $scope.searchedIngredients = searchDTO.ingredients;
+            searchDTO.ingredients = $scope.searchedIngredients.map(function (elem) {
+                return elem._id
+            });
 
-        SearchService.performIngredientSearch().then(function (response) {
-            $scope.resultsList = response.data;
-            debugger;
-            $scope.searchedingredients = SearchService.ingredientSearchList;
-        }, function () {
-            $scope.resultsList = [];
-            debugger;
-            $scope.ingredientSearchList = SearchService.ingredientSearchList;
-        });
+            $http.post('http://127.0.0.1:3000/search/ingredientsearch', searchDTO).then(function (response) {
+                debugger;
+                $scope.resultsList = response.data;
+            }, function () {
+                $scope.resultsList = [];
+            });
+        }
     })
 ;

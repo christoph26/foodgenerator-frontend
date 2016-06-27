@@ -11,10 +11,10 @@ angular.module('foodGenerator')
                 $scope.expanded = "down";
 
                 //Input of recipe search:
-                $scope.recipeSearchBarInput = SearchService.searchTerm;
+                $scope.recipeSearchBarInput = "";
 
                 //Input of ingredient search
-                $scope.ingredientSearchBarInput = SearchService.ingredientSearchList;
+                $scope.ingredientSearchBarInput = [];
 
                 //Filter properties
                 $scope.vegan = SearchService.vegan;
@@ -51,16 +51,20 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformIngredientSearch = function () {
-                    SearchService.ingredientSearchList = this.ingredientSearchBarInput;
-                    SearchService.vegan = this.vegan;
-                    SearchService.vegetarian = this.vegetarian;
-                    SearchService.effortLow = this.effortLow;
-                    SearchService.effortMedium = this.effortMedium;
-                    SearchService.effortHigh = this.effortHigh;
-                    SearchService.supermarketFilter = this.supermarketFilter;
 
-                    $state.go($state.current.name, $state.params, {reload: true});
-
+                    debugger;
+                    if (this.ingredientSearchBarInput && this.ingredientSearchBarInput.length > 0) {
+                        var searchDTO = {
+                            ingredients: this.ingredientSearchBarInput,
+                            supermarketFilter: this.supermarketFilter,
+                            vegan: this.vegan,
+                            vegetarian: this.vegetarian,
+                            effortLow: this.effortLow,
+                            effortMedium: this.effortMedium,
+                            effortHigh: this.effortHigh
+                        };
+                        this.$parent.$parent.$parent.performIngSearch(searchDTO);
+                    }
                 };
 
                 $scope.clickSupermarket = function (id) {

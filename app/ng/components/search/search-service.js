@@ -43,8 +43,13 @@
 
         function performIngredientSearch() {
 
+            debugger;
+            var ingredientSearchIdList = this.ingredientSearchList.map(function (elem) {
+                return elem._id
+            });
+
             var searchDTO = {
-                ingredients: this.ingredientSearchList,
+                ingredients: ingredientSearchIdList,
                 supermarketFilter: this.supermarketFilter,
                 vegan: this.vegan,
                 vegetarian: this.vegetarian,
