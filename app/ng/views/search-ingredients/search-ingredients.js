@@ -14,7 +14,17 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('SearchIngredientsCtrl', function ($scope) {
-        //TODO: do something in cooperation with searchservice if "search ingredients" is clicked
+    .controller('SearchIngredientsCtrl', function ($scope, SearchService) {
+
+
+        SearchService.performIngredientSearch().then(function (response) {
+            $scope.resultsList = response.data;
+            debugger;
+            $scope.searchedingredients = SearchService.ingredientSearchList;
+        }, function () {
+            $scope.resultsList = [];
+            debugger;
+            $scope.ingredientSearchList = SearchService.ingredientSearchList;
+        });
     })
 ;

@@ -19,10 +19,8 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
 
             SearchService.performRecipeSearch().then(function (response) {
                 $scope.resultsList = response.data;
-                $scope.searchTerm = SearchService.searchTerm;
             }, function () {
                 $scope.resultsList = [];
-                $scope.searchTerm = SearchService.searchTerm;
             });
         }
     )
