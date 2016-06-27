@@ -48,7 +48,7 @@
             if (auth.isAuthed()) {
                 return currentUser.getUser().$promise.then(function (user) {
                     console.log("Listing all meal plans for user " + user.email + ".");
-                    return $http.post(BASEURL + '/mealplans/list', {user: user._id});
+                    return $http.get(BASEURL + '/mealplans/list/' + user._id);
                 });
             }
         }
