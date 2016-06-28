@@ -1,3 +1,14 @@
+.meal-planner {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.meal-planner .meal-planner-container {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
 .meal-planner .headline-container {
   display: flex;
   align-items: baseline;
