@@ -35,9 +35,27 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
             });
 
             $http.post('http://127.0.0.1:3000/search/ingredientsearch', DTOWithFilters).then(function (response) {
-                $scope.resultsList = response.data;
+
+                //Arrange result data in order to display it in rows of four thumbnails.
+                function listToMatrix(list, elementsPerSubArray) {
+                    var matrix = [], i, k;
+
+                    for (i = 0, k = -1; i < list.length; i++) {
+                        if (i % elementsPerSubArray === 0) {
+                            k++;
+                            matrix[k] = [];
+                        }
+
+                        matrix[k].push(list[i]);
+                    }
+                    return matrix;
+                }
+
+                $scope.resultRows = listToMatrix(response.data, 4);
+
+
             }, function () {
-                $scope.resultsList = [];
+                $scope.resultRows = [];
             });
         }
     })
