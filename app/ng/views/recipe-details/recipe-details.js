@@ -29,6 +29,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 {
                     "_id": "111100000000000000000001",
                     "title": "Minced Meat",
+                    "amount": 250,
+                    "unit": "g",
                     "supermarkets": [
                         "888800000000000000000001",
                         "888800000000000000000002",
@@ -38,6 +40,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 {
                     "_id": "111100000000000000000002",
                     "title": "Tomato",
+                    "amount": 250,
+                    "unit": "g",
                     "supermarkets": [
                         "888800000000000000000001",
                         "888800000000000000000002",
@@ -47,6 +51,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 {
                     "_id": "111100000000000000000003",
                     "title": "Onion",
+                    "amount": 250,
+                    "unit": "g",
                     "supermarkets": [
                         "888800000000000000000001",
                         "888800000000000000000002",
@@ -56,6 +62,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 {
                     "_id": "111100000000000000000004",
                     "title": "Garlic",
+                    "amount": 250,
+                    "unit": "g",
                     "supermarkets": [
                         "888800000000000000000001",
                         "888800000000000000000002",
@@ -65,6 +73,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 {
                     "_id": "111100000000000000000005",
                     "title": "Oregano",
+                    "amount": 250,
+                    "unit": "g",
                     "supermarkets": [
                         "888800000000000000000003"
                     ]
@@ -72,6 +82,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 {
                     "_id": "111100000000000000000006",
                     "title": "Spaghetti",
+                    "amount": 250,
+                    "unit": "g",
                     "supermarkets": [
                         "888800000000000000000001",
                         "888800000000000000000002",
@@ -89,4 +101,11 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             ]
         }
     })
+    .controller('CalculatorController', function($scope) {
+        $scope.result = function() {
+            if ($scope.operator) {
+                return $scope.b;
+            }
+        };
+    });
 ;

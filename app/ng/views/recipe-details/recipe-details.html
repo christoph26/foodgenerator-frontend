@@ -44,18 +44,26 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
+                        <li><a href="#1">1</a></li>
+                        <li><a href="#2">2</a></li>
+                        <li><a href="#3">3</a></li>
+                        <li><a href="#4">4</a></li>
+                        <li><a href="#5">5</a></li>
+                        <li><a href="#6">6</a></li>
                     </ul>
                     persons:
                 </div>
+                <div ng-app="CalculatorApp" ng-controller="CalculatorController">
+                    <p><input type="number" ng-model="b"></p>
+                    <p><select ng-model="operator"></select></p>
+                    <p>{{5*b}}</p>
+                </div>
 
-                cook properties: {{recipe.effort}}<br>
-                ingredients: {{recipe.ingredientList}}
+                <b>Cook properties:</b> {{recipe.effort}}<p>
+                Ingredients: <p>
+                <div ng-repeat="ingredientListe in recipe.ingredientList">
+                    <div>{{ingredientListe.title}}: {{ingredientListe.amount}}, {{ingredientListe.unit}}</div>
+                </div>
             </div>
         </div>
         <div class="row variationsbar">
