@@ -35,7 +35,6 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
             });
 
             $http.post('http://127.0.0.1:3000/search/ingredientsearch', DTOWithFilters).then(function (response) {
-                debugger;
                 $scope.resultsList = response.data;
             }, function () {
                 $scope.resultsList = [];
