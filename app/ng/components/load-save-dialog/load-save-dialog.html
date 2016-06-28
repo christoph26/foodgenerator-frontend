@@ -9,7 +9,7 @@
                     <strong>Error!</strong>
                     {{errorText}}
                 </div>
-                <div class="meal-plan-load-select-container">
+                <div class="meal-plan-load-select-container" ng-show="mealPlans.length">
                     <p>Choose a meal plan to load:</p>
                     <div class="radio-container" ng-repeat="mealPlan in mealPlans">
                         <label>
@@ -20,6 +20,9 @@
                         </label>
                         <br/>
                     </div>
+                </div>
+                <div class="meal-plan-load-select-container" ng-show="!mealPlans.length">
+                    <p>You do not have any saved meal plans.</p>
                 </div>
                 <div class="modal-footer">
                     <button class="button-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
@@ -54,7 +57,7 @@
                     <strong>Error!</strong>
                     {{errorText}}
                 </div>
-                <div class="meal-plan-delete-select-container">
+                <div class="meal-plan-delete-select-container" ng-show="mealPlans.length">
                     <p>Choose a meal plan to delete:</p>
                     <div class="radio-container" ng-repeat="mealPlan in mealPlans">
                         <label>
@@ -65,6 +68,9 @@
                         </label>
                         <br/>
                     </div>
+                </div>
+                <div class="meal-plan-load-select-container" ng-show="!mealPlans.length">
+                    <p>You do not have any saved meal plans.</p>
                 </div>
                 <div class="modal-footer">
                     <button class="button-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
