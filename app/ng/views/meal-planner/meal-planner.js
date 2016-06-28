@@ -58,11 +58,11 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
                 });
             }
 
-            modalInstance.result.then(function (updatedMealPlan) {
-                $scope.mealPlan = updatedMealPlan;
-            }, function () {
-                console.log('Modal dismissed at: ' + new Date());
-            });
+            if (modalInstance) {
+                modalInstance.result.then(function (updatedMealPlan) {
+                    $scope.mealPlan = updatedMealPlan;
+                });
+            }
         };
 
         $scope.saveMealPlan = function () {
