@@ -11,18 +11,20 @@
                 </div>
                 <div class="meal-plan-select-container">
                     <p>Choose a meal plan to load:</p>
-                    <div class="radio" ng-repeat="mealPlan in mealPlans">
+                    <div class="radio-container" ng-repeat="mealPlan in mealPlans">
                         <label>
                             <input type="radio" name="meal-plan-select"
-                                   id="meal-plan-option-{{mealPlan._id}}" value="{{mealPlan._id}}">
+                                   id="meal-plan-option-{{mealPlan._id}}"
+                                   ng-model="$parent.selectedMealPlanId" value="{{mealPlan._id}}">
                             {{mealPlan.title}}
                         </label>
+                        <br/>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button class="button-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
                     <button class="button-load btn btn-default" type="submit" ng-click="load()"
-                            ng-disabled="!selectedMealPlan">Load
+                            ng-disabled="!selectedMealPlanId">Load
                     </button>
                 </div>
             </uib-tab>

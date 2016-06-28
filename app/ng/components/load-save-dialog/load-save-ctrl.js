@@ -2,7 +2,7 @@ angular.module('foodGenerator')
     .controller("LoadSaveCtrl", function ($scope, currentUser, mealPlanService, $uibModalInstance) {
         $scope.errorText = '';
         $scope.currentMealPlan = undefined;
-        $scope.selectedMealPlan = undefined;
+        $scope.selectedMealPlanId = undefined;
 
         $scope.load = load;
         $scope.save = save;
@@ -31,10 +31,10 @@ angular.module('foodGenerator')
         }
 
         function load() {
-            if ($scope.selectedMealPlan) {
-                mealPlanService.read($scope.selectedMealPlan._id).then(function (response) {
-                    $scope.currentMealPlan = response;
-                    $scope.selectedMealPlan = undefined;
+            if (this.selectedMealPlanId) {
+                mealPlanService.read(this.selectedMealPlanId).then(function (response) {
+                    console.log("Successfully loaded meal plan '" + response.data.title + "'.");
+                    $scope.currentMealPlan = response.data;
                     $uibModalInstance.close();
                 }, function (error) {
                     if (error.status == 401) {
