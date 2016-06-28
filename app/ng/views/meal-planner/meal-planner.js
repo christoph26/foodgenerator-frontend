@@ -15,14 +15,14 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
     })
 
     .controller('MealPlannerCtrl', function ($scope, $filter, $uibModal, mealPlanService) {
-        $scope.mealPlan = getEmptyMealPlan();
-        addMealList();
+        resetMealPlan();
 
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
 
         $scope.open = open;
         $scope.saveMealPlan = saveMealPlan;
+        $scope.resetMealPlan = resetMealPlan;
         $scope.addMealList = addMealList;
 
         //////////////////////////////////
@@ -91,6 +91,11 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
                 title: undefined,
                 mealLists: []
             };
+        }
+
+        function resetMealPlan() {
+            $scope.mealPlan = getEmptyMealPlan();
+            addMealList();
         }
 
         function calculateMealListTitle(mealPlan, $filter) {

@@ -1,11 +1,12 @@
 <div class="container-fluid meal-planner">
     <h1>Meal planner</h1>
     <div class="headline-container row">
-        <div class="col-md-9">
+        <div class="col-sm-4">
             <p><strong>your current plan:</strong></p>
         </div>
-        <div class="col-md-3">
+        <div class="col-sm-8">
             <div class="pull-right">
+                <a class="button-reset btn btn-default" ng-click="resetMealPlan()">Reset</a>
                 <a class="button-load btn btn-default" ng-click="open('load')">Load</a>
                 <a class="button-save-as btn btn-default" ng-click="open('save')">Save as</a>
                 <a class="button-save btn btn-default" ng-click="saveMealPlan()">Save</a>
