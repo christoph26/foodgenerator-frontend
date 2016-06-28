@@ -38,31 +38,15 @@
             </div>
             <div class="col-md-4">
 
-                <div class="dropdown">Ingredients for
-                    <button class="btn btn-default dropdown-toggle anzperson" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        #
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#1">1</a></li>
-                        <li><a href="#2">2</a></li>
-                        <li><a href="#3">3</a></li>
-                        <li><a href="#4">4</a></li>
-                        <li><a href="#5">5</a></li>
-                        <li><a href="#6">6</a></li>
-                    </ul>
-                    persons:
-                </div>
-                <div ng-app="CalculatorApp" ng-controller="CalculatorController">
-                    <p><input type="number" ng-model="b"></p>
-                    <p><select ng-model="operator"></select></p>
-                    <p>{{5*b}}</p>
-                </div>
+                <div class="dropdownperson">Ingredients for
+                    <p><input type="number" ng-model="a" ng-init="rootFolders='1'" value="1"></p>
 
-                <b>Cook properties:</b> {{recipe.effort}}<p>
-                Ingredients: <p>
+                </div>
+                <p>{{result()}}</p>
+                <b>Cook Effort:</b> {{recipe.effort}}<p>
+                <b>Ingredients: </b><p>
                 <div ng-repeat="ingredientListe in recipe.ingredientList">
-                    <div>{{ingredientListe.title}}: {{ingredientListe.amount}}, {{ingredientListe.unit}}</div>
+                    <div><li>{{ingredientListe.title}}: {{ingredientListe.amount*a}} {{ingredientListe.unit}}</li></div>
                 </div>
             </div>
         </div>

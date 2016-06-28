@@ -101,11 +101,5 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             ]
         }
     })
-    .controller('CalculatorController', function($scope) {
-        $scope.result = function() {
-            if ($scope.operator) {
-                return $scope.b;
-            }
-        };
-    });
+    
 ;
