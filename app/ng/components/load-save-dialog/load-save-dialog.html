@@ -9,12 +9,21 @@
                     <strong>Error!</strong>
                     {{errorText}}
                 </div>
-                <ul>
-                    <li ng-repeat="mealPlan in mealPlans">{{mealPlan.title}}</li>
-                </ul>
+                <div class="meal-plan-select-container">
+                    <p>Choose a meal plan to load:</p>
+                    <div class="radio" ng-repeat="mealPlan in mealPlans">
+                        <label>
+                            <input type="radio" name="meal-plan-select"
+                                   id="meal-plan-option-{{mealPlan._id}}" value="{{mealPlan._id}}">
+                            {{mealPlan.title}}
+                        </label>
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <button class="button-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
-                    <button class="button-load btn btn-default" type="submit" ng-disabled="loadSaveForm.$invalid">Load</button>
+                    <button class="button-load btn btn-default" type="submit" ng-click="load()"
+                            ng-disabled="!selectedMealPlan">Load
+                    </button>
                 </div>
             </uib-tab>
 
@@ -35,7 +44,8 @@
                 </p>
                 <div class="modal-footer">
                     <button class="buton-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
-                    <button class="button-save btn btn-default" type="submit" ng-disabled="loadSaveForm.$invalid">Save</button>
+                    <button class="button-save btn btn-default" type="submit" ng-disabled="loadSaveForm.$invalid">Save
+                    </button>
                 </div>
             </uib-tab>
 
