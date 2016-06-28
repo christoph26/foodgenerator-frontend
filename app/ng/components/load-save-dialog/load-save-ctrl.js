@@ -83,7 +83,6 @@ angular.module('foodGenerator')
 
         function remove() {
             if (this.deleteMealPlanId) {
-                debugger;
                 mealPlanService.delete(this.deleteMealPlanId).then(function (response) {
                     console.log("Successfully deleted meal plan '" + response.data.title + "'.");
                     $uibModalInstance.close();
