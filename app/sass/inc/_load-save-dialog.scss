@@ -11,3 +11,12 @@
   background-color: $color-tertiary;
   color: white;
 }
+
+.meal-plan-select-container,
+.meal-plan-naming-container {
+  margin-bottom: 20px;
+}
+
+.meal-plan-naming-container input {
+  font-weight: normal;
+}

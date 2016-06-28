@@ -3,6 +3,7 @@ angular.module('foodGenerator')
         $scope.errorText = '';
         $scope.currentMealPlan = undefined;
         $scope.selectedMealPlanId = undefined;
+        $scope.mealPlanCaption = undefined;
 
         $scope.load = load;
         $scope.save = save;
@@ -37,14 +38,8 @@ angular.module('foodGenerator')
                     // Extract entity from response body
                     $scope.currentMealPlan = response.data;
 
-                    // Lazily load the recipe objects for each meal in each meal list
-                    angular.forEach($scope.currentMealPlan.mealLists, function (mealList) {
-                        angular.forEach(mealList.meals, function (meal) {
-                            recipeService.get(meal.recipe).then(function (result) {
-                                meal.recipe = result.data;
-                            })
-                        })
-                    });
+                    // Fetch the lazily loaded recipe objects
+                    injectRecipeEntities();
 
                     // Close the modal and return the completely loaded entity
                     $uibModalInstance.close($scope.currentMealPlan);
@@ -59,13 +54,23 @@ angular.module('foodGenerator')
         }
 
         function save() {
-            if (this.selectedMealPlanId) {
-                mealPlanService.read(this.selectedMealPlanId).then(function (response) {
-                    console.log("Successfully loaded meal plan '" + response.data.title + "'.");
+            if (this.mealPlanCaption) {
+                var mealPlan = $scope.$resolve.mealPlan;
+                mealPlan.title = this.mealPlanCaption;
+                mealPlanService.create(mealPlan).then(function (response) {
+                    console.log("Successfully created meal plan '" + response.data.title + "'.");
+                    // Extract entity from response body
                     $scope.currentMealPlan = response.data;
-                    $uibModalInstance.close(response.data);
+
+                    // Fetch the lazily loaded recipe objects
+                    injectRecipeEntities();
+
+                    // Close the modal and return the completely loaded entity
+                    $uibModalInstance.close($scope.currentMealPlan);
                 }, function (error) {
-                    if (error.status == 401) {
+                    if (error.status == 409) {
+                        $scope.errorText = "Title already in use, please choose a different one.";
+                    } else if (error.status == 401) {
                         $scope.errorText = "Please log in to use this feature.";
                     } else {
                         $scope.errorText = "An unknown error occured while loading. Please try again later.";
@@ -77,4 +82,16 @@ angular.module('foodGenerator')
         function cancel() {
             $uibModalInstance.dismiss('cancel');
         }
+
+        function injectRecipeEntities() {
+            // Lazily load the recipe objects for each meal in each meal list
+            angular.forEach($scope.currentMealPlan.mealLists, function (mealList) {
+                angular.forEach(mealList.meals, function (meal) {
+                    recipeService.get(meal.recipe).then(function (result) {
+                        meal.recipe = result.data;
+                    })
+                })
+            });
+        }
+
     });

@@ -35,18 +35,14 @@
                     <strong>Error!</strong>
                     {{errorText}}
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-                    sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit amet.
-                </p>
+                <div class="meal-plan-naming-container form-group">
+                    <label for="meal-plan-name">Name your meal plan:</label>
+                    <input type="text" class="form-control" id="meal-plan-name" placeholder="Untitled meal plan"
+                           ng-model="mealPlanCaption" required>
+                </div>
                 <div class="modal-footer">
                     <button class="buton-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
-                    <button class="button-save btn btn-default" type="submit" ng-disabled="loadSaveForm.$invalid">Save
+                    <button class="button-save btn btn-default" type="submit" ng-click="save()" ng-disabled="!mealPlanCaption">Save
                     </button>
                 </div>
             </uib-tab>
