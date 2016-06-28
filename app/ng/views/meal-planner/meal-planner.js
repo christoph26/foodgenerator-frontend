@@ -71,7 +71,9 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
 
             if (modalInstance) {
                 modalInstance.result.then(function (updatedMealPlan) {
-                    $scope.mealPlan = updatedMealPlan;
+                    if (updatedMealPlan) {
+                        $scope.mealPlan = updatedMealPlan;
+                    }
                 });
             }
         }

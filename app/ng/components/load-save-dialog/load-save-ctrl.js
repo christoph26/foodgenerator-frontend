@@ -2,11 +2,13 @@ angular.module('foodGenerator')
     .controller("LoadSaveCtrl", function ($scope, currentUser, mealPlanService, recipeService, $uibModalInstance) {
         $scope.errorText = '';
         $scope.currentMealPlan = undefined;
-        $scope.selectedMealPlanId = undefined;
+        $scope.loadMealPlanId = undefined;
+        $scope.deleteMealPlanId = undefined;
         $scope.mealPlanCaption = undefined;
 
         $scope.load = load;
         $scope.save = save;
+        $scope.remove = remove;
         $scope.cancel = cancel;
 
         initialize();
@@ -32,8 +34,8 @@ angular.module('foodGenerator')
         }
 
         function load() {
-            if (this.selectedMealPlanId) {
-                mealPlanService.read(this.selectedMealPlanId).then(function (response) {
+            if (this.loadMealPlanId) {
+                mealPlanService.read(this.loadMealPlanId).then(function (response) {
                     console.log("Successfully loaded meal plan '" + response.data.title + "'.");
                     // Extract entity from response body
                     $scope.currentMealPlan = response.data;
@@ -71,6 +73,22 @@ angular.module('foodGenerator')
                     if (error.status == 409) {
                         $scope.errorText = "Title already in use, please choose a different one.";
                     } else if (error.status == 401) {
+                        $scope.errorText = "Please log in to use this feature.";
+                    } else {
+                        $scope.errorText = "An unknown error occured while loading. Please try again later.";
+                    }
+                });
+            }
+        }
+
+        function remove() {
+            if (this.deleteMealPlanId) {
+                debugger;
+                mealPlanService.delete(this.deleteMealPlanId).then(function (response) {
+                    console.log("Successfully deleted meal plan '" + response.data.title + "'.");
+                    $uibModalInstance.close();
+                }, function (error) {
+                    if (error.status == 401) {
                         $scope.errorText = "Please log in to use this feature.";
                     } else {
                         $scope.errorText = "An unknown error occured while loading. Please try again later.";

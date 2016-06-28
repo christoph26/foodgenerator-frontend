@@ -9,13 +9,13 @@
                     <strong>Error!</strong>
                     {{errorText}}
                 </div>
-                <div class="meal-plan-select-container">
+                <div class="meal-plan-load-select-container">
                     <p>Choose a meal plan to load:</p>
                     <div class="radio-container" ng-repeat="mealPlan in mealPlans">
                         <label>
-                            <input type="radio" name="meal-plan-select"
-                                   id="meal-plan-option-{{mealPlan._id}}"
-                                   ng-model="$parent.selectedMealPlanId" value="{{mealPlan._id}}">
+                            <input type="radio" name="meal-plan-load-select"
+                                   id="meal-plan-load-option-{{mealPlan._id}}"
+                                   ng-model="$parent.loadMealPlanId" value="{{mealPlan._id}}">
                             {{mealPlan.title}}
                         </label>
                         <br/>
@@ -24,7 +24,7 @@
                 <div class="modal-footer">
                     <button class="button-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
                     <button class="button-load btn btn-default" type="submit" ng-click="load()"
-                            ng-disabled="!selectedMealPlanId">Load
+                            ng-disabled="!loadMealPlanId">Load
                     </button>
                 </div>
             </uib-tab>
@@ -38,11 +38,38 @@
                 <div class="meal-plan-naming-container form-group">
                     <label for="meal-plan-name">Name your meal plan:</label>
                     <input type="text" class="form-control" id="meal-plan-name" placeholder="Untitled meal plan"
-                           ng-model="mealPlanCaption" required>
+                           ng-model="mealPlanCaption">
                 </div>
                 <div class="modal-footer">
                     <button class="buton-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
-                    <button class="button-save btn btn-default" type="submit" ng-click="save()" ng-disabled="!mealPlanCaption">Save
+                    <button class="button-save btn btn-default" type="submit" ng-click="save()"
+                            ng-disabled="!mealPlanCaption">Save
+                    </button>
+                </div>
+            </uib-tab>
+
+            <!-- Delete dialog -->
+            <uib-tab index="2" heading="Delete">
+                <div class="alert alert-danger" role="alert" ng-show="errorText">
+                    <strong>Error!</strong>
+                    {{errorText}}
+                </div>
+                <div class="meal-plan-delete-select-container">
+                    <p>Choose a meal plan to delete:</p>
+                    <div class="radio-container" ng-repeat="mealPlan in mealPlans">
+                        <label>
+                            <input type="radio" name="meal-plan-delete-select"
+                                   id="meal-plan-delete-option-{{mealPlan._id}}"
+                                   ng-model="$parent.deleteMealPlanId" value="{{mealPlan._id}}">
+                            {{mealPlan.title}}
+                        </label>
+                        <br/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="button-cancel btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+                    <button class="btn btn-danger" type="submit" ng-click="remove()"
+                            ng-disabled="!deleteMealPlanId">Delete
                     </button>
                 </div>
             </uib-tab>

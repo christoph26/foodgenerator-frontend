@@ -37,10 +37,10 @@
             }
         }
 
-        function deletePlan(mealPlan) {
+        function deletePlan(mealPlanId) {
             if (auth.isAuthed()) {
-                console.log("Deleting meal plan with id '" + mealPlan._id + "'.");
-                return $http.delete(BASEURL + '/mealplans/' + mealPlan._id);
+                console.log("Deleting meal plan with id '" + mealPlanId + "'.");
+                return $http.delete(BASEURL + '/mealplans/' + mealPlanId);
             }
         }
 
