@@ -15,9 +15,9 @@
         No results.
     </p>
 
-    <div ng-if="resultsList.length">
-        <div class="row">
-            <recipethumbnail recipe="recipe" ng-repeat="recipe in resultsList"></recipethumbnail>
+    <div ng-if="resultRows.length">
+        <div class="row" ng-repeat="recipeRow in resultRows">
+            <recipethumbnail recipe="recipe" ng-repeat="recipe in recipeRow"></recipethumbnail>
         </div>
     </div>
 </div>

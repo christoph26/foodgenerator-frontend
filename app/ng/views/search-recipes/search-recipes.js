@@ -35,10 +35,10 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
                     return matrix;
                 }
 
-                $scope.resultsList = listToMatrix(response.data, 4);
+                $scope.resultRows = listToMatrix(response.data, 4);
                 
             }, function () {
-                $scope.resultsList = [];
+                $scope.resultRows = [];
             });
         }
         }
