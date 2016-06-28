@@ -47,6 +47,9 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
                     resolve: {
                         activeTab: function () {
                             return 'load';
+                        },
+                        mealPlan: function () {
+                            return $scope.mealPlan;
                         }
                     }
                 });
