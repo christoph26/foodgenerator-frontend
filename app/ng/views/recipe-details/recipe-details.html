@@ -9,10 +9,10 @@
         </div>
         <div class="row functionbar">
             <div class="col-md-3">
-                <button type="button" class="btn btn-primary btn-xs buttonrecipedetail">ADD TO MEAL PLANNER</button>
+                <button type="button" class="btn btn-primary btn-xs buttonrecipedetail" ui-sref="mealplanner">ADD TO MEAL PLANNER</button>
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-primary btn-xs buttonrecipedetail">ADD TO SHOPPING LIST</button>
+                <button type="button" class="btn btn-primary btn-xs buttonrecipedetail"ui-sref="shoppinglist">ADD TO SHOPPING LIST</button>
             </div>
             <div class="col-md-1">
                 <button type="button" onClick="javascript:window.print()" class="btn btn-primary btn-xs buttonrecipedetail"><span class="glyphicon glyphicon-print"
@@ -38,15 +38,13 @@
             </div>
             <div class="col-md-4">
 
-                <div class="dropdownperson">Ingredients for
-                    <p><input type="number" ng-model="a" ng-init="rootFolders='1'" value="1"></p>
-
+                <div class="selectpersons">Ingredients for
+                    <input type="number" ng-model="a" ng-init="rootFolders='1'" value="1" class="anzperson">Persons
                 </div>
                 <p>{{result()}}</p>
                 <b>Cook Effort:</b> {{recipe.effort}}<p>
-                <b>Ingredients: </b><p>
                 <div ng-repeat="ingredientListe in recipe.ingredientList">
-                    <div><li>{{ingredientListe.title}}: {{ingredientListe.amount*a}} {{ingredientListe.unit}}</li></div>
+                    <div><li><b>{{ingredientListe.title}}: {{ingredientListe.amount*a}} {{ingredientListe.unit}}</b></li></div>
                 </div>
             </div>
         </div>
