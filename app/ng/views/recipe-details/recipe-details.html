@@ -33,13 +33,13 @@
         </div>
         <div class="row descriptionrow">
             <div class="col-md-8">
-                <b>Preperation</b><br>
+                <b>Preperation:</b><br>
                 {{recipe.description}}
             </div>
             <div class="col-md-4">
 
                 <div class="selectpersons">Ingredients for
-                    <input type="number" ng-model="a" ng-init="rootFolders='1'" value="1" class="anzperson">Persons
+                    <input type="number" ng-model="a" ng-init="rootFolders='1'" value="1" class="anzperson"> Person
                 </div>
                 <p>{{result()}}</p>
                 <b>Cook Effort:</b> {{recipe.effort}}<p>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="row variationsbar">
-            <div class="col-md-12"><b>Variations</b><br>
+            <div class="col-md-12"><b>Variations:</b><br>
                 <recipethumbnail recipevariations="recipe" ng-repeat="recipevariations in variationsList"></recipethumbnail>
             </div>
         </div>
