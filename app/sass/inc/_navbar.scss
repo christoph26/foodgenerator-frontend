@@ -1,4 +1,4 @@
-nav.navbar {
+.app-nav {
   background-color: $color-secondary;
 
   border-radius: 10px;
@@ -6,18 +6,18 @@ nav.navbar {
   margin-bottom: 5px;
 }
 
-.navbar .nav > li > a {
+.app-nav .nav > li > a {
   color: $color-text-inverted;
 }
 
-.navbar .nav > li > a:hover,
-.navbar .nav > li > a:active,
-.navbar .nav > li > a:focus {
+.app-nav .nav > li > a:hover,
+.app-nav .nav > li > a:active,
+.app-nav .nav > li > a:focus {
   background-color: inherit;
   color: $color-text-highlight;
 }
 
-.navbar .nav {
+.app-nav .nav {
   font-weight: bold;
   font-size: 15px;
 }
