@@ -51,11 +51,10 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformIngredientSearch = function () {
-
-                    debugger;
                     if (this.ingredientSearchBarInput && this.ingredientSearchBarInput.length > 0) {
-                        var searchDTO = {
-                            ingredients: this.ingredientSearchBarInput,
+                        var searchParameter = this.ingredientSearchBarInput;
+
+                        var filterParameter = {
                             supermarketFilter: this.supermarketFilter,
                             vegan: this.vegan,
                             vegetarian: this.vegetarian,
@@ -63,7 +62,9 @@ angular.module('foodGenerator')
                             effortMedium: this.effortMedium,
                             effortHigh: this.effortHigh
                         };
-                        this.$parent.$parent.$parent.performIngSearch(searchDTO);
+
+                        //Calls method in search-ingredients-view to perform the search and display results.
+                        this.$parent.$parent.$parent.performIngredientSearch(searchParameter, filterParameter);
                     }
                 };
 
