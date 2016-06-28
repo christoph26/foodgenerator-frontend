@@ -11,7 +11,7 @@ angular.module('foodGenerator')
                 $scope.expanded = "down";
 
                 //Input of recipe search:
-                $scope.recipeSearchBarInput = "";
+                $scope.recipeSearchBarInput = SearchService.searchTerm;
 
                 //Input of ingredient search
                 $scope.ingredientSearchBarInput = [];

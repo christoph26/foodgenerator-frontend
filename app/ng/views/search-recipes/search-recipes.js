@@ -17,11 +17,13 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
     .controller('SearchRecipesCtrl', function ($scope, SearchService) {
             $scope.searchTerm = SearchService.searchTerm;
 
+        if ($scope.searchTerm && $scope.searchTerm != "") {
             SearchService.performRecipeSearch().then(function (response) {
                 $scope.resultsList = response.data;
             }, function () {
                 $scope.resultsList = [];
             });
+        }
         }
     )
 ;
