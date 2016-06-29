@@ -14,7 +14,7 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('RecipeDetailCtrl', function ($scope) {
+    .controller('RecipeDetailCtrl', function ($scope, $http, BASEURL) {
         $scope.recipe =
 
         {
@@ -100,6 +100,12 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 }
             ]
         }
+
+        $http.get(BASEURL + '/recipes/recipeFamily/' + $scope.recipe._id).then(function (response) {
+            $scope.recipeVariations = response.data;
+        }, function () {
+            $scope.recipeVariations = [];
+        });
     })
     
 ;
