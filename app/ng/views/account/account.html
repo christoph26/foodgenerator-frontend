@@ -7,54 +7,82 @@
         </p>
     </div>
     <div ng-if="loggedIn">
-        <p><br></p>
 
+        Welcome to your account page!<br/>
+        <br/>
+        You are currently logged in.<br/>
+        <br/>
         <form class="form-horizontal">
+
+
             <div class="form-group">
                 <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
                 <div class="col-sm-3">
-                    <input type="email" class="form-control" id="inputFirstName" placeholder={{user.firstName}}>
+                    <input type="usr"
+                           class="form-control"
+                           id="inputFirstName"
+                           ng-model="update.firstName"
+                           placeholder={{user.firstName}}>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
                 <div class="col-sm-3">
-                    <input type="email" class="form-control" id="inputLastName" placeholder={{user.lastName}}>
+                    <input type="usr"
+                           class="form-control"
+                           id="inputLastName"
+                           ng-model="update.lastName"
+                           placeholder={{user.lastName}}>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-3">
-                    <input type="email" class="form-control" id="inputEmail" placeholder={{user.email}}>
+                    <input type="email"
+                           class="form-control"
+                           id="inputEmail"
+                           ng-model="update.email"
+                           placeholder={{user.email}}>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-3">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="new Password">
+                    <input type="password"
+                           class="form-control"
+                           id="inputPassword"
+                           ng-model="update.password1"
+                           placeholder="New Password">
                 </div>
                 <div class="col-sm-3">
-                    <input type="password" class="form-control" id="inputPassword3Rep" placeholder="repeat Password">
+                    <input type="password"
+                           class="form-control"
+                           id="inputPasswordRep"
+                           ng-model="update.password2"
+                           placeholder="Repeat Password"
+                           compare-to = "update.password1">
                 </div>
             </div>
+
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Update</button>
+                <div class="col-sm-offset-2 col-sm-1" >
+                    <br>
+                    </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-1" >
+                    <button type="submit"
+                            id="savebutton"
+                            ng-click="toggle()"
+                            class="btn btn-default">Save Update</button>
                 </div>
             </div>
         </form>
-
-
-
-        <p>
-            Welcome to your account page!<br/>
-            <br/>
-            You are currently logged in.<br/>
-            <br/>
-            Your email is: <strong>{{user.email}}</strong><br/>
-            Your first name is: <strong>{{user.firstName}}</strong><br/>
-            Your last name is: <strong>{{user.lastName}}</strong><br/>
-        </p>
     </div>
 
 </div>
