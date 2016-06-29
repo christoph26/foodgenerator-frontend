@@ -17,7 +17,6 @@
         
         
         this.performRecipeSearch = performRecipeSearch;
-        this.performIngredientSearch = performIngredientSearch;
         this.performIngredientAutocomplete = performIngredientAutocomplete;
 
 
@@ -39,25 +38,6 @@
 
         function performIngredientAutocomplete(autocompleteDTO) {
             return $http.post(BASEURL + '/ingredients', autocompleteDTO);
-        }
-
-        function performIngredientSearch() {
-
-            debugger;
-            var ingredientSearchIdList = this.ingredientSearchList.map(function (elem) {
-                return elem._id
-            });
-
-            var searchDTO = {
-                ingredients: ingredientSearchIdList,
-                supermarketFilter: this.supermarketFilter,
-                vegan: this.vegan,
-                vegetarian: this.vegetarian,
-                effortLow: this.effortLow,
-                effortMedium: this.effortMedium,
-                effortHigh: this.effortHigh
-            };
-            return $http.post(BASEURL + '/search/ingredientsearch', searchDTO);
         }
     }
 

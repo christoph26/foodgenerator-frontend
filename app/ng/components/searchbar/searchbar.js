@@ -51,6 +51,14 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformIngredientSearch = function () {
+
+                    //Go through ingredientSearchBar and add all tags, which are added without the autocomplete feature (and thus are no valid ingredients)
+                    for (var i = 0; i < this.ingredientSearchBarInput.length; i++) {
+                        if (!this.ingredientSearchBarInput[i]._id) {
+                            this.ingredientSearchBarInput.splice(i, i + 1)
+                        }
+                    }
+
                     if (this.ingredientSearchBarInput && this.ingredientSearchBarInput.length > 0) {
                         var searchParameter = this.ingredientSearchBarInput;
 
