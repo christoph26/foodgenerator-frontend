@@ -15,7 +15,10 @@
                 dnd-draggable="meal"
                 dnd-effect-allowed="move"
                 dnd-moved="mealList.meals.splice($index, 1); updateMealOrder();">
-                <meallabel recipe="meal.recipe"></meallabel>
+                <meallabel recipe="meal.recipe"
+                           removable="'true'"
+                           remove-callback="removeCallback">
+                </meallabel>
             </li>
             <li class="row" ng-if="!mealList.meals.length">
                 <meallabel></meallabel>

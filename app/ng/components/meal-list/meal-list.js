@@ -16,6 +16,21 @@ angular.module('foodGenerator')
             for (var index in $scope.mealList.meals) {
                 $scope.mealList.meals[index].order = index;
             }
+        };
+
+        $scope.removeCallback = removeCallback;
+
+        function removeCallback(recipe) {
+            var mealIndex;
+            for (var index in $scope.mealList.meals) {
+                if ($scope.mealList.meals[index].recipe === recipe) {
+                    mealIndex = index;
+                }
+            }
+            if (mealIndex) {
+                $scope.mealList.meals.splice(mealIndex, 1);
+                $scope.updateMealOrder();
+            }
         }
     })
 ;

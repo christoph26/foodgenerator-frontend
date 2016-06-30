@@ -30,6 +30,12 @@
   color: white;
 }
 
+.meal-label-caption > button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
 .meal-label-add > .meal-label-caption {
   background-color: transparent;
   border: 3px dashed $color-tertiary;

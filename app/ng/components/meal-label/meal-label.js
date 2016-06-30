@@ -4,7 +4,9 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/meal-label/meal-label.html",
             scope: {
-                recipe: '='
+                recipe: '=',
+                removable: '<',
+                removeCallback: '<'
             }
         }
     })

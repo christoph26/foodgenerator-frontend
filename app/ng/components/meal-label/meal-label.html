@@ -3,6 +3,7 @@
         <img ng-src="{{recipe.picture}}"/>
     </div>
     <div class="meal-label-caption">
+        <button type="button" class="close" aria-label="Close" ng-if="removable" ng-click="removeCallback(recipe)"><span aria-hidden="true">&times;</span></button>
         {{recipe.title}}
     </div>
 </div>
