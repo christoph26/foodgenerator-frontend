@@ -17,13 +17,30 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
     .controller('SearchRecipesCtrl', function ($scope, SearchService) {
             $scope.searchTerm = SearchService.searchTerm;
 
+        if ($scope.searchTerm && $scope.searchTerm != "") {
             SearchService.performRecipeSearch().then(function (response) {
-                $scope.resultsList = response.data;
-                $scope.searchTerm = SearchService.searchTerm;
+
+                //Arrange result data in order to display it in rows of four thumbnails.
+                function listToMatrix(list, elementsPerSubArray) {
+                    var matrix = [], i, k;
+
+                    for (i = 0, k = -1; i < list.length; i++) {
+                        if (i % elementsPerSubArray === 0) {
+                            k++;
+                            matrix[k] = [];
+                        }
+
+                        matrix[k].push(list[i]);
+                    }
+                    return matrix;
+                }
+
+                $scope.resultRows = listToMatrix(response.data, 4);
+                
             }, function () {
-                $scope.resultsList = [];
-                $scope.searchTerm = SearchService.searchTerm;
+                $scope.resultRows = [];
             });
+        }
         }
     )
 ;

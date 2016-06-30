@@ -12,6 +12,8 @@
         this.effortMedium = false;
         this.effortHigh = false;
         this.supermarketFilter = [];
+
+        this.ingredientSearchList = [];
         
         
         this.performRecipeSearch = performRecipeSearch;
@@ -37,7 +39,6 @@
         function performIngredientAutocomplete(autocompleteDTO) {
             return $http.post(BASEURL + '/ingredients', autocompleteDTO);
         }
-
     }
 
 })();

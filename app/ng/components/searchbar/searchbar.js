@@ -10,8 +10,13 @@ angular.module('foodGenerator')
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
 
-                //Input values:
-                $scope.searchBarInput = SearchService.searchTerm;
+                //Input of recipe search:
+                $scope.recipeSearchBarInput = SearchService.searchTerm;
+
+                //Input of ingredient search
+                $scope.ingredientSearchBarInput = [];
+
+                //Filter properties
                 $scope.vegan = SearchService.vegan;
                 $scope.vegetarian = SearchService.vegetarian;
                 $scope.effortLow = SearchService.effortLow;
@@ -29,7 +34,7 @@ angular.module('foodGenerator')
 
                 $scope.setTermAndPerformRecipeSearch = function () {
                     // propagate the current search term to the search service
-                    SearchService.searchTerm = this.searchBarInput;
+                    SearchService.searchTerm = this.recipeSearchBarInput;
                     SearchService.vegan = this.vegan;
                     SearchService.vegetarian = this.vegetarian;
                     SearchService.effortLow = this.effortLow;
@@ -46,8 +51,29 @@ angular.module('foodGenerator')
                 };
 
                 $scope.setTermAndPerformIngredientSearch = function () {
-                    //TODO: perform ingredient search
 
+                    //Go through ingredientSearchBar and add all tags, which are added without the autocomplete feature (and thus are no valid ingredients)
+                    for (var i = 0; i < this.ingredientSearchBarInput.length; i++) {
+                        if (!this.ingredientSearchBarInput[i]._id) {
+                            this.ingredientSearchBarInput.splice(i, i + 1)
+                        }
+                    }
+
+                    if (this.ingredientSearchBarInput && this.ingredientSearchBarInput.length > 0) {
+                        var searchParameter = this.ingredientSearchBarInput;
+
+                        var filterParameter = {
+                            supermarketFilter: this.supermarketFilter,
+                            vegan: this.vegan,
+                            vegetarian: this.vegetarian,
+                            effortLow: this.effortLow,
+                            effortMedium: this.effortMedium,
+                            effortHigh: this.effortHigh
+                        };
+
+                        //Calls method in search-ingredients-view to perform the search and display results.
+                        this.$parent.$parent.$parent.performIngredientSearch(searchParameter, filterParameter);
+                    }
                 };
 
                 $scope.clickSupermarket = function (id) {
