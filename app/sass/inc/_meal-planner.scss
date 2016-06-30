@@ -1,0 +1,110 @@
+.meal-planner {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.meal-planner .meal-planner-container {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.meal-planner .headline-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.meal-planner .button-load,
+.meal-planner .button-save,
+.meal-planner .button-save-as {
+  margin-left: 10px;
+}
+
+.meal-planner .button-save {
+  background-color: $color-tertiary;
+  color: white;
+}
+
+.meal-planner .login-hint {
+  margin-right: 10px;
+}
+
+ul.meal-planner-container {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+ul.meal-planner-container > * {
+  white-space: normal;
+}
+
+ul.meal-planner-container > .meal-list-container {
+  width: calc(100% / 3 - 0.85px);
+  vertical-align: top;
+}
+
+.recipe-recommendations-container {
+  margin-bottom: 0;
+
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.recipe-recommendations-container > div:first-child {
+  border-right: 1px solid #ddd;
+}
+
+.recipe-recommendations-container ul {
+  padding: 0;
+  margin: 0;
+  font-size: initial;
+  list-style: none;
+}
+
+.thumbnail-add-new-meal img {
+  margin-top: 51.5px;
+  margin-bottom: 51.5px;
+
+  border: 2px solid $color-tertiary;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+/**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+.meal-planner ul[dnd-list],
+.meal-planner ul[dnd-list] > li {
+  position: relative;
+}
+
+.meal-planner ul[dnd-list] > li[dnd-draggable] {
+  cursor: move;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.meal-planner ul[dnd-list] .dndDraggingSource {
+  display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.meal-planner ul[dnd-list] .dndPlaceholder {
+  display: block;
+  min-height: 5em;
+  margin-bottom: 20px;
+
+  background-color: #ddd;
+  border-radius: 0 10px 10px 0;
+}

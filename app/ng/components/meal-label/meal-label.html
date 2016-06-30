@@ -1,0 +1,20 @@
+<div class="meal-label" ng-if="recipe">
+    <div class="meal-label-img">
+        <img ng-src="{{recipe.picture}}"/>
+    </div>
+    <div class="meal-label-caption">
+        <button type="button" class="close" aria-label="Close" ng-if="removable" ng-click="removeCallback(recipe)">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{recipe.title}}
+    </div>
+</div>
+
+<div class="meal-label meal-label-add" ng-if="!recipe">
+    <div class="meal-label-img">
+        <img ng-src="img/meal-planner/drop-arrow.png"/>
+    </div>
+    <div class="meal-label-caption">
+        Drop recipes here
+    </div>
+</div>

@@ -4,6 +4,7 @@
 angular.module('foodGenerator', [
     'ui.router',
     'ui.bootstrap',
+    'dndLists',
     'foodGenerator.home',
     'foodGenerator.account',
     'foodGenerator.search',
