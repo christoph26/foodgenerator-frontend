@@ -57,7 +57,7 @@
                 <li ng-repeat="recipe in markedRecipes"
                     dnd-draggable="{recipe: recipe, order: 0}"
                     dnd-effect-allowed="copy">
-                    <meallabel recipe="recipe"></meallabel>
+                    <meallabel recipe="recipe" removable="'true'" remove-callback="removeMarkedRecipeCallback"></meallabel>
                 </li>
             </ul>
         </div>
@@ -71,7 +71,7 @@
                 <li ng-repeat="recipe in recentRecipes"
                     dnd-draggable="{recipe: recipe, order: 0}"
                     dnd-effect-allowed="copy">
-                    <meallabel recipe="recipe"></meallabel>
+                    <meallabel recipe="recipe" removable="'true'" remove-callback="removeRecentRecipeCallback"></meallabel>
                 </li>
             </ul>
         </div>
