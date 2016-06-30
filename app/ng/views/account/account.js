@@ -20,39 +20,40 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
 
 //pressing the button "Save Update"
         $scope.toggle = function () {
-            console.log("123");
-            debugger;
-            var model = this;
+            var updateform = {}; //all the data which should be updated is added to this json doc.
 
-
-            debugger;
             if (this.update !== undefined) {
                 if (this.update.firstName !== undefined) {
                     if (this.update.firstName != "") {
-                        model.firstName = this.update.firstName;
+                        updateform.firstName = this.update.firstName;
                     }
                 }
                 if (this.update.lastName !== undefined) {
                     if (this.update.lastName != "") {
-                        model.lastName = this.update.lastName;
+                        updateform.lastName = this.update.lastName;
                     }
                 }
                 debugger;
                 if (this.update.email !== undefined) {
                     if (this.update.email != "") {
-
-                        model.email = this.update.email;
+                        updateform.email = this.update.email;
                     }
                 }
                 if (this.update.password1 !== undefined) {
                     if (this.update.password1 != "") {
-
-                        model.password = this.update.password1;
+                        updateform.password = this.update.password1;
                     }
                 }
 
+                console.log(updateform);
+
+                $http.put(BASEURL + '/users/' + user._id, user).then(function (response) {
+                    // hier den erfolgsfall behandeln
+                }, function (error) {
+                    // hier den fehlerfall behandeln
+                });
             }
-            
+
 
             debugger;
 
