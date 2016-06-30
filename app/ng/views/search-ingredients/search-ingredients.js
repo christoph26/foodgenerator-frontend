@@ -14,7 +14,7 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('SearchIngredientsCtrl', function ($scope, $http) {
+    .controller('SearchIngredientsCtrl', function ($scope, $http, BASEURL) {
 
         $scope.performIngredientSearch = function (ingredientsearchParameters, DTOWithFilters) {
 
@@ -34,7 +34,7 @@ angular.module('foodGenerator.search.ingredients', ['ngResource', 'ui.router'])
                 return elem._id
             });
 
-            $http.post('http://127.0.0.1:3000/search/ingredientsearch', DTOWithFilters).then(function (response) {
+            $http.post(BASEURL + '/search/ingredientsearch', DTOWithFilters).then(function (response) {
 
                 //Arrange result data in order to display it in rows of four thumbnails.
                 function listToMatrix(list, elementsPerSubArray) {
