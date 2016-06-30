@@ -9,7 +9,7 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
                     "content": {
                         templateUrl: "views/search-recipes/search-recipes.html",
                         controller: 'SearchRecipesCtrl'
-                    }
+                }
                 }
             })
     })

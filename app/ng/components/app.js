@@ -10,6 +10,11 @@ angular.module('foodGenerator', [
     'foodGenerator.search.ingredients',
     'foodGenerator.search.recipes',
     'foodGenerator.mealPlanner',
+    'foodGenerator.recipeDetail',
+    'foodGenerator.terms',
+    'foodGenerator.about',
+    'foodGenerator.contact',
+    'foodGenerator.privacy',    
     'templates',
     'ngTagsInput'
 ])
