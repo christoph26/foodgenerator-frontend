@@ -30,7 +30,6 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
         $scope.removeListCallback = removeListCallback;
 
         $scope.removeMarkedRecipeCallback = removeMarkedRecipeCallback;
-        $scope.removeRecentRecipeCallback = removeRecentRecipeCallback;
 
         $scope.$watch(function () {
             return currentUser.loggedIn();
@@ -126,10 +125,6 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
 
         function removeMarkedRecipeCallback(recipe) {
             removeRecipeFromList(recipe, $scope.markedRecipes);
-        }
-
-        function removeRecentRecipeCallback(recipe) {
-            removeRecipeFromList(recipe, $scope.recentRecipes);
         }
 
         ////////////////////////

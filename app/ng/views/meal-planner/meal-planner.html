@@ -2,7 +2,9 @@
     <h1>Meal planner</h1>
     <div class="headline-container row">
         <div class="col-sm-4">
-            <p><strong>your current plan:</strong></p>
+            <p><strong>your current plan:</strong>
+            <strong ng-if="mealPlan.title">{{mealPlan.title}}</strong>
+            </p>
         </div>
         <div class="col-sm-8">
             <div class="pull-right">
@@ -72,7 +74,7 @@
                 <li ng-repeat="recipe in recentRecipes"
                     dnd-draggable="{recipe: recipe, order: 0}"
                     dnd-effect-allowed="copy">
-                    <meallabel recipe="recipe" removable="'true'" remove-callback="removeRecentRecipeCallback"></meallabel>
+                    <meallabel recipe="recipe"></meallabel>
                 </li>
             </ul>
         </div>
