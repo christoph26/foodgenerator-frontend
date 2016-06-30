@@ -21,9 +21,12 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
         $scope.recentRecipes = viewedExampleRecipes;
 
         $scope.open = open;
+
         $scope.saveMealPlan = saveMealPlan;
         $scope.resetMealPlan = resetMealPlan;
+
         $scope.addMealList = addMealList;
+        $scope.removeListCallback = removeListCallback;
 
         //////////////////////////////////
 
@@ -86,16 +89,36 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             }
         }
 
+        function resetMealPlan() {
+            $scope.mealPlan = getEmptyMealPlan();
+            addMealList();
+        }
+
+        function removeListCallback(mealList) {
+            var mealListIndex;
+            for (var index in $scope.mealPlan.mealLists) {
+                //noinspection JSUnfilteredForInLoop
+                if ($scope.mealPlan.mealLists[index] === mealList) {
+                    mealListIndex = index;
+                }
+            }
+            if (mealListIndex) {
+                $scope.mealPlan.mealLists.splice(mealListIndex, 1);
+                for (index in $scope.mealPlan.mealLists) {
+                    //noinspection JSUnfilteredForInLoop
+                    $scope.mealPlan.mealLists[index].order = index;
+                }
+            }
+            debugger;
+        }
+
+        ////////////////////////
+
         function getEmptyMealPlan() {
             return {
                 title: undefined,
                 mealLists: []
             };
-        }
-
-        function resetMealPlan() {
-            $scope.mealPlan = getEmptyMealPlan();
-            addMealList();
         }
 
         function calculateMealListTitle(mealPlan, $filter) {

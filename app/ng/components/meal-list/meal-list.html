@@ -1,5 +1,9 @@
 <div class="meal-list thumbnail" ng-if="mealList">
+    <button type="button" class="close" aria-label="Close" ng-if="removable" ng-click="removeCallback(mealList)">
+        <span aria-hidden="true">&times;</span>
+    </button>
     <div class="container-fluid meal-list-container">
+
         <div class="row">
             <h3 class="text-center">{{mealList.title}}</h3>
         </div>
