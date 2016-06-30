@@ -15,6 +15,7 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
     })
 
     .controller('RecipeDetailCtrl', function ($scope, $http, BASEURL) {
+        $scope.a=1;
         $scope.recipe =
 
         {
