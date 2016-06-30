@@ -38,20 +38,20 @@
             {{recipe.description}}
         </div>
         <div class="col-md-4">
-
+            <hr>
             <div class="selectpersons">Ingredients for
-                <input type="number" ng-model="a" ng-init="rootFolders='1'" value="1" class="numberofperson"> Person
+                <input type="number" ng-model="a" ng-init="rootFolders='1'" min="1" class="numberofperson"> Person
             </div>
             <p>{{result()}}</p>
             <b>Cook Effort:</b> {{recipe.effort}}<p>
             <div ng-repeat="ingredientListe in recipe.ingredientList">
-                <div>
-                    <ol><dt><b>{{ingredientListe.title}}: {{ingredientListe.amount*a}} {{ingredientListe.unit}}</b></dt></ol>
-                </div>
+                <b>{{ingredientListe.title}}: {{ingredientListe.amount*a}} {{ingredientListe.unit}}</b>
             </div>
         </div>
     </div>
+
     <div class="row variationsbar">
+        <hr>
         <div class="col-md-12"><b>Variations:</b><br>
             <recipethumbnail recipe="recipevariation"
                              ng-repeat="recipevariation in recipeVariations"></recipethumbnail>
