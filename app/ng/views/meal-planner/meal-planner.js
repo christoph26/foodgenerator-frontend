@@ -14,9 +14,10 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
             })
     })
 
-    .controller('MealPlannerCtrl', function ($scope, $filter, $uibModal, mealPlanService) {
+    .controller('MealPlannerCtrl', function ($scope, $filter, $uibModal, currentUser, mealPlanService) {
         resetMealPlan();
 
+        $scope.loggedIn = false;
         $scope.markedRecipes = markedExampleRecipes;
         $scope.recentRecipes = viewedExampleRecipes;
 
@@ -30,6 +31,15 @@ angular.module('foodGenerator.mealPlanner', ['ngResource', 'ui.router', 'dndList
 
         $scope.removeMarkedRecipeCallback = removeMarkedRecipeCallback;
         $scope.removeRecentRecipeCallback = removeRecentRecipeCallback;
+
+        $scope.$watch(function () {
+            return currentUser.loggedIn();
+        }, function (loggedIn) {
+            $scope.loggedIn = loggedIn;
+            if (loggedIn && !$scope.user) {
+                $scope.user = currentUser.getUser();
+            }
+        });
 
         //////////////////////////////////
 

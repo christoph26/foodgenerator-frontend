@@ -6,10 +6,11 @@
         </div>
         <div class="col-sm-8">
             <div class="pull-right">
+                <span class="login-hint" ng-show="!loggedIn">Login for access to save/load functionality.</span>
                 <a class="button-reset btn btn-default" ng-click="resetMealPlan()">Reset</a>
-                <a class="button-load btn btn-default" ng-click="open('load')">Load</a>
-                <a class="button-save-as btn btn-default" ng-click="open('save')">Save as</a>
-                <a class="button-save btn btn-default" ng-click="saveMealPlan()">Save</a>
+                <a class="button-load btn btn-default" ng-click="open('load')" ng-show="loggedIn">Load</a>
+                <a class="button-save-as btn btn-default" ng-click="open('save')" ng-show="loggedIn">Save as</a>
+                <a class="button-save btn btn-default" ng-click="saveMealPlan()" ng-show="loggedIn">Save</a>
             </div>
         </div>
     </div>
