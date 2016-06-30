@@ -18,9 +18,9 @@ angular.module('foodGenerator')
             }
         };
 
-        $scope.removeCallback = removeCallback;
+        $scope.removeLabelCallback = removeLabelCallback;
 
-        function removeCallback(recipe) {
+        function removeLabelCallback(recipe) {
             var mealIndex;
             for (var index in $scope.mealList.meals) {
                 if ($scope.mealList.meals[index].recipe === recipe) {
