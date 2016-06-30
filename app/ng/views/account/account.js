@@ -14,13 +14,15 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('AccountCtrl', function ($scope, $state, currentUser) {
+    .controller('AccountCtrl', function ($scope, $state, currentUser, BASEURL, $http) {
         var loggedIn = currentUser.loggedIn();
 
 
 //pressing the button "Save Update"
         $scope.toggle = function () {
             var updateform = {}; //all the data which should be updated is added to this json doc.
+            var passwordsSame = true; //false if the Wiederholung of the password is not the same as the password entered
+
 
             if (this.update !== undefined) {
                 if (this.update.firstName !== undefined) {
@@ -39,38 +41,35 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
                         updateform.email = this.update.email;
                     }
                 }
-                if (this.update.password1 !== undefined) {
-                    if (this.update.password1 != "") {
-                        updateform.password = this.update.password1;
+                if (this.update.password1 !== undefined || this.update.password2 !== undefined) {
+                    if (this.update.password1 != "" || this.update.password2 != "") {
+                            if (this.update.password1 === this.update.password2) {
+                                updateform.password = this.update.password1;
+                            } else {
+                                passwordsSame = false;
+                            }
                     }
                 }
-
                 console.log(updateform);
 
-                $http.put(BASEURL + '/users/' + user._id, user).then(function (response) {
-                    // hier den erfolgsfall behandeln
-                }, function (error) {
-                    // hier den fehlerfall behandeln
-                });
-            }
 
+                if (passwordsSame) {
+                    alert("Your passwords does match!");
 
-            debugger;
-
-            model.submit = function (isValid) {
-                console.log("h");
-                if (isValid) {
-                    $http.put(BASEURL + '/users/' + user._id, user).then(function (response) {
-                        model.message = "updated";
+                    $http.put(BASEURL + '/users/' + user._id, updateform).then(function (response) {
+                        alert("Update Successful!");
+                        // hier den erfolgsfall behandeln
                     }, function (error) {
                         // hier den fehlerfall behandeln
-                        model.message = "NOT updated";
                     });
 
+                    location.reload();
                 } else {
-                    model.message = "There are still invalid fields";
+                    alert("Your passwords do NOT match! Please try again.");
+                    location.reload();
                 }
-            };
+
+            }
         }
 //checks if the user is logged in
         $scope.$watch(function () {
