@@ -15,7 +15,7 @@ angular.module('foodGenerator.search.recipes', ['ngResource', 'ui.router'])
     })
 
     .controller('SearchRecipesCtrl', function ($scope, SearchService) {
-            $scope.searchTerm = SearchService.searchTerm;
+        $scope.searchTerm = SearchService.searchTermRecipe;
 
         if ($scope.searchTerm && $scope.searchTerm != "") {
             SearchService.performRecipeSearch().then(function (response) {

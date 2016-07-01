@@ -10,19 +10,26 @@ angular.module('foodGenerator')
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
 
-                //Input of recipe search:
-                $scope.recipeSearchBarInput = SearchService.searchTerm;
+                if ($scope.bartype == 'recipes') {
+                    //Properties of recipe search
+                    $scope.recipeSearchBarInput = SearchService.searchTermRecipe;
+                    $scope.vegan = SearchService.veganRecipe;
+                    $scope.vegetarian = SearchService.vegetarianRecipe;
+                    $scope.effortLow = SearchService.effortLowRecipe;
+                    $scope.effortMedium = SearchService.effortMediumRecipe;
+                    $scope.effortHigh = SearchService.effortHighRecipe;
+                    $scope.supermarketFilter = SearchService.supermarketFilterRecipe;
+                } else if ($scope.bartype == 'ingredients') {
+                    //Properties of ingredient search
+                    $scope.ingredientSearchBarInput = SearchService.searchTermIngredient;
+                    $scope.vegan = SearchService.veganIngredient;
+                    $scope.vegetarian = SearchService.vegetarianIngredient;
+                    $scope.effortLow = SearchService.effortLowIngredient;
+                    $scope.effortMedium = SearchService.effortMediumIngredient;
+                    $scope.effortHigh = SearchService.effortHighIngredient;
+                    $scope.supermarketFilter = SearchService.supermarketFilterIngredient;
+                }
 
-                //Input of ingredient search
-                $scope.ingredientSearchBarInput = [];
-
-                //Filter properties
-                $scope.vegan = SearchService.vegan;
-                $scope.vegetarian = SearchService.vegetarian;
-                $scope.effortLow = SearchService.effortLow;
-                $scope.effortMedium = SearchService.effortMedium;
-                $scope.effortHigh = SearchService.effortHigh;
-                $scope.supermarketFilter = SearchService.supermarketFilter;
 
                 $scope.updateGlyphicon = function () {
                     if ($scope.expanded == "down") {
@@ -34,13 +41,13 @@ angular.module('foodGenerator')
 
                 $scope.setTermAndPerformRecipeSearch = function () {
                     // propagate the current search term to the search service
-                    SearchService.searchTerm = this.recipeSearchBarInput;
-                    SearchService.vegan = this.vegan;
-                    SearchService.vegetarian = this.vegetarian;
-                    SearchService.effortLow = this.effortLow;
-                    SearchService.effortMedium = this.effortMedium;
-                    SearchService.effortHigh = this.effortHigh;
-                    SearchService.supermarketFilter = this.supermarketFilter;
+                    SearchService.searchTermRecipe = this.recipeSearchBarInput;
+                    SearchService.veganRecipe = this.vegan;
+                    SearchService.vegetarianRecipe = this.vegetarian;
+                    SearchService.effortLowRecipe = this.effortLow;
+                    SearchService.effortMediumRecipe = this.effortMedium;
+                    SearchService.effortHighRecipe = this.effortHigh;
+                    SearchService.supermarketFilterRecipe = this.supermarketFilter;
 
                     // redirect the user to the search results page
                     if ($state.current.name == 'search.recipes') {
@@ -58,6 +65,14 @@ angular.module('foodGenerator')
                             this.ingredientSearchBarInput.splice(i, i + 1)
                         }
                     }
+
+                    SearchService.searchTermIngredient = this.ingredientSearchBarInput;
+                    SearchService.veganIngredient = this.vegan;
+                    SearchService.vegetarianIngredient = this.vegetarian;
+                    SearchService.effortLowIngredient = this.effortLow;
+                    SearchService.effortMediumIngredient = this.effortMedium;
+                    SearchService.effortHighIngredient = this.effortHigh;
+                    SearchService.supermarketFilterIngredient = this.supermarketFilter;
 
                     if (this.ingredientSearchBarInput && this.ingredientSearchBarInput.length > 0) {
                         var searchParameter = this.ingredientSearchBarInput;
@@ -82,6 +97,8 @@ angular.module('foodGenerator')
                     } else {
                         this.supermarketFilter.push(id);
                     }
+                    SearchService.supermarketFilterRecipe;
+                    SearchService.supermarketFilterIngredient;
                 };
 
                 $scope.checkImgClass = function (id) {

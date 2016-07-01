@@ -5,13 +5,21 @@
 
     function searchService(BASEURL, $http) {
 
-        this.searchTerm = "";
-        this.vegan = false;
-        this.vegetarian = false;
-        this.effortLow = false;
-        this.effortMedium = false;
-        this.effortHigh = false;
-        this.supermarketFilter = [];
+        this.searchTermRecipe = "";
+        this.veganRecipe = "false";
+        this.vegetarianRecipe = "false";
+        this.effortLowRecipe = "false";
+        this.effortMediumRecipe = "false";
+        this.effortHighRecipe = "false";
+        this.supermarketFilterRecipe = [];
+
+        this.searchTermIngredient = [];
+        this.veganIngredient = "false";
+        this.vegetarianIngredient = "false";
+        this.effortLowIngredient = "false";
+        this.effortMediumIngredient = "false";
+        this.effortHighIngredient = "false";
+        this.supermarketFilterIngredient = [];
 
         this.ingredientSearchList = [];
         
@@ -21,17 +29,16 @@
 
 
         function performRecipeSearch() {
-
-            var searchDirectRecipes = this.vegan || this.vegetarian || this.effortLow || this.effortMedium || this.effortHigh || (this.supermarketFilter.length > 0);
+            var searchDirectRecipes = this.veganRecipe || this.vegetarianRecipe || this.effortLowRecipe || this.effortMediumRecipe || this.effortHighRecipe || (this.supermarketFilterRecipe.length > 0);
             var searchDTO = {
-                searchText: this.searchTerm,
+                searchText: this.searchTermRecipe,
                 searchDirectRecipes: searchDirectRecipes,
-                supermarketFilter: this.supermarketFilter,
-                vegan: this.vegan,
-                vegetarian: this.vegetarian,
-                effortLow: this.effortLow,
-                effortMedium: this.effortMedium,
-                effortHigh: this.effortHigh
+                supermarketFilter: this.supermarketFilterRecipe,
+                vegan: this.veganRecipe,
+                vegetarian: this.vegetarianRecipe,
+                effortLow: this.effortLowRecipe,
+                effortMedium: this.effortMediumRecipe,
+                effortHigh: this.effortHighRecipe
             };
             return $http.post(BASEURL + '/search/recipesearch', searchDTO);
         }
