@@ -1,9 +1,11 @@
-#savebutton{
-   background-color: $color-primary;
- }
+#savebutton {
+  background-color: $color-primary;
+  color: $color-text-inverted;
+}
 
-#cancelbutton{
+#deletebutton {
   background-color: $color-tertiary;
+  color: $color-text-inverted;
 }
 
 .ng-invalid {
@@ -16,9 +18,3 @@
   outline-color: $color-primary;
 }
 
-.messages {
-  font-size: smaller;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  color: $color-tertiary;
-}

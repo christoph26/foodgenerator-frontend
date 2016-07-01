@@ -43,30 +43,32 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
                 }
                 if (this.update.password1 !== undefined || this.update.password2 !== undefined) {
                     if (this.update.password1 != "" || this.update.password2 != "") {
-                            if (this.update.password1 === this.update.password2) {
-                                updateform.password = this.update.password1;
-                            } else {
-                                passwordsSame = false;
-                            }
+                        if (this.update.password1 === this.update.password2) {
+                            updateform.password = this.update.password1;
+                        } else {
+                            passwordsSame = false;
+                        }
                     }
                 }
+                //debugger;
                 console.log(updateform);
+                console.log($scope.$parent.user._id);
+                if (loggedIn) {
+                    if (passwordsSame) {
+                        $http.put(BASEURL + '/users/' + $scope.$parent.user._id, updateform).then(function (response) {
+                            alert("Update Successful!");
+                            // hier den erfolgsfall behandeln
 
+                            location.reload();
+                        }, function (error) {
+                            // hier den fehlerfall behandeln
+                        });
 
-                if (passwordsSame) {
-                    alert("Your passwords does match!");
-
-                    $http.put(BASEURL + '/users/' + user._id, updateform).then(function (response) {
-                        alert("Update Successful!");
-                        // hier den erfolgsfall behandeln
-                    }, function (error) {
-                        // hier den fehlerfall behandeln
-                    });
-
-                    location.reload();
-                } else {
-                    alert("Your passwords do NOT match! Please try again.");
-                    location.reload();
+                        location.reload();
+                    } else {
+                        alert("Your passwords do NOT match! Please try again.");
+                        location.reload();
+                    }
                 }
 
             }
@@ -75,6 +77,11 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
         $scope.$watch(function () {
             return currentUser.loggedIn();
         }, function (isLoggedIn) {
+
+            if (loggedIn && !$scope.user) {
+                $scope.user = currentUser.getUser();
+            }
+
             if (loggedIn != isLoggedIn) {
                 // check if state really changed to avoid endless reloading
                 loggedIn = isLoggedIn;
