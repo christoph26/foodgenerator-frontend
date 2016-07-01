@@ -21,11 +21,18 @@
 
 .buttonrecipedetail {
   background-color: $color-tertiary;
+  border-color: $color-tertiary;
   font-weight: bold;
   color: white;
   margin-right: 1em;
   margin-left: 1em;
   margin-bottom: 1em;
+}
+
+.buttonrecipedetail:hover {
+  background-color: $color-tertiary-hover;
+  border-color: $color-tertiary-hover;
+  color: white;
 }
 
 .functionbar{

@@ -25,6 +25,7 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             "description": "Preperation is simple and done in 30 minutes.",
             "vegan": false,
             "vegetarian": true,
+            "wallpicture": "img/recipes/avocado-salad-wall.jpg",
             "picture": "img/recipes/spaghetti-bolognese-classic.jpg",
             "ingredientList": [
                 {
