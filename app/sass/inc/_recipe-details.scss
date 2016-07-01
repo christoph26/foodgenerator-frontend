@@ -21,7 +21,14 @@
 
 .buttonrecipedetail {
   background-color: $color-tertiary;
+  border-color: $color-tertiary;
   font-weight: bold;
+  color: white;
+}
+
+.buttonrecipedetail:hover {
+  background-color: $color-tertiary-hover;
+  border-color: $color-tertiary-hover;
   color: white;
 }
 

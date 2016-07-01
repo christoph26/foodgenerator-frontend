@@ -23,3 +23,11 @@ nav {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: $color-secondary;
+}
+
+.dropdown-toggle {
+  border-radius: 10px;
+}
