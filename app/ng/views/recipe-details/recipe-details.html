@@ -2,59 +2,49 @@
     <div>
         <img class="headerpicture" ng-src="{{recipe.picture}}"
              alt="Titel Foto von Gericht">
-        <span class="headerrecipedetails">{{recipe.title}}</span>
+        <span class="recipetitle">{{recipe.title}}</span>
     </div>
     <div class="row functionbar">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-primary  buttonrecipedetail" ui-sref="mealplanner">ADD TO MEAL PLANNER
+        <div class="col-md-8">
+            <button type="button" class="btn btn-primary  buttonrecipedetail hidden-print" ui-sref="mealplanner">ADD TO MEAL PLANNER
             </button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-primary  buttonrecipedetail" ui-sref="shoppinglist">ADD TO SHOPPING LIST
+            <button type="button" class="btn btn-primary  buttonrecipedetail hidden-print" ui-sref="shoppinglist">ADD TO SHOPPING LIST
             </button>
-        </div>
-        <div class="col-md-1">
-            <button type="button" onClick="javascript:window.print()" class="btn btn-primary  buttonrecipedetail"><span
+            <button type="button" onClick="javascript:window.print()" class="btn btn-primary  buttonrecipedetail hidden-print"><span
                     class="glyphicon glyphicon-print"
                     aria-hidden="true"></span>
             </button>
-        </div>
-        <div class="col-md-2">
-            <br ng-if="recipe.vegan || recipe.vegetarian">
-            <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
-            <br ng-if="recipe.vegan && recipe.vegetarian">
-            <span ng-if="recipe.vegetarian"><span class="glyphicon glyphicon-ok"
-                                                  aria-hidden="true"></span> Vegetarian</span>
-
-        </div>
-        <div class="col-md-3">
-            <img ng-repeat="supermarket in recipe.availability" src="{{supermarket.icon}}" class="supermarketicon"
-                 alt="{{supermarket.title}}" width="40" height="40">
-        </div>
-    </div>
-    <div class="row descriptionrow">
-        <div class="col-md-8">
-            <b>Preperation:</b><br>
-            {{recipe.description}}
+            <div class="col-md-8 descriptionrow">
+                <b>Preperation:</b><br>
+                {{recipe.description}}
+            </div>
         </div>
         <div class="col-md-4">
-            <hr>
-            <div class="selectpersons">Ingredients for
-                <input type="number" ng-model="a" ng-init="rootFolders='1'" min="1" class="numberofperson"> Person
+            <div class="col-md-6">
+                <br ng-if="recipe.vegan || recipe.vegetarian">
+                <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
+                <br ng-if="recipe.vegan && recipe.vegetarian">
+                <span ng-if="recipe.vegetarian"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegetarian</span>
+                </div>
+            <div class="col-md-6">
+                <img ng-repeat="supermarket in recipe.availability" src="{{supermarket.icon}}" class="supermarketicon"
+                     alt="{{supermarket.title}}" width="40" height="40">
             </div>
-            <p>{{result()}}</p>
+            <hr class="hidden-print"><div class="selectpersons"><hr>
+                Ingredients for <input type="number" ng-model="person" ng-init="rootFolders='1'" min="1" class="numberofperson">Person
+            </div>
             <b>Cook Effort:</b> {{recipe.effort}}<p>
             <div ng-repeat="ingredientListe in recipe.ingredientList">
-                <b>{{ingredientListe.title}}: {{ingredientListe.amount*a}} {{ingredientListe.unit}}</b>
+                <b>{{ingredientListe.title}}: {{ingredientListe.amount*person}} {{ingredientListe.unit}}</b>
             </div>
+
         </div>
     </div>
 
-    <div class="row variationsbar">
+    <div class="row variationsbar hidden-print">
         <hr>
-        <div class="col-md-12"><b>Variations:</b><br>
-            <recipethumbnail recipe="recipevariation"
-                             ng-repeat="recipevariation in recipeVariations"></recipethumbnail>
+        <div class="col-md-12"><b>Variations:</b><p>
+            <recipethumbnail recipe="recipevariation" ng-repeat="recipevariation in recipeVariations"></recipethumbnail>
         </div>
     </div>
 </div>

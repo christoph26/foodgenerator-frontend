@@ -12,7 +12,7 @@
   z-index: -1;
 }
 
-.headerrecipedetails {
+.recipetitle {
   bottom: 0;
   line-height: 2em;
   font-size: 30px;
@@ -23,6 +23,9 @@
   background-color: $color-tertiary;
   font-weight: bold;
   color: white;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
 }
 
 .functionbar{
@@ -35,8 +38,12 @@
 .descriptionrow{
   margin-top: 1em;
   margin-right: 1em;
-  margin-left: 1em;
   margin-bottom: 1em;
+}
+
+.selectpersons{
+  margin-top: 3em;
+  font-weight: bold;
 }
 
 .numberofperson{
