@@ -1,7 +1,82 @@
-<div>
-    <h1>Meal Planner</h1>
-    <p>
-        This is the content of the meal planner page.<br/>
-        This is an example of a variable: {{exampleField}}
-    </p>
+<div class="container-fluid meal-planner">
+    <h1>Meal planner</h1>
+    <div class="headline-container row">
+        <div class="col-sm-4">
+            <p><strong>your current plan:</strong>
+            <strong ng-if="mealPlan.title">{{mealPlan.title}}</strong>
+            </p>
+        </div>
+        <div class="col-sm-8">
+            <div class="pull-right">
+                <span class="login-hint" ng-show="!loggedIn">Login for access to save/load functionality.</span>
+                <a class="button-reset btn btn-default" ng-click="resetMealPlan()">Reset</a>
+                <a class="button-load btn btn-default" ng-click="open('load')" ng-show="loggedIn">Load</a>
+                <a class="button-save-as btn btn-default" ng-click="open('save')" ng-show="loggedIn">Save as</a>
+                <a class="button-save btn btn-default" ng-click="saveMealPlan()" ng-show="loggedIn">Save</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Meal planner on large screens (stacks & scrolls horizontally) -->
+    <ul class="meal-planner-container row hidden-xs hidden-sm list-inline">
+        <li class="meal-list-container" ng-repeat="mealList in mealPlan.mealLists">
+            <meallist meal-list="mealList" removable="'true'" remove-callback="removeListCallback"></meallist>
+        </li>
+        <li class="meal-list-container">
+            <div class="thumbnail thumbnail-add-new-meal">
+                <img ng-src="img/meal-planner/icon-plus.png" ng-click="addMealList()"/>
+            </div>
+        </li>
+    </ul>
+    <!-- Meal planner on small screens (stacks vertically) -->
+    <div class="meal-planner-container row hidden-md hidden-lg">
+        <div class="meal-list-container col-md-4" ng-repeat="mealList in mealPlan.mealLists">
+            <meallist meal-list="mealList" removable="'true'" remove-callback="removeListCallback"></meallist>
+        </div>
+        <div class="meal-list-container col-md-4">
+            <div class="thumbnail thumbnail-add-new-meal">
+                <img ng-src="img/meal-planner/icon-plus.png" ng-click="addMealList()"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe recommendations -->
+    <div class="recipe-recommendations-header row">
+        <div class="col-md-6">
+            <p><strong>your marked recipes:</strong></p>
+        </div>
+        <div class="col-md-6">
+            <p><strong>your recent views:</strong></p>
+        </div>
+    </div>
+    <div class="recipe-recommendations-container row thumbnail">
+        <!-- Marked Recipes -->
+        <div class="col-md-6">
+            <!--suppress HtmlUnknownAttribute -->
+            <ul class="marked-recipes-container"
+                dnd-list="markedRecipes"
+                dnd-disable-if="true">
+                <!--suppress HtmlUnknownAttribute -->
+                <li ng-repeat="recipe in markedRecipes"
+                    dnd-draggable="{recipe: recipe, order: 0}"
+                    dnd-effect-allowed="copy">
+                    <meallabel recipe="recipe" removable="'true'" remove-callback="removeMarkedRecipeCallback"></meallabel>
+                </li>
+            </ul>
+        </div>
+        <!-- Recently viewed recipes -->
+        <div class="col-md-6">
+            <!--suppress HtmlUnknownAttribute -->
+            <ul class="recent-recipes-container"
+                dnd-list="recentRecipes"
+                dnd-disable-if="true">
+                <!--suppress HtmlUnknownAttribute -->
+                <li ng-repeat="recipe in recentRecipes"
+                    dnd-draggable="{recipe: recipe, order: 0}"
+                    dnd-effect-allowed="copy">
+                    <meallabel recipe="recipe"></meallabel>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

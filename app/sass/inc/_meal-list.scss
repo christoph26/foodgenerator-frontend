@@ -1,0 +1,19 @@
+.meal-list {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.meal-list ul {
+  max-height: 280px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+
+  font-size: initial;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.meal-list ul li:last-child .meal-label {
+  margin-bottom: 0;
+}
