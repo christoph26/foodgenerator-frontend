@@ -1,5 +1,14 @@
 <div>
     <h1>My Account</h1>
+    <div class="alert alert-danger" role="alert" ng-show="errorText">
+        <strong>Error!</strong>
+        {{errorText}}
+    </div>
+    <div class="alert alert-success" role="alert" ng-show="successText">
+        <strong>Success!</strong>
+        {{successText}}
+    </div>
+
     <div ng-if="!loggedIn">
         <br/>
         <p>
@@ -21,8 +30,7 @@
                     <input type="usr"
                            class="form-control"
                            id="inputFirstName"
-                           ng-model="update.firstName"
-                           placeholder={{user.firstName}}>
+                           ng-model="update.firstName">
                 </div>
             </div>
 
@@ -32,8 +40,7 @@
                     <input type="usr"
                            class="form-control"
                            id="inputLastName"
-                           ng-model="update.lastName"
-                           placeholder={{user.lastName}}>
+                           ng-model="update.lastName">
                 </div>
             </div>
 
@@ -43,8 +50,7 @@
                     <input type="email"
                            class="form-control"
                            id="inputEmail"
-                           ng-model="update.email"
-                           placeholder={{user.email}}>
+                           ng-model="update.email">
                 </div>
             </div>
 
