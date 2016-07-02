@@ -17,7 +17,30 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
     .controller('AccountCtrl', function ($scope, $state, currentUser, BASEURL, $http) {
         var loggedIn = currentUser.loggedIn();
 
+        $scope.delete = function () {
+            var r = confirm("Are you sure you want to delete your Account?");
+            if (r == true) {
+                var deleteform = {};
+                deleteform.email = $scope.$parent.user.email;
+                deleteform.password = this.update.passwordOld;
+                debugger;
+                $http.post(BASEURL + '/unregister/', deleteform).then(function (response) {
+                    debugger;
+                    alert(response);
+                    $scope.isLoggedIn = false;
+                    location.reload();
 
+                }, function (error) {
+                    // hier den fehlerfall behandeln
+                    debugger;
+                    alert("There was a problem, deleting your user." + error);
+                    location.reload();
+                });
+            } else {
+                location.reload();
+            }
+            location.reload();
+        }
 //pressing the button "Save Update"
         $scope.toggle = function () {
             var updateform = {}; //all the data which should be updated is added to this json doc.
@@ -35,7 +58,7 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
                         updateform.lastName = this.update.lastName;
                     }
                 }
-                debugger;
+
                 if (this.update.email !== undefined) {
                     if (this.update.email != "") {
                         updateform.email = this.update.email;

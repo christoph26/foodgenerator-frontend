@@ -49,7 +49,7 @@
             </div>
 
             <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <label for="inputPassword" class="col-sm-2 control-label">New Password</label>
                 <div class="col-sm-3">
                     <input type="password"
                            class="form-control"
@@ -82,10 +82,25 @@
                             class="btn btn-default btn-block">Save Update</button>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-1" >
+                    <br>
+                </div>
+            </div>
 
             <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-3">
+                    <input type="password"
+                           class="form-control"
+                           id="inputPasswordOld"
+                           ng-model="update.passwordOld"
+                           placeholder="Enter password to delete user">
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-2" >
-                    <button type="submit"
+                    <button type="ng-submit"
                             id="deletebutton"
                             ng-click="delete()"
                             class="btn btn-default btn-block">Delete User </button>
