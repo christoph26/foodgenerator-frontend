@@ -3,20 +3,20 @@
     angular.module('foodGenerator')
         .service('recipeStorageService', recipeStorageService);
 
-    function recipeStorageService($window) {
+    function recipeStorageService($window, recipeService) {
 
         this.addMarkedRecipe = addMarkedRecipe;
         this.removeMarkedRecipe = removeMarkedRecipe;
-        this.getMarkedRecipeIds = getMarkedRecipeIds;
+        this.getMarkedRecipes = getMarkedRecipes;
         this.clearMarkedRecipes = clearMarkedRecipes;
 
         this.addRecentlyViewedRecipe = addRecentlyViewedRecipe;
-        this.getRecentlyViewedRecipeIds = getRecentlyViewedRecipeIds;
+        this.getRecentlyViewedRecipes = getRecentlyViewedRecipes;
         this.clearRecentlyViewedRecipes = clearRecentlyViewedRecipes;
 
         this.addToShoppingList = addToShoppingList;
         this.removeFromShoppingList = removeFromShoppingList;
-        this.getShoppingList = getShoppingList;
+        this.getShoppingListRecipes = getShoppingListRecipes;
         this.clearShoppingList = clearShoppingList;
 
         ////////////////
@@ -36,8 +36,8 @@
             }
         }
 
-        function getMarkedRecipeIds() {
-            return getRecipeStorage('foodgenerator.recipes.marked');
+        function getMarkedRecipes() {
+            return getRecipesFromIdList(getRecipeStorage('foodgenerator.recipes.marked'));
         }
 
         function clearMarkedRecipes() {
@@ -51,8 +51,8 @@
             addRecipeToStorage(recipe, 'foodgenerator.recipes.recent');
         }
 
-        function getRecentlyViewedRecipeIds() {
-            return getRecipeStorage('foodgenerator.recipes.recent');
+        function getRecentlyViewedRecipes() {
+            return getRecipesFromIdList(getRecipeStorage('foodgenerator.recipes.recent'));
         }
 
         function clearRecentlyViewedRecipes() {
@@ -74,8 +74,8 @@
             }
         }
 
-        function getShoppingList() {
-            return getRecipeStorage('foodgenerator.recipes.shopping');
+        function getShoppingListRecipes() {
+            return getRecipesFromIdList(getRecipeStorage('foodgenerator.recipes.shopping'));
         }
 
         function clearShoppingList() {
@@ -138,6 +138,17 @@
 
         function clearRecipeStorage(storageName) {
             $window.localStorage.removeItem(storageName);
+        }
+
+        function getRecipesFromIdList(recipeIds) {
+            var recipes = [];
+            for (var index in recipeIds) {
+                //noinspection JSUnfilteredForInLoop
+                recipeService.get(recipeIds[index]).then(function (response) {
+                    recipes.push(response.data);
+                })
+            }
+            return recipes;
         }
 
     }
