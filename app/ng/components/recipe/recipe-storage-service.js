@@ -37,7 +37,7 @@
         }
 
         function getMarkedRecipeIds() {
-            return $window.localStorage['foodgenerator.recipes.marked'];
+            return getRecipeStorage('foodgenerator.recipes.marked');
         }
 
         function clearMarkedRecipes() {
@@ -52,7 +52,7 @@
         }
 
         function getRecentlyViewedRecipeIds() {
-            return $window.localStorage['foodgenerator.recipes.recent'];
+            return getRecipeStorage('foodgenerator.recipes.recent');
         }
 
         function clearRecentlyViewedRecipes() {
@@ -75,7 +75,7 @@
         }
 
         function getShoppingList() {
-            return $window.localStorage['foodgenerator.recipes.shopping'];
+            return getRecipeStorage('foodgenerator.recipes.shopping');
         }
 
         function clearShoppingList() {
@@ -85,36 +85,55 @@
         // Generic Functions
 
         function addRecipeToStorage(recipe, storageName) {
-            var recipeStorage = $window.localStorage[storageName];
-
             // in case it is contained, remove element from current position
             removeRecipeFromStorage(recipe, storageName);
 
             // create a new list with the new recipe as only item
             var reorderedStorage = [recipe._id];
-            if (recipeStorage != undefined) {
-                // append other recipes if defined
-                reorderedStorage.append(recipeStorage);
+
+            // append other recipes if defined
+            var recipeStorage = getRecipeStorage(storageName);
+            if (recipeStorage) {
+                reorderedStorage.push.apply(reorderedStorage, recipeStorage);
             }
-            $window.localStorage[storageName] = reorderedStorage;
+
+            // save back to local storage
+            setRecipeStorage(storageName, reorderedStorage);
         }
 
         function removeRecipeFromStorage(recipe, storageName) {
-            var recipeStorage = $window.localStorage[storageName];
-            if (recipeStorage) {
+            var recipeStorage = getRecipeStorage(storageName);
+            if (recipeStorage && recipeStorage.length) {
                 var recipeIndex = recipeStorage.indexOf(recipe._id);
 
                 if (recipeIndex > 0) {
                     // remove if list not empty and not a single element
                     recipeStorage.splice(recipeIndex, 1);
+                    setRecipeStorage(storageName, recipeStorage);
                     return true;
                 } else if (recipeIndex == 0) {
                     // clear if it the only element
                     clearRecipeStorage(storageName);
-                } else {
-                    return false;
                 }
             }
+            return false;
+        }
+
+        function getRecipeStorage(storageName) {
+            var recipeStorage = $window.localStorage[storageName];
+            if (recipeStorage == undefined) {
+                return [];
+            }
+            return recipeStorage.split(",");
+        }
+
+        function setRecipeStorage(storageName, recipeStorage) {
+            var storageString = "";
+            for (var index in recipeStorage) {
+                //noinspection JSUnfilteredForInLoop
+                storageString += recipeStorage[index];
+            }
+            $window.localStorage[storageName] = storageString;
         }
 
         function clearRecipeStorage(storageName) {
