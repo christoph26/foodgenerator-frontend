@@ -41,7 +41,7 @@
         }
 
         function clearMarkedRecipes() {
-            $window.localStorage.removeItem('foodgenerator.recipes.marked');
+            clearRecipeStorage('foodgenerator.recipes.marked');
         }
 
         // Recently Viewed Recipes
@@ -56,7 +56,7 @@
         }
 
         function clearRecentlyViewedRecipes() {
-            $window.localStorage.removeItem('foodgenerator.recipes.marked');
+            clearRecipeStorage('foodgenerator.recipes.marked');
         }
 
         // Shopping List
@@ -79,7 +79,7 @@
         }
 
         function clearShoppingList() {
-            $window.localStorage.removeItem('foodgenerator.recipes.shopping');
+            clearRecipeStorage('foodgenerator.recipes.shopping');
         }
 
         // Generic Functions
@@ -104,13 +104,21 @@
             if (recipeStorage) {
                 var recipeIndex = recipeStorage.indexOf(recipe._id);
 
-                if (recipeIndex > -1) {
+                if (recipeIndex > 0) {
+                    // remove if list not empty and not a single element
                     recipeStorage.splice(recipeIndex, 1);
                     return true;
+                } else if (recipeIndex == 0) {
+                    // clear if it the only element
+                    clearRecipeStorage(storageName);
                 } else {
                     return false;
                 }
             }
+        }
+
+        function clearRecipeStorage(storageName) {
+            $window.localStorage.removeItem(storageName);
         }
 
     }
