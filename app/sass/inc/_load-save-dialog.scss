@@ -1,0 +1,23 @@
+.load-save-form .nav {
+  margin-bottom: 20px;
+}
+
+.load-save-form .modal-body {
+  padding-bottom: 0;
+}
+
+.load-save-form .button-load,
+.load-save-form .button-save {
+  background-color: $color-tertiary;
+  color: white;
+}
+
+.meal-plan-load-select-container,
+.meal-plan-delete-select-container,
+.meal-plan-naming-container {
+  margin-bottom: 20px;
+}
+
+.meal-plan-naming-container input {
+  font-weight: normal;
+}

@@ -3,9 +3,10 @@
         <div class="input-group style-{{bartype}}">
             <input ng-show="bartype == 'recipes'" type="text" class="form-control"
                    placeholder="Search for {{bartype}}..."
-                   ng-model="searchBarInput">
+                   ng-model="recipeSearchBarInput">
 
-            <tags-input ng-show="bartype == 'ingredients'" ng-model="tags" placeholder="Add an ingredient">
+            <tags-input ng-show="bartype == 'ingredients'" ng-model="ingredientSearchBarInput"
+                        placeholder="Add an ingredient">
                 <auto-complete source="loadIngredient($query)"></auto-complete>
             </tags-input>
         <span class="input-group-btn">

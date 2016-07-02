@@ -1,0 +1,49 @@
+.meal-label {
+  margin-bottom: 20px;
+}
+
+.meal-label-img {
+  height: 5em;
+}
+
+.meal-label-img > * {
+  height: 100%;
+  width: auto;
+
+  border: none;
+}
+
+.meal-label > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.meal-label-caption {
+  width: 100%;
+  padding: 1em;
+
+  background-color: $color-primary;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  font-weight: bold;
+  color: white;
+}
+
+.meal-label-caption > button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.meal-label-add > .meal-label-caption {
+  background-color: transparent;
+  border: 3px dashed $color-tertiary;
+
+  color: $color-tertiary;
+}
+
+.meal-label-add .meal-label-img {
+  border: 3px dashed $color-tertiary;
+  border-right: none;
+}
