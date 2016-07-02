@@ -41,8 +41,8 @@
                                        class="numberofperson">Person
             </div>
             <b>Cook Effort:</b> {{recipe.effort}}<p>
-            <div ng-repeat="ingredientListe in recipe.ingredientList">
-                <b>{{ingredientListe.title}}: {{ingredientListe.amount*person}} {{ingredientListe.unit}}</b>
+            <div ng-repeat="ingredient in recipe.ingredientList">
+                <b>{{ingredient.title}}: {{ingredient.amount * person}} {{ingredient.unit}}</b>
             </div>
 
         </div>
