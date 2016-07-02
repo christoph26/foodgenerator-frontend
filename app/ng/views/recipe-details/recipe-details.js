@@ -14,16 +14,33 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('RecipeDetailCtrl', function ($scope, $http, BASEURL) {
+    .controller('RecipeDetailCtrl', function ($scope, $http, recipeStorageService, BASEURL) {
         $scope.person = 1;
         $scope.recipe = exampleRecipe;
 
+        if ($scope.recipe != undefined) {
+            $http.get(BASEURL + '/recipes/recipeFamily/' + $scope.recipe._id).then(function (response) {
+                $scope.recipeVariations = response.data;
+            }, function () {
+                $scope.recipeVariations = [];
+            });
+        }
 
-        $http.get(BASEURL + '/recipes/recipeFamily/' + $scope.recipe._id).then(function (response) {
-            $scope.recipeVariations = response.data;
-        }, function () {
-            $scope.recipeVariations = [];
-        });
+        $scope.addToMealPlanner = addToMealPlanner;
+        $scope.addToShoppingList = addToShoppingList;
+
+        //////////////////////
+
+        function addToMealPlanner(recipe) {
+            recipeStorageService.addMarkedRecipe(recipe);
+            // TODO disable button and signalize success
+        }
+
+        function addToShoppingList(recipe) {
+            recipeStorageService.addToShoppingList(recipe);
+            // TODO disable button and signalize success
+        }
+
     })
 ;
 
