@@ -124,6 +124,7 @@
             if (recipeStorage == undefined) {
                 return [];
             }
+            console.log("Returning recipe storage '" + storageName + "': " + recipeStorage);
             return recipeStorage.split(",");
         }
 
