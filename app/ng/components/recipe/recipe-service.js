@@ -1,9 +1,9 @@
 (function () {
 
     angular.module('foodGenerator')
-        .service('recipeService', mealPlanService);
+        .service('recipeService', recipeService);
 
-    function mealPlanService(BASEURL, $http) {
+    function recipeService(BASEURL, $http) {
 
         this.get = getRecipe;
 
