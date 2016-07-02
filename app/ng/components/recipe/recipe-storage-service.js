@@ -85,24 +85,31 @@
         // Generic Functions
 
         function addRecipeToStorage(recipe, storageName) {
+            var recipeStorage = $window.localStorage[storageName];
+
             // in case it is contained, remove element from current position
             removeRecipeFromStorage(recipe, storageName);
 
-            // put recipe to the top of the list
-            var reorderedStorage = [recipe._id];                            // create a new list with the new recipe as only item
-            reorderedStorage.append($window.localStorage[storageName]);     // append other recipes
+            // create a new list with the new recipe as only item
+            var reorderedStorage = [recipe._id];
+            if (recipeStorage != undefined) {
+                // append other recipes if defined
+                reorderedStorage.append(recipeStorage);
+            }
             $window.localStorage[storageName] = reorderedStorage;
         }
 
         function removeRecipeFromStorage(recipe, storageName) {
             var recipeStorage = $window.localStorage[storageName];
-            var recipeIndex = recipeStorage.indexOf(recipe._id);
+            if (recipeStorage) {
+                var recipeIndex = recipeStorage.indexOf(recipe._id);
 
-            if (recipeIndex > -1) {
-                recipeStorage.splice(recipeIndex, 1);
-                return true;
-            } else {
-                return false;
+                if (recipeIndex > -1) {
+                    recipeStorage.splice(recipeIndex, 1);
+                    return true;
+                } else {
+                    return false;
+                }
             }
         }
 
