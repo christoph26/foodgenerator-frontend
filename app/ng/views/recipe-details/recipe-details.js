@@ -24,6 +24,7 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             }, function () {
                 $scope.recipeVariations = [];
             });
+            recipeStorageService.addRecentlyViewedRecipe($scope.recipe);
         }
 
         $scope.addToMealPlanner = addToMealPlanner;
