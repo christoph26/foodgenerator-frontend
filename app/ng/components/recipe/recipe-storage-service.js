@@ -131,8 +131,9 @@
             var storageString = "";
             for (var index in recipeStorage) {
                 //noinspection JSUnfilteredForInLoop
-                storageString += recipeStorage[index];
+                storageString += recipeStorage[index] + ",";
             }
+            storageString = storageString.slice(0, -1);
             $window.localStorage[storageName] = storageString;
         }
 
