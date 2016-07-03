@@ -29,7 +29,7 @@ angular.module('foodGenerator.shoppingList', ['ngResource', 'ui.router'])
 
         function printShoppingList() {
             debugger;
-            // window.print();
+            window.print();
         }
 
     })
