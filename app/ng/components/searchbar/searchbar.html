@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-4"> Availiability: <p>
                     <img ng-class="checkImgClass(supermarket._id)" ng-repeat="supermarket in supermarkets"
-                         src="{{supermarket.icon}}" name="{{supermarket._id}}"
+                         ng-src="{{supermarket.icon}}" name="{{supermarket._id}}"
                          ng-click="clickSupermarket(supermarket._id)" alt="{{supermarket.title}}" width="40"
                          height="40">
                 </div>
