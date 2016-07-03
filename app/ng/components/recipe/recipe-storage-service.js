@@ -25,11 +25,11 @@
 
         function addMarkedRecipe(recipe) {
             console.log("Adding recipe '" + recipe.title + "' to marked recipes.");
-            addRecipeToStorage(recipe, 'foodgenerator.recipes.marked');
+            addRecipeToStorage(recipe._id, 'foodgenerator.recipes.marked');
         }
 
         function removeMarkedRecipe(recipe) {
-            if (removeRecipeFromStorage(recipe, 'foodgenerator.recipes.marked')) {
+            if (removeRecipeFromStorage(recipe._id, 'foodgenerator.recipes.marked')) {
                 console.log("Removed recipe '" + recipe.title + "' from marked recipes.");
             } else {
                 console.error("Could not remove recipe '" + recipe.title + "': not contained in marked recipe list.");
@@ -48,7 +48,7 @@
 
         function addRecentlyViewedRecipe(recipe) {
             console.log("Registering new view for recipe '" + recipe.title + "'.");
-            addRecipeToStorage(recipe, 'foodgenerator.recipes.recent');
+            addRecipeToStorage(recipe._id, 'foodgenerator.recipes.recent');
         }
 
         function getRecentlyViewedRecipes() {
@@ -61,13 +61,13 @@
 
         // Shopping List
 
-        function addToShoppingList(recipe) {
-            console.log("Adding recipe '" + recipe.title + "' to shopping list.");
-            addRecipeToStorage(recipe, 'foodgenerator.recipes.shopping');
+        function addToShoppingList(recipe, personCount) {
+            console.log("Adding recipe '" + recipe.title + ":" + personCount + "' to shopping list.");
+            addRecipeToStorage(recipe._id + ":" + personCount, 'foodgenerator.recipes.shopping');
         }
 
-        function removeFromShoppingList(recipe) {
-            if (removeRecipeFromStorage(recipe, 'foodgenerator.recipes.shopping')) {
+        function removeFromShoppingList(recipe, personCount) {
+            if (removeRecipeFromStorage(recipe._id + ":" + personCount, 'foodgenerator.recipes.shopping')) {
                 console.log("Removed recipe '" + recipe.title + "' from shopping list.");
             } else {
                 console.error("Could not remove recipe '" + recipe.title + "': not contained in shopping list.");
@@ -75,7 +75,22 @@
         }
 
         function getShoppingListRecipes() {
-            return getRecipesFromIdList(getRecipeStorage('foodgenerator.recipes.shopping'));
+            var recipeStorage = getRecipeStorage('foodgenerator.recipes.shopping');
+            var recipeIds = [];
+
+            // split the recipe ids from the persisted string "<recipeId>:<personCount>"
+            recipeStorage.forEach(function (recipeStorageItem) {
+                recipeIds.push(recipeStorageItem.split(":")[0]);
+            });
+
+            // load the actual recipes from the backend and append the person count
+            var recipes = getRecipesFromIdList(recipeIds);
+            for (var index in recipes) {
+                //noinspection JSUnfilteredForInLoop
+                recipes[index]["persons"] = recipeStorage[index].split(":")[1];
+            }
+
+            return recipes;
         }
 
         function clearShoppingList() {
@@ -84,12 +99,12 @@
 
         // Generic Functions
 
-        function addRecipeToStorage(recipe, storageName) {
+        function addRecipeToStorage(recipeString, storageName) {
             // in case it is contained, remove element from current position
-            removeRecipeFromStorage(recipe, storageName);
+            removeRecipeFromStorage(recipeString, storageName);
 
             // create a new list with the new recipe as only item
-            var reorderedStorage = [recipe._id];
+            var reorderedStorage = [recipeString];
 
             // append other recipes if defined
             var recipeStorage = getRecipeStorage(storageName);
@@ -101,10 +116,10 @@
             setRecipeStorage(storageName, reorderedStorage);
         }
 
-        function removeRecipeFromStorage(recipe, storageName) {
+        function removeRecipeFromStorage(recipeString, storageName) {
             var recipeStorage = getRecipeStorage(storageName);
             if (recipeStorage && recipeStorage.length) {
-                var recipeIndex = recipeStorage.indexOf(recipe._id);
+                var recipeIndex = recipeStorage.indexOf(recipeString);
 
                 if (recipeIndex > -1 && recipeStorage.length == 1) {
                     // clear if it is the only element
