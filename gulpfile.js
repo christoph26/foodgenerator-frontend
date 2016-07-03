@@ -89,11 +89,16 @@ gulp.task('app-js', function () {
     //first list files that define new modules. the module definitions must be at the beginning
     return gulp.src(['app/ng/**/app.js',
         'app/ng/views/home/home.js',
+        'app/ng/views/about/about.js',
         'app/ng/views/account/account.js',
-        'app/ng/views/search-recipes/search-recipes.js',
-        'app/ng/views/search-ingredients/search-ingredients.js',
+        'app/ng/views/contact/contact.js',
         'app/ng/views/meal-planner/meal-planner.js',
+        'app/ng/views/privacy/privacy.js',
         'app/ng/views/recipe-details/recipe-details.js',
+        'app/ng/views/search-ingredients/search-ingredients.js',
+        'app/ng/views/search-recipes/search-recipes.js',
+        'app/ng/views/shoppinglist/shoppinglist.js',
+        'app/ng/views/terms/terms.js',
         'app/ng/**/*.js'])
         .pipe(plumber())
         /*
