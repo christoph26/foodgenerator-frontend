@@ -12,16 +12,16 @@ angular.module('foodGenerator', [
     'foodGenerator.search.recipes',
     'foodGenerator.mealPlanner',
     'foodGenerator.recipeDetail',
+    'foodGenerator.shoppingList',
     'foodGenerator.terms',
     'foodGenerator.about',
     'foodGenerator.contact',
-    'foodGenerator.privacy',    
+    'foodGenerator.privacy',
     'templates',
     'ngTagsInput'
 ])
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-
         // For any unmatched url, redirect to /home
         $urlRouterProvider.otherwise("/home");
 

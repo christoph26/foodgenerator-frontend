@@ -47,8 +47,8 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
             // TODO disable button and signalize success
         }
 
-        function addToShoppingList(recipe) {
-            recipeStorageService.addToShoppingList(recipe);
+        function addToShoppingList(recipe, personCount) {
+            recipeStorageService.addToShoppingList(recipe, personCount);
             // TODO disable button and signalize success
         }
 

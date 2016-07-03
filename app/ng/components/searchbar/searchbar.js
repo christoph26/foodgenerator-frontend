@@ -97,8 +97,6 @@ angular.module('foodGenerator')
                     } else {
                         this.supermarketFilter.push(id);
                     }
-                    SearchService.supermarketFilterRecipe;
-                    SearchService.supermarketFilterIngredient;
                 };
 
                 $scope.checkImgClass = function (id) {
