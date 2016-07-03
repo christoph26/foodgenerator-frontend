@@ -56,7 +56,7 @@
         }
 
         function clearRecentlyViewedRecipes() {
-            clearRecipeStorage('foodgenerator.recipes.marked');
+            clearRecipeStorage('foodgenerator.recipes.recent');
         }
 
         // Shopping List
@@ -106,14 +106,14 @@
             if (recipeStorage && recipeStorage.length) {
                 var recipeIndex = recipeStorage.indexOf(recipe._id);
 
-                if (recipeIndex > 0) {
+                if (recipeIndex > -1 && recipeStorage.length == 1) {
+                    // clear if it is the only element
+                    clearRecipeStorage(storageName);
+                    return true;
+                } else if (recipeIndex > -1) {
                     // remove if list not empty and not a single element
                     recipeStorage.splice(recipeIndex, 1);
                     setRecipeStorage(storageName, recipeStorage);
-                    return true;
-                } else if (recipeIndex == 0) {
-                    // clear if it the only element
-                    clearRecipeStorage(storageName);
                     return true;
                 }
             }
@@ -125,6 +125,7 @@
             if (recipeStorage == undefined) {
                 return [];
             }
+            console.log("Returning recipe storage '" + storageName + "': " + recipeStorage);
             return recipeStorage.split(",");
         }
 
@@ -132,8 +133,9 @@
             var storageString = "";
             for (var index in recipeStorage) {
                 //noinspection JSUnfilteredForInLoop
-                storageString += recipeStorage[index];
+                storageString += recipeStorage[index] + ",";
             }
+            storageString = storageString.slice(0, -1);
             $window.localStorage[storageName] = storageString;
         }
 

@@ -6,9 +6,8 @@ angular.module('foodGenerator')
             scope: {
                 recipe: '='
             },
-            controller: function ($scope, $state, SearchService, Supermarket) {
+            controller: function ($scope) {
                 $scope.generateMissingIngredientsString = function (ingredientList) {
-                    debugger;
                     if (ingredientList.length == 0) {
                         return "";
                     }
@@ -19,7 +18,6 @@ angular.module('foodGenerator')
                     }
 
                     return missingIngredientsstring;
-
                 };
             }
         }
