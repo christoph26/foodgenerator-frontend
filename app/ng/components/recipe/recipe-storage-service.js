@@ -114,6 +114,7 @@
                 } else if (recipeIndex == 0) {
                     // clear if it the only element
                     clearRecipeStorage(storageName);
+                    return true;
                 }
             }
             return false;
