@@ -1,9 +1,9 @@
-<nav class="navbar">
+<nav class="navbar app-nav">
     <ul class="nav navbar-nav navbar-left">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="search.recipes">Recipe Search</a></li>
-        <li><a ui-sref="search.ingredients">Ingredient Search</a></li>
-        <li><a ui-sref="mealPlanner">Meal Planner</a></li>
+        <li ng-class="isActiveNav('home')"><a ui-sref="home">Home</a></li>
+        <li ng-class="isActiveNav('search.recipes')"><a ui-sref="search.recipes">Recipe Search</a></li>
+        <li ng-class="isActiveNav('search.ingredients')"><a ui-sref="search.ingredients">Ingredient Search</a></li>
+        <li ng-class="isActiveNav('mealPlanner')"><a ui-sref="mealPlanner">Meal Planner</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right">
         <!-- not logged in -->
@@ -30,11 +30,19 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a ui-sref="account">My Account <i class="glyphicon glyphicon-user" aria-hidden="true"></i></a>
+                    <a ui-sref="account">My Account
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                    </a>
                 </li>
                 <li>
-                    <a href ng-click="logout()">Logout <i class="glyphicon glyphicon-log-out"
-                                                          aria-hidden="true"></i></a>
+                    <a ui-sref="shoppingList">Shopping List
+                        <i class="glyphicon glyphicon-th-list" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href ng-click="logout()">Logout
+                        <i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>
+                    </a>
                 </li>
             </ul>
         </li>

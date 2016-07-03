@@ -1,5 +1,5 @@
-# sebamaster-movie-frontend application
-Movies example application based on AngularJS. Backend can be found [here](https://bitbucket.org/sebischair/sebamaster-movie-backend/overview)
+# sebamaster-foodgenerator-frontend application
+Recipes application based on AngularJS. Backend can be found [here](https://github.com/christoph26/foodgenerator-backend)
 
 ## Prerequisites
 

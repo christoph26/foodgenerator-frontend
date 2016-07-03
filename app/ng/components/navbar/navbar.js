@@ -3,7 +3,7 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/navbar/navbar.html",
-            controller: function ($scope, currentUser, $uibModal) {
+            controller: function ($scope, currentUser, $uibModal, $state) {
                 $scope.user = null;
 
                 $scope.logout = logout;
@@ -40,6 +40,10 @@ angular.module('foodGenerator')
                     // }, function () {
                     //     $log.info('Modal dismissed at: ' + new Date());
                     // });
+                };
+
+                $scope.isActiveNav = function (state) {
+                    return ($state.current.name === state) ? 'active' : '';
                 };
 
                 function logout() {

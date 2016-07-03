@@ -4,18 +4,24 @@
 angular.module('foodGenerator', [
     'ui.router',
     'ui.bootstrap',
+    'dndLists',
     'foodGenerator.home',
     'foodGenerator.account',
     'foodGenerator.search',
-    'foodGenerator.search.recipes',
     'foodGenerator.search.ingredients',
-    'foodGenerator.search.results',
+    'foodGenerator.search.recipes',
     'foodGenerator.mealPlanner',
-    'templates'
+    'foodGenerator.recipeDetail',
+    'foodGenerator.shoppingList',
+    'foodGenerator.terms',
+    'foodGenerator.about',
+    'foodGenerator.contact',
+    'foodGenerator.privacy',
+    'templates',
+    'ngTagsInput'
 ])
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-
         // For any unmatched url, redirect to /home
         $urlRouterProvider.otherwise("/home");
 

@@ -11,8 +11,12 @@
   }
 }
 
-.searchbar {
+.searchbar-recipes {
   margin-top: 4.67em;   // corresponds to hardcoded logo size
+}
+
+.searchbar-ingredients {
+  margin-top: 1em;
 }
 
 .input-group {
@@ -28,8 +32,25 @@
   margin-top: 0.8em;
   padding-left: 0.6em;
   padding-top: 0.6em;
-  background-color: $color-primary;
   border-style: solid;
-  border-color: $color-primary;
   border-radius: 5px;
+}
+
+.style-recipes {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.style-ingredients {
+  background-color: $color-tertiary;
+  border-color: $color-tertiary;
+}
+
+tags-input .tags .tag-item {
+  background-color: $color-tertiary;
+  border-color: $color-tertiary;
+}
+
+tags-input .tags .tag-item .remove-button {
+  color: white;
 }

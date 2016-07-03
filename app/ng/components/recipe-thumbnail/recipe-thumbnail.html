@@ -1,24 +1,24 @@
 <div class="col-sm-3">
-    <div class="recipe-overview">
-        <div class="row">
-            <div class="col-sm-6 col-md-12">
-                <div class="thumbnail">
-                    <img class="thumbpictureofrecipe" ng-src="{{recipe.picture}}" alt="Foto von Gericht" width="260"
-                         height="260">
-                    <div class="caption">
-                        <h3>{{recipe.title}}</h3>
-                        <hr ng-if="recipe.vegan || recipe.vegetarian">
-                        <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
-                        <br ng-if="recipe.vegan && recipe.vegetarian">
-                        <span ng-if="recipe.vegetarian"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegetarian</span>
+    <div class="thumbnail">
+        <a ui-sref="recipeDetail({recipeId: recipe._id })">
+            <img class="thumbpictureofrecipe" ng-src="{{recipe.picture}}" alt="Foto von Gericht" width="260" height="260">
+        </a>
+        <div class="caption">
+            <h3><a ui-sref="recipeDetail({recipeId: recipe._id })">{{recipe.title}}</a></h3>
+            <hr ng-if="recipe.vegan || recipe.vegetarian">
+            <span ng-if="recipe.vegan"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Vegan</span>
+            <br ng-if="recipe.vegan && recipe.vegetarian">
+            <span ng-if="recipe.vegetarian"><span class="glyphicon glyphicon-ok"
+                                                  aria-hidden="true"></span> Vegetarian</span>
 
-                        <hr>
-                        <img ng-repeat="supermarket in recipe.availability" src="{{supermarket.icon}}"
-                             class="supermarketicon" alt="{{supermarket.title}}" width="40" height="40">
-                        <hr>
-                        <button class="btn btn-success buttonrecipe">Show Recipe</button>
-                    </div>
-                </div>
+            <hr>
+            <img ng-repeat="supermarket in recipe.availability" ng-src="{{supermarket.icon}}"
+                 class="supermarketicon" alt="{{supermarket.title}}" width="40" height="40">
+
+            <div ng-if="recipe.searchResult.notUsedIngredients && recipe.searchResult.notUsedIngredients.length != 0">
+                <hr>
+                Missing ingredients:<br>
+                <p ng-bind="generateMissingIngredientsString(recipe.searchResult.notUsedIngredients)"></p>
             </div>
         </div>
     </div>

@@ -1,17 +1,28 @@
-<div class="searchbar">
-    <div ng-if="true">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for recipes..." ng-model="searchBarInput">
+<div class="searchbar-{{bartype}} hidden-print">
+    <div ng-if="bartype">
+        <div class="input-group style-{{bartype}}">
+            <input ng-show="bartype == 'recipes'" type="text" class="form-control"
+                   placeholder="Search for {{bartype}}..."
+                   ng-model="recipeSearchBarInput">
+
+            <tags-input ng-show="bartype == 'ingredients'" ng-model="ingredientSearchBarInput"
+                        placeholder="Add an ingredient">
+                <auto-complete source="loadIngredient($query)"></auto-complete>
+            </tags-input>
         <span class="input-group-btn">
-            <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters"
+            <button class="btn btn-default" data-toggle="collapse" data-target=".searchfilters-{{bartype}}"
                     ng-click="updateGlyphicon()">
             <span class="glyphicon glyphicon-chevron-{{expanded}}" aria-hidden="true"></span>
             </button>
-            <button class="btn btn-default" type="button" ng-click="setTermAndPerformSearch()">Search</button>
+            <button ng-if="bartype == 'recipes'" class="btn btn-default" type="button"
+                    ng-click="setTermAndPerformRecipeSearch()">Search</button>
+            <button ng-if="bartype == 'ingredients'" class="btn btn-default" type="button"
+                    ng-click="setTermAndPerformIngredientSearch()">Search Ingredients</button>
+
         </span>
         </div>
 
-        <div class="searchfilters collapse">
+        <div class="searchfilters searchfilters-{{bartype}} style-{{bartype}} collapse">
             <div class="row">
                 <div class="col-md-4"> Nutrition:
                     <div class="checkbox">
@@ -34,7 +45,7 @@
                 </div>
                 <div class="col-md-4"> Availiability: <p>
                     <img ng-class="checkImgClass(supermarket._id)" ng-repeat="supermarket in supermarkets"
-                         src="{{supermarket.icon}}" name="{{supermarket._id}}"
+                         ng-src="{{supermarket.icon}}" name="{{supermarket._id}}"
                          ng-click="clickSupermarket(supermarket._id)" alt="{{supermarket.title}}" width="40"
                          height="40">
                 </div>
@@ -44,12 +55,12 @@
         <!--<div ng-if="bartype == 'ingredients'">
                 <div class="alert alert-danger" role="alert">Ingredient search not yet implemented</div>
             </div>
-
-            <div ng-if="!bartype">
-                <div class="alert alert-danger" role="alert">
-                    <strong>Implementation error!</strong>
-                    Need to specify "bartype" attribute on searchbar html element!
-                </div>
-            </div>-->
+-->
+        <div ng-if="!bartype">
+            <div class="alert alert-danger" role="alert">
+                <strong>Implementation error!</strong>
+                Need to specify "bartype" attribute on searchbar html element!
+            </div>
+        </div>
     </div>
 </div>

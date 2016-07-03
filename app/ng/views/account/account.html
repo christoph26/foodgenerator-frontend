@@ -1,21 +1,94 @@
-<div>
+<div class="my-account">
     <h1>My Account</h1>
+    <div class="alert alert-danger" role="alert" ng-show="errorText">
+        <strong>Error!</strong>
+        {{errorText}}
+    </div>
+    <div class="alert alert-success" role="alert" ng-show="successText">
+        <strong>Success!</strong>
+        {{successText}}
+    </div>
+
+    <!-- not logged in-->
     <div ng-if="!loggedIn">
         <br/>
         <p>
             You are currently not logged in.
         </p>
     </div>
+
+    <!-- logged in -->
     <div ng-if="loggedIn">
-        <p>
-            Welcome to your account page!<br/>
-            <br/>
-            You are currently logged in.<br/>
-            <br/>
-            Your email is: <strong>{{user.email}}</strong><br/>
-            Your first name is: <strong>{{user.firstName}}</strong><br/>
-            Your last name is: <strong>{{user.lastName}}</strong><br/>
-        </p>
+        <h3>Profile update</h3>
+        <hr>
+        <form class="form-horizontal user-update-form">
+            <!-- first name input -->
+            <div class="form-group">
+                <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputFirstName" ng-model="update.firstName">
+                </div>
+            </div>
+            <!-- last name input -->
+            <div class="form-group">
+                <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputLastName" ng-model="update.lastName">
+                </div>
+            </div>
+            <!-- email input -->
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-3">
+                    <input type="email" class="form-control" id="inputEmail" ng-model="update.email">
+                </div>
+            </div>
+            <!-- password input -->
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">New Password</label>
+                <div class="col-sm-3">
+                    <input type="password" class="form-control" id="inputPassword"
+                           ng-model="update.password1" placeholder="New Password">
+                </div>
+                <div class="col-sm-3">
+                    <input type="password" class="form-control" id="inputPasswordRep"
+                           ng-model="update.password2" placeholder="Repeat Password" compare-to="update.password1">
+                </div>
+            </div>
+            <!-- save button -->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" id="savebutton" ng-click="toggle()" class="btn btn-default btn-block">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <h3>Account deletion</h3>
+        <hr>
+        <form class="form-horizontal user-delete-form">
+            <!-- password input -->
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-3">
+                    <input type="password" class="form-control" id="inputPasswordOld"
+                           ng-model="update.passwordOld" placeholder="Enter password to delete user">
+                </div>
+            </div>
+            <!-- delete button -->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" id="deletebutton" ng-click="delete()" class="btn btn-default btn-block">
+                        Delete user
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <h3>History reset</h3>
+        <hr>
+        <button class="btn btn-default" ng-click="resetRecentViews()">Click to reset recent views</button>
     </div>
 
 </div>

@@ -4,20 +4,32 @@ angular.module('foodGenerator')
             restrict: "E",
             templateUrl: "components/searchbar/searchbar.html",
             scope: {
-                bartype: '<'               // read-only access to the bartype html attribute
+                bartype: '@'               // the evaluated value in the attribute 'bartype' is bound into the scope as String
             },
             controller: function ($scope, $state, SearchService, Supermarket) {
                 $scope.supermarkets = Supermarket.query();
                 $scope.expanded = "down";
 
-                //Input values:
-                $scope.searchBarInput = SearchService.searchTerm;
-                $scope.vegan = SearchService.vegan;
-                $scope.vegetarian = SearchService.vegetarian;
-                $scope.effortLow = SearchService.effortLow;
-                $scope.effortMedium = SearchService.effortMedium;
-                $scope.effortHigh = SearchService.effortHigh;
-                $scope.supermarketFilter = SearchService.supermarketFilter;
+                if ($scope.bartype == 'recipes') {
+                    //Properties of recipe search
+                    $scope.recipeSearchBarInput = SearchService.searchTermRecipe;
+                    $scope.vegan = SearchService.veganRecipe;
+                    $scope.vegetarian = SearchService.vegetarianRecipe;
+                    $scope.effortLow = SearchService.effortLowRecipe;
+                    $scope.effortMedium = SearchService.effortMediumRecipe;
+                    $scope.effortHigh = SearchService.effortHighRecipe;
+                    $scope.supermarketFilter = SearchService.supermarketFilterRecipe;
+                } else if ($scope.bartype == 'ingredients') {
+                    //Properties of ingredient search
+                    $scope.ingredientSearchBarInput = SearchService.searchTermIngredient;
+                    $scope.vegan = SearchService.veganIngredient;
+                    $scope.vegetarian = SearchService.vegetarianIngredient;
+                    $scope.effortLow = SearchService.effortLowIngredient;
+                    $scope.effortMedium = SearchService.effortMediumIngredient;
+                    $scope.effortHigh = SearchService.effortHighIngredient;
+                    $scope.supermarketFilter = SearchService.supermarketFilterIngredient;
+                }
+
 
                 $scope.updateGlyphicon = function () {
                     if ($scope.expanded == "down") {
@@ -27,35 +39,64 @@ angular.module('foodGenerator')
                     }
                 };
 
-                $scope.setTermAndPerformSearch = function () {
+                $scope.setTermAndPerformRecipeSearch = function () {
                     // propagate the current search term to the search service
-                    SearchService.searchTerm = this.searchBarInput;
-                    SearchService.vegan = this.vegan;
-                    SearchService.vegetarian = this.vegetarian;
-                    SearchService.effortLow = this.effortLow;
-                    SearchService.effortMedium = this.effortMedium;
-                    SearchService.effortHigh = this.effortHigh;
-                    SearchService.supermarketFilter = this.supermarketFilter;
+                    SearchService.searchTermRecipe = this.recipeSearchBarInput;
+                    SearchService.veganRecipe = this.vegan;
+                    SearchService.vegetarianRecipe = this.vegetarian;
+                    SearchService.effortLowRecipe = this.effortLow;
+                    SearchService.effortMediumRecipe = this.effortMedium;
+                    SearchService.effortHighRecipe = this.effortHigh;
+                    SearchService.supermarketFilterRecipe = this.supermarketFilter;
 
                     // redirect the user to the search results page
-                    if ($state.current.name == 'search.results') {
+                    if ($state.current.name == 'search.recipes') {
                         $state.go($state.current.name, $state.params, {reload: true});
                     } else {
-                        $state.go('search.results');
+                        $state.go('search.recipes');
+                    }
+                };
+
+                $scope.setTermAndPerformIngredientSearch = function () {
+
+                    //Go through ingredientSearchBar and add all tags, which are added without the autocomplete feature (and thus are no valid ingredients)
+                    for (var i = 0; i < this.ingredientSearchBarInput.length; i++) {
+                        if (!this.ingredientSearchBarInput[i]._id) {
+                            this.ingredientSearchBarInput.splice(i, i + 1)
+                        }
+                    }
+
+                    SearchService.searchTermIngredient = this.ingredientSearchBarInput;
+                    SearchService.veganIngredient = this.vegan;
+                    SearchService.vegetarianIngredient = this.vegetarian;
+                    SearchService.effortLowIngredient = this.effortLow;
+                    SearchService.effortMediumIngredient = this.effortMedium;
+                    SearchService.effortHighIngredient = this.effortHigh;
+                    SearchService.supermarketFilterIngredient = this.supermarketFilter;
+
+                    if (this.ingredientSearchBarInput && this.ingredientSearchBarInput.length > 0) {
+                        var searchParameter = this.ingredientSearchBarInput;
+
+                        var filterParameter = {
+                            supermarketFilter: this.supermarketFilter,
+                            vegan: this.vegan,
+                            vegetarian: this.vegetarian,
+                            effortLow: this.effortLow,
+                            effortMedium: this.effortMedium,
+                            effortHigh: this.effortHigh
+                        };
+
+                        //Calls method in search-ingredients-view to perform the search and display results.
+                        this.$parent.$parent.$parent.performIngredientSearch(searchParameter, filterParameter);
                     }
                 };
 
                 $scope.clickSupermarket = function (id) {
                     if (this.supermarketFilter.indexOf(id) >= 0) {
-                        $("img[name=" + id + "]").toggleClass("picture-grayscale");
                         this.supermarketFilter.splice(this.supermarketFilter.indexOf(id), 1);
                     } else {
-                        var x = $("img[name=" + id + "]");
-                        $("img[name=" + id + "]").toggleClass("picture-grayscale");
                         this.supermarketFilter.push(id);
                     }
-
-
                 };
 
                 $scope.checkImgClass = function (id) {
@@ -64,6 +105,14 @@ angular.module('foodGenerator')
                     } else {
                         return "searchbarsupermarket picture-grayscale";
                     }
+                };
+
+                $scope.loadIngredient = function (query) {
+
+                    var autocompleteDTO = {
+                        searchTerm: query
+                    };
+                    return SearchService.performIngredientAutocomplete(autocompleteDTO);
                 }
             }
         }

@@ -1,10 +1,10 @@
 <div class="row">
-    <footer class="footer">
-        <ul class="nav navbar-nav navbar-left">
-            <li><a ui-sref="about">About</a></li>
-            <li><a ui-sref="contact">Contact</a></li>
-            <li><a ui-sref="privacypolicy">Privacy Policy</a></li>
-            <li><a ui-sref="termscondition">Terms & Condition</a></li>
+    <footer class="footer navbar app-nav">
+        <ul class="nav navbar-nav navbar-left hidden-print">
+            <li ng-class="isActiveNav('about')"><a ui-sref="about">About</a></li>
+            <li ng-class="isActiveNav('contact')"><a ui-sref="contact">Contact</a></li>
+            <li ng-class="isActiveNav('privacy')"><a ui-sref="privacy">Privacy Policy</a></li>
+            <li ng-class="isActiveNav('terms')"><a ui-sref="terms">Terms & Condition</a></li>
         </ul>
     </footer>
 </div>

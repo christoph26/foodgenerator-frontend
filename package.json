@@ -1,9 +1,9 @@
 {
-  "name": "angular-movies",
+  "name": "angular-foodgenerator",
   "private": true,
   "version": "0.0.0",
-  "description": "Movies example application based on AngularJS",
-  "repository": "https://github.com/adrianhdezm/angular-movies",
+  "description": "Recipes application based on AngularJS",
+  "repository": "https://github.com/christoph26/foodgenerator-frontend",
   "license": "MIT",
   "scripts": {
     "postinstall": "bower install && gulp clean && gulp install",
