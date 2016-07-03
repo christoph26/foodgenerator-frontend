@@ -1,9 +1,9 @@
 <nav class="navbar app-nav">
     <ul class="nav navbar-nav navbar-left">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="search.recipes">Recipe Search</a></li>
-        <li><a ui-sref="search.ingredients">Ingredient Search</a></li>
-        <li><a ui-sref="mealPlanner">Meal Planner</a></li>
+        <li ng-class="isActiveNav('home')"><a ui-sref="home">Home</a></li>
+        <li ng-class="isActiveNav('search.recipes')"><a ui-sref="search.recipes">Recipe Search</a></li>
+        <li ng-class="isActiveNav('search.ingredients')"><a ui-sref="search.ingredients">Ingredient Search</a></li>
+        <li ng-class="isActiveNav('mealPlanner')"><a ui-sref="mealPlanner">Meal Planner</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right">
         <!-- not logged in -->

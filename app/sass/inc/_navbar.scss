@@ -6,6 +6,10 @@
   margin-bottom: 5px;
 }
 
+.app-nav .nav > li.active > a {
+  color: $color-primary;
+}
+
 .app-nav .nav > li > a {
   color: $color-text-inverted;
 }

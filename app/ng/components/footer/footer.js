@@ -3,8 +3,10 @@ angular.module('foodGenerator')
         return {
             restrict: "E",
             templateUrl: "components/footer/footer.html",
-            controller: function ($scope) {
-                $scope.exampleField = "Hello World!";
+            controller: function ($scope, $state) {
+                $scope.isActiveNav = function (state) {
+                    return ($state.current.name === state) ? 'active' : '';
+                };
             }
         }
     })
