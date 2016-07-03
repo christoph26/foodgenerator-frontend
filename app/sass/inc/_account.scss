@@ -1,0 +1,20 @@
+#savebutton {
+  background-color: $color-primary;
+  color: $color-text-inverted;
+}
+
+#deletebutton {
+  background-color: $color-tertiary;
+  color: $color-text-inverted;
+}
+
+.ng-invalid {
+  border-color: $color-tertiary;
+  outline-color: $color-tertiary;
+}
+
+.ng-valid {
+  border-color: $color-primary;
+  outline-color: $color-primary;
+}
+
