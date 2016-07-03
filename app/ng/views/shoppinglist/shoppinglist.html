@@ -2,9 +2,7 @@
     <h1>My Shopping List</h1>
     <div class="headline-container row">
         <div class="col-sm-4">
-            <p><strong>your current shopping list:</strong>
-                <strong ng-if="mealPlan.title">{{mealPlan.title}}</strong>
-            </p>
+            <p><strong>recipes on your shopping list:</strong></p>
         </div>
         <div class="col-sm-8 hidden-print">
             <div class="pull-right">
@@ -12,6 +10,21 @@
                 <a class="button-reset btn btn-default" ng-click="resetShoppingList()">Reset shopping list</a>
                 <a class="button-print btn btn-default" ng-click="printShoppingList()" ng-show="loggedIn">Print</a>
             </div>
+        </div>
+    </div>
+    <div class="recipe-list-container row" ng-if="shoppingListRecipes.length">
+        <div class="col-xs-12" ng-repeat="recipe in shoppingListRecipes">
+            {{recipe.title}}: {{recipe.persons}}
+        </div>
+    </div>
+    <div class="recipe-list-container row" ng-if="!shoppingListRecipes.length">
+        <div class="col-xs-12">
+            You did not yet add any recipes to your shopping list.
+        </div>
+    </div>
+    <div class="headline-container row">
+        <div class="col-sm-4">
+            <p><strong>your shopping list:</strong></p>
         </div>
     </div>
     <div class="shopping-list-container row" ng-if="shoppingListRecipes.length">
