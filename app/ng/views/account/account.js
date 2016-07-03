@@ -14,7 +14,7 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
             })
     })
 
-    .controller('AccountCtrl', function ($scope, $state, currentUser, BASEURL, $http) {
+    .controller('AccountCtrl', function ($scope, $state, currentUser, recipeStorageService, BASEURL, $http) {
         $scope.errorText = "";
         $scope.successText = "";
         var loggedIn = currentUser.loggedIn();
@@ -39,6 +39,10 @@ angular.module('foodGenerator.account', ['ngResource', 'ui.router'])
             }
 
         });
+
+        $scope.resetRecentViews = function () {
+            recipeStorageService.clearRecentlyViewedRecipes();
+        };
 
         $scope.delete = function () {
             var r = confirm("Are you sure you want to delete your Account?");
