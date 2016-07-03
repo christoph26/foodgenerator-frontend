@@ -16,6 +16,7 @@ angular.module('foodGenerator.shoppingList', ['ngResource', 'ui.router'])
 
     .controller('ShoppingListCtrl', function ($scope, recipeStorageService) {
         $scope.shoppingListRecipes = recipeStorageService.getShoppingListRecipes();
+        $scope.shoppingListIngredients = undefined;         //TODO get the list of ingredients for all the recipes
 
         $scope.resetShoppingList = resetShoppingList;
         $scope.printShoppingList = printShoppingList;
@@ -28,7 +29,6 @@ angular.module('foodGenerator.shoppingList', ['ngResource', 'ui.router'])
         }
 
         function printShoppingList() {
-            debugger;
             window.print();
         }
 

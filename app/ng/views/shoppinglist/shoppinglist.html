@@ -14,7 +14,7 @@
     </div>
     <div class="recipe-list-container row" ng-if="shoppingListRecipes.length">
         <div class="col-xs-12" ng-repeat="recipe in shoppingListRecipes">
-            {{recipe.title}}: {{recipe.persons}}
+            <strong>{{recipe.title}}</strong> for <strong>{{recipe.persons}}</strong> persons
         </div>
     </div>
     <div class="recipe-list-container row" ng-if="!shoppingListRecipes.length">
@@ -22,19 +22,18 @@
             You did not yet add any recipes to your shopping list.
         </div>
     </div>
-    <div class="headline-container row">
+    <br/>
+    <div class="headline-container row" ng-if="shoppingListRecipes.length">
         <div class="col-sm-4">
             <p><strong>your shopping list:</strong></p>
         </div>
     </div>
     <div class="shopping-list-container row" ng-if="shoppingListRecipes.length">
-        <div class="col-xs-12" ng-repeat="recipe in shoppingListRecipes">
-            {{recipe.title}}: {{recipe.persons}}
-        </div>
-    </div>
-    <div class="shopping-list-container row" ng-if="!shoppingListRecipes.length">
+<!--        <div class="col-xs-12" ng-repeat="ingredient in shoppingListIngredients">
+            {{ingredient.title}}
+        </div>-->
         <div class="col-xs-12">
-            You did not yet add any recipes to your shopping list.
+            <i>Display of a summarized ingredient list is not yet implemented.</i>
         </div>
     </div>
 </div>
