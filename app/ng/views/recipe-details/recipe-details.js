@@ -22,9 +22,6 @@ angular.module('foodGenerator.recipeDetail', ['ngResource', 'ui.router'])
                 // load the recipe itself
                 $scope.recipe = response.data;
 
-                // load the ingredient list
-                $scope.recipe.ingredientList = recipeService.getIngredients($scope.recipe.ingredientList);
-
                 // load the recipe variations
                 recipeService.getVariations($scope.recipe._id).then(function (response) {
                     $scope.recipeVariations = response.data;
